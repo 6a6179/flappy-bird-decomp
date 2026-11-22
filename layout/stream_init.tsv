@@ -1,0 +1,3 @@
+__ZN12_GLOBAL__N_112view_streamsE	pointer	0xfd380	0xfd380	The first __mod_init_func entry uses the first byte of the EAGL view singleton storage. The next word is the view pointer.
+__ZN12_GLOBAL__N_114engine_streamsE	pointer	0xfd388	0xfd388	The second libstdc++ initializer in __mod_init_func is paired with the byte immediately after the 8-byte view globals.
+__ZN12_GLOBAL__N_112game_streamsE	pointer	0xfd389	0xfd389	The third __mod_init_func entry registers the next one-byte ios_base::Init object. All three destructors use the same imported libstdc++ destructor.

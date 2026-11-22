@@ -1,0 +1,13 @@
+_init_region	thumb	0xcf3c	0xd0e0	Called directly by the atlas parser after reading a name, dimensions and four UV values.
+_atlas_next_id	pointer	0xfd610	0xfd610	Region constructor reads and increments the ID counter after writing the name and UV bounds, and atlas loader uses this ID as the array subscript.
+_engine_vtable	pointer	0xe0890	0xe0890	The two ABI header words precede eleven code pointers including score output, pause and resume. The engine constructor and destructor both install the address eight bytes past the header.
+_math_tables	pointer	0xfd618	0xfd618	The renderer setup saves the trigonometric and easing table allocation here, and the base destructor reloads and disposes it.
+_dispose_math_tables	thumb	0xf284	0xf324	Frees and resets the lookup table pointers initialized by the math table constructor. The base engine destructor calls it before operator delete.
+_sprite_vertex_lines	pointer	0xe08c4	0xe08c4	Unique 13-pointer sequence of GLSL source lines in __DATA,__const, with every element verified against its original C string.
+_sprite_fragment_lines	pointer	0xe08f8	0xe08f8	Unique 7-pointer sequence of GLSL source lines in __DATA,__const, with every element verified against its original C string.
+_blit_vertex_lines	pointer	0xe0914	0xe0914	Unique 10-pointer sequence of GLSL source lines in __DATA,__const, with every element verified against its original C string.
+_blit_fragment_lines	pointer	0xe093c	0xe093c	Unique 6-pointer sequence of GLSL source lines in __DATA,__const, with every element verified against its original C string.
+_init_math_tables	thumb	0xe920	0xe9d0	The native initializer allocates and fills the easing and trigonometric lookup tables freed by dispose_math_tables.
+_init_number_pool	thumb	0xff4c	0xffe4	The floating-number pool allocator creates count elements and installs each number vtable. Its counterpart is reconstructed in scene_numbers.c.
+_init_sparkle_pool	thumb	0xffd0	0x1006c	The sparkle pool allocator constructs blink-animation objects for its slots, as verified in scene.c.
+_init_score_panel	thumb	0xfbf0	0xfc98	The panel constructor looks up score and medal assets and installs the panel vtable. See its verified ARMv7s implementation in scene.c.

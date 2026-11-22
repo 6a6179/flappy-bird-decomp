@@ -1,0 +1,2 @@
+_flap_random_z	pointer	0xfd620	0xfd620	The independent pipe reset and medal sparkle routines multiply this global's low word by 36969 and add its signed high word.
+_flap_random_w	pointer	0xfd61c	0xfd61c	The pipe reset and medal sparkle routines multiply this second RNG word by 18000 and add its signed high word.

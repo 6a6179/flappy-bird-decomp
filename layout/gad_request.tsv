@@ -1,0 +1,23 @@
+_kGADAdSizeInvalid	pointer	0xdf7a4	0xdf7b4	The shared invalid ad size has width and height -1 and zero flags. GADAdType's interstitial initializer passes this record through its nonlazy pointer.
+_GADRequestPublisherIDKey	pointer	0xe0dd4	0xe0dd4	The data record is a pointer to the NSString "ppid". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestAnalyticsIDKey	pointer	0xe0d14	0xe0d14	The data record is a pointer to the NSString "analytics_join_id". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestBirthdayKey	pointer	0xe0d30	0xe0d30	The data record is a pointer to the NSString "cust_age". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestExtrasKey	pointer	0xe0d28	0xe0d28	The data record is a pointer to the NSString "extras". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestGenderKey	pointer	0xe0d2c	0xe0d2c	The data record is a pointer to the NSString "cust_gender". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestKeywordsKey	pointer	0xe0d38	0xe0d38	The data record is a pointer to the NSString "kw". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestLocationKey	pointer	0xe0d34	0xe0d34	The data record is a pointer to the NSString "uule". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestAdaptersKey	pointer	0xe0cc0	0xe0cc0	The data record is a pointer to the NSString "adapters". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestMediationExtrasKey	pointer	0xe0d3c	0xe0d3c	The data record is a pointer to the NSString "mediation_extras". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestNetworkKey	pointer	0xe0cc8	0xe0cc8	The data record is a pointer to the NSString "net". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestSDKVersionKey	pointer	0xe0ca4	0xe0ca4	The data record is a pointer to the NSString "js". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestChildDirectedKey	pointer	0xe0d44	0xe0d44	The data record is a pointer to the NSString "tag_for_child_directed_treatment". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestTestDeviceKey	pointer	0xe0d20	0xe0d20	The data record is a pointer to the NSString "adtest". The request builder uses this key while constructing its parameters dictionary.
+_GADRequestTestingKey	pointer	0xe0d24	0xe0d24	The data record is a pointer to the NSString "testing". The request builder uses this key while constructing its parameters dictionary.
+_GADConfigureSignalsForSDKVersion	arm	0x6b1a8	0x6a3ec	The request passes the SDK version string into the signal module immediately before requesting its encoded fields.
+_GADCopyRequestSignalFields	arm	0x6ee20	0x6e064	The request supplies a mutable string, checks for return value 1 and then splits the populated string to retrieve the key and value.
+_GADRequestSDKVersionCache	pointer	0xfd420	0xfd420	The SDK version getter passes this zero-initialized dispatch_once flag to libdispatch; its block stores the resulting version NSString four bytes later.
+_GADRequestExtendedVersionCache	pointer	0xfd4a8	0xfd4a8	The extended SDK version getter passes this flag and its self-capturing block to libdispatch, then returns the adjacent cached string.
+___24+[GADRequest sdkVersion]_block_invoke	arm	0x2fc1c	0x2fc1c	The SDK version dispatch_once block literal points to the routine formatting the SDK's three version components.
+___38+[GADRequest extendedSDKVersionNumber]_block_invoke	arm	0x4d5ac	0x4d5dc	The extended SDK version block formats the version number plus its identifiers and metadata.
+GADRequest::___copy_helper_block_	arm	0x4d658	0x4d688	The independently identified extended SDK version descriptor at 0xe1170 points here as its copy helper; this helper copies the captured request class.
+GADRequest::___destroy_helper_block_	arm	0x4d674	0x4d6a4	The extended SDK version descriptor at 0xe1170 points here as its dispose helper; it disposes the single captured request class.

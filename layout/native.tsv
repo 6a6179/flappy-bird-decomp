@@ -1,0 +1,36 @@
+_animation_tick	thumb	0xf4f0	0xf590	Both the sprite update wrapper and the score effects call the frame sequencer.
+_append_quad	thumb	0xe3cc	0xe488	The scaled and unscaled atlas drawing calls pass the same geometry, UV rectangle and opacity.
+_find_sprite	thumb	0xd8b8	0xda5c	The button and scene constructors use this lookup to locate named atlas sprites.
+_find_frames	thumb	0xcd18	0xcec0	Sprite initialization and the bitmap font constructor supply a name prefix and a result count.
+_advance_tween	thumb	0xe148	0xe2dc	The screen transition and initial flash call this easing update after tween initialization.
+_draw_region_scaled	thumb	0xe510	0xe5c8	Button and sprite drawing reference the same atlas-index and scale draw method.
+_rotate_point	thumb	0x10014	0x100b4	Draw_rotated transforms each of the four quad corners with this function.
+_ease_bounce_out	thumb	0xf100	0xf1a8	Both branches of ease_bounce_in_out call this piecewise quadratic function.
+_quad_in	pointer	0xfd62c	0xfd62c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quad_out	pointer	0xfd630	0xfd630	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quad_in_out	pointer	0xfd634	0xfd634	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_cubic_in	pointer	0xfd638	0xfd638	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_cubic_out	pointer	0xfd63c	0xfd63c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_cubic_in_out	pointer	0xfd640	0xfd640	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quart_in	pointer	0xfd644	0xfd644	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quart_out	pointer	0xfd648	0xfd648	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quart_in_out	pointer	0xfd64c	0xfd64c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quint_in	pointer	0xfd650	0xfd650	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quint_out	pointer	0xfd654	0xfd654	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_quint_in_out	pointer	0xfd658	0xfd658	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_elastic_in	pointer	0xfd65c	0xfd65c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_elastic_out	pointer	0xfd660	0xfd660	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_elastic_in_out	pointer	0xfd664	0xfd664	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_back_in	pointer	0xfd668	0xfd668	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_back_out	pointer	0xfd66c	0xfd66c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_back_in_out	pointer	0xfd670	0xfd670	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_bounce_in	pointer	0xfd674	0xfd674	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_bounce_out	pointer	0xfd678	0xfd678	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_bounce_in_out	pointer	0xfd67c	0xfd67c	The engine table initializer allocates the 100-float easing arrays in this order on both slices.
+_flap_sine_table	pointer	0xfd624	0xfd624	The engine table initializer stores a 360-float allocation at this address then fills it from sinf/cosf.
+_flap_cosine_table	pointer	0xfd628	0xfd628	The engine table initializer stores a 360-float allocation at this address then fills it from sinf/cosf.
+_sprite_vtable	pointer	0xe0960	0xe0960	Two ABI header words precede an array of five Thumb pointers, starting with sprite_update_animation and sprite_draw.
+_ease_quint_in_out	thumb	0xef00	0xefb0	Called while initializing the corresponding named 100-sample easing table.
+_ease_elastic_in_out	thumb	0xef60	0xf010	Called while initializing the corresponding named 100-sample easing table.
+_ease_back_in_out	thumb	0xf048	0xf0f0	Called while initializing the corresponding named 100-sample easing table.
+_ease_bounce_in_out	thumb	0xf218	0xf2b8	Called while initializing the corresponding named 100-sample easing table.

@@ -1,0 +1,33 @@
+_sprite_place	thumb	0xf608	0xf6a8	Writes x, y, opacity and enable flags at the sprite offsets read by the draw routine. See sprite_place in src/native.c.
+_sprite_select_animation	thumb	0xf684	0xf724	Loads an animation slot, rewinds on request and installs the active animation at offset 0x50. See src/native.c.
+_engine_schedule	thumb	0xe754	0xe804	Writes a delayed event and its argument into the engine ring buffer. See engine_schedule in src/native.c.
+_flap_game	pointer	0xfd614	0xfd614	The EAGL view setup and draw paths store and load this game engine pointer. See src/view_abi.h.
+_draw_rotated	thumb	0xe5a0	0xe658	Builds four sprite corners, rotates each around the image center via 0x10014 (armv7), then writes position, texture coordinates and opacity.
+_engine_construct	thumb	0xcfb8	0xd158	Creates the engine base, installs its virtual table and loads the atlas from the input buffer; this is the callee that precedes installation of the game's overriding table.
+_engine_destroy	thumb	0xd1a0	0xd340	The base destructor frees the atlas and OpenGL resources and emits the "Engine :: Dealloc." string. Both destructor variants reference it.
+_destroy_font	thumb	0xcda0	0xcf48	The bitmap font is embedded four bytes into its owner. Both font destructor variants pass that subobject to this empty base destructor.
+_sprite_construct	thumb	0xf52c	0xf5cc	Installs the base sprite vtable, sets opacity to one and clears the animation and activation flags.
+_sprite_set_frames	thumb	0xf5ac	0xf64c	Calls find_frames and initializes width, height and drawing insets. Recovered in src/native.c.
+_sprite_add_animation	thumb	0xf62c	0xf6cc	Copies the frame sequence, computes the frame interval from fps, and installs the animation at the given slot.
+_bird_vtable	pointer	0xe0ab0	0xe0ab0	The table has two null Itanium ABI header words, followed by update, draw, both destructors and sprite_place, each pointing at its respective function start.
+_game_vtable	pointer	0xe0a60	0xe0a60	The controller's virtual table contains the game frame, touch callbacks, both destructor entries and score reporting in the order used by the engine.
+_bird_frames	pointer	0xdf774	0xdf784	The 48 bytes encoding 0,1,2,1 repeated three times occur exactly once in each slice's constant data.
+_init_font	thumb	0xcc54	0xcdfc	The renderer's font initializer iterates over glyphs, measures advance widths and stores the overlap. See src/renderer.c.
+_game_font_vtable	pointer	0xe0a94	0xe0a94	Two zero header words precede the known complete and deleting game-font destructors.
+_button_vtable	pointer	0xe0a00	0xe0a00	The header precedes the button update, draw and destructor pointers. Update and draw are independently recovered in src/native.c.
+_button_set_image	thumb	0xf724	0xf7c0	The button class loads a named atlas region and copies both of its dimensions. See src/native.c.
+_init_frameset	thumb	0xd908	0xdaac	Finds the atlas frame array and copies the first region's dimensions. See src/renderer.c.
+_bird_construct	thumb	0x11234	0x112bc	Constructs the bird's two animations and installs its vtable. This function is independently byte-verified.
+_bird_reset	thumb	0x108a8	0x1092c	Bird reset is independently byte-verified and also called by the controller's reset and event handlers.
+_init_ready_overlay	thumb	0x102ec	0x10384	Loads the ready and tutorial images and creates their fade tween. See src/scene_overlays.c.
+_init_game_over_overlay	thumb	0x103dc	0x10468	Loads text_game_over and constructs its tween. See src/scene_overlays.c.
+_button_place	thumb	0xf748	0xf7e4	Sets the button's x/y, active/visible flags and touch state. See button_place in src/native.c.
+_show_game_over	thumb	0x10430	0x104bc	Activates the game-over overlay, starts its fade and queues the sound. See src/scene_overlays.c.
+_game_reset	thumb	0x10918	0x109a0	The game reset routine is independently byte-verified, including the background selection and button placement.
+_start_transition	thumb	0xd938	0xdadc	Configures mode, event and fade tween fields. See start_transition in src/native.c.
+_bird_flap	thumb	0x11194	0x11220	The flap impulse, animation selection and delayed wing event are independently verified from bird_flap in src/gameplay.c.
+_sprite_update_animation	thumb	0xf6b8	0xf758	Checks the sprite's active flag and dispatches animation_tick for its current clip. This base update is recovered in src/native.c.
+_screen_flash	thumb	0xe7e0	0xe890	Native screen flash independently verified in matches/native.tsv.
+_screen_shake	thumb	0xe838	0xe8e8	Native screen shake independently verified in matches/native.tsv.
+_font_place	thumb	0xcda4	0xcf4c	Native font positioning independently verified in matches/native.tsv.
+_draw_text	thumb	0xcdc0	0xcf68	Bitmap text rendering independently verified in matches/renderer.tsv.

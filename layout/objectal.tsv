@@ -1,0 +1,28 @@
+# symbol	kind	armv7	armv7s	evidence
+_checkIfSuccessful	thumb	0x22720	0x22750	+[ALWrapper sourcef:parameter:value:] calls this after alSourcef, and the helper calls alGetError.
+_checkIfSuccessfulWithDevice	thumb	0x227d8	0x22808	+[ALWrapper createContext:attributes:] calls this after alcCreateContext, and the helper calls alcGetError.
+__IOSVersion_sharedInstance	pointer	0xfd3d4	0xfd3d4	+[IOSVersion sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+__OALActionManager_sharedInstance	pointer	0xfd38c	0xfd38c	+[OALActionManager sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+__OALAudioSession_sharedInstance	pointer	0xfd3d0	0xfd3d0	+[OALAudioSession sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+__OALAudioTracks_sharedInstance	pointer	0xfd390	0xfd390	+[OALAudioTracks sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+__OALSimpleAudio_sharedInstance	pointer	0xfd394	0xfd394	+[OALSimpleAudio sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+__OpenALManager_sharedInstance	pointer	0xfd3cc	0xfd3cc	+[OpenALManager sharedInstanceNoSynch] loads the same BSS pointer tested by +sharedInstanceSynch.
+_OALAudioTrackSourceChangedNotification	pointer	0xe0ae4	0xe0ae4	Internal nonlazy pointer to the __DATA,__const slot initialized with the unique CFString OALAudioTrackSourceChangedNotification.
+_OALAudioTrackStartedPlayingNotification	pointer	0xe0ae8	0xe0ae8	Internal nonlazy pointer to the __DATA,__const slot initialized with the unique CFString OALAudioTrackStartedPlayingNotification.
+_OALAudioTrackStoppedPlayingNotification	pointer	0xe0aec	0xe0aec	Internal nonlazy pointer to the __DATA,__const slot initialized with the unique CFString OALAudioTrackStoppedPlayingNotification.
+_OALAudioTrackFinishedPlayingNotification	pointer	0xe0af0	0xe0af0	Internal nonlazy pointer to the __DATA,__const slot initialized with the unique CFString OALAudioTrackFinishedPlayingNotification.
+ALWrapper::__MergedGlobals	pointer	0xfd3a0	0xfd3a0	+[ALWrapper initialize] stores OpenAL extension procedure addresses in this BSS block, and +getMixerOutputDataRate and +setRenderingQuality: load different entries from that base.
+_g_easeFunctions	pointer	0xe0acc	0xe0acc	+[OALEaseAction easeFunctionForShape:phase:] indexes this six-entry Thumb function pointer table by shape and phase.
+_mach_absolute_difference_seconds	thumb	0x281d0	0x281d8	-[OALActionManager step:] calls this internal time-delta helper after mach_absolute_time; it subtracts the input timestamps and calls mach_timebase_info.
+_mach_absolute_difference_seconds.conversion	pointer	0xfd3d8	0xfd3d8	mach_absolute_difference_seconds loads this cached double, checks for zero, and initializes it from mach_timebase_info.
+_g_allSourcesByID	pointer	0xfd398	0xfd398	+[ALSource initialize] tests this BSS pointer for zero and writes the new weak-reference mutable dictionary to it.
+_alSourceNotification	thumb	0x22354	0x22388	-[ALSource unregisterNotification:] passes this Thumb callback to +[ALWrapper removeNotification:onSource:callback:userData:]. The callback looks up the source ID in the dictionary.
++[NSMutableArray(WeakReferences) newMutableArrayUsingWeakReferencesWithCapacity:].callbacks	pointer	0xe0af4	0xe0af4	The category method copies this five-word callback structure to the stack for CFArrayCreateMutable.
++[NSMutableDictionary(WeakReferences) newMutableDictionaryUsingWeakReferencesWithCapacity:].callbacks	pointer	0xe0b08	0xe0b08	The category method copies this five-word value callback structure to the stack for CFDictionaryCreateMutable.
+_g_defaultBundle	pointer	0xfd3e0	0xfd3e0	+[OALTools defaultBundle] loads this BSS pointer and +setDefaultBundle: retains and stores the replacement bundle there.
+_easeFunction_sineIn	thumb	0x11dac	0x11e24	The sineIn entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.
+_easeFunction_sineOut	thumb	0x11ddc	0x11e58	The sineOut entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.
+_easeFunction_sineInOut	thumb	0x11df4	0x11e70	The sineInOut entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.
+_easeFunction_exponentIn	thumb	0x11e2c	0x11eac	The exponentIn entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.
+_easeFunction_exponentOut	thumb	0x11e58	0x11ed8	The exponentOut entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.
+_easeFunction_exponentInOut	thumb	0x11e94	0x11f18	The exponentInOut entry of the g_easeFunctions[shape][phase] table holds this Thumb function pointer.

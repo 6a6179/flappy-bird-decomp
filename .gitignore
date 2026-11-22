@@ -1,0 +1,8 @@
+.toolchains/
+__pycache__/
+*.pyc
+build/
+*.ipa
+/recovered/armv7/
+/recovered/armv7s/
+.DS_Store

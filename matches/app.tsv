@@ -1,0 +1,20 @@
+armv7	0x9e90	70	src/app_delegate.m	_main		llvm33
+armv7	0x9ed8	76	src/app_delegate.m	-[dot_AppDelegate dealloc]		llvm33
+armv7	0x9f24	550	src/app_delegate.m	-[dot_AppDelegate application:didFinishLaunchingWithOptions:]		apple500
+armv7	0xa14c	52	src/app_delegate.m	-[dot_AppDelegate applicationWillResignActive:]		llvm33
+armv7	0xa180	52	src/app_delegate.m	-[dot_AppDelegate applicationDidEnterBackground:]		llvm33
+armv7	0xa1b4	2	src/app_delegate.m	-[dot_AppDelegate applicationWillEnterForeground:]		llvm33
+armv7	0xa1b8	52	src/app_delegate.m	-[dot_AppDelegate applicationDidBecomeActive:]		llvm33
+armv7	0xa1ec	52	src/app_delegate.m	-[dot_AppDelegate applicationWillTerminate:]		llvm33
+armv7	0xa220	16	src/app_delegate.m	-[dot_AppDelegate window]		llvm33
+armv7	0xa230	16	src/app_delegate.m	-[dot_AppDelegate setWindow:]		llvm33
+armv7s	0xa020	70	src/app_delegate.m	_main		llvm33
+armv7s	0xa068	76	src/app_delegate.m	-[dot_AppDelegate dealloc]		llvm33
+armv7s	0xa0b4	550	src/app_delegate.m	-[dot_AppDelegate application:didFinishLaunchingWithOptions:]		apple500
+armv7s	0xa2dc	52	src/app_delegate.m	-[dot_AppDelegate applicationWillResignActive:]		llvm33
+armv7s	0xa310	52	src/app_delegate.m	-[dot_AppDelegate applicationDidEnterBackground:]		llvm33
+armv7s	0xa344	2	src/app_delegate.m	-[dot_AppDelegate applicationWillEnterForeground:]		llvm33
+armv7s	0xa348	52	src/app_delegate.m	-[dot_AppDelegate applicationDidBecomeActive:]		llvm33
+armv7s	0xa37c	52	src/app_delegate.m	-[dot_AppDelegate applicationWillTerminate:]		llvm33
+armv7s	0xa3b0	16	src/app_delegate.m	-[dot_AppDelegate window]		llvm33
+armv7s	0xa3c0	16	src/app_delegate.m	-[dot_AppDelegate setWindow:]		llvm33

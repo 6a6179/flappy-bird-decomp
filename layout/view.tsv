@@ -1,0 +1,22 @@
+_viewGlobals	pointer	0xfd380	0xfd380	The ios_base::Init startup routine at 0xcc18 / 0xcdc0 passes this address as its object. initWithFrame: stores self at offset 4; dealloc clears the same word.
+_viewGameResize	thumb	0xd9c8	0xdb68	Binds GL_RENDERBUFFER with the engine's renderbuffer ID, receives width and height and recomputes the viewport and projection.
+___32-[dot_EAGLView checkLocalPlayer]_block_invoke	thumb	0xab9c	0xad1c	This closure sends copy to its first argument and stores the result into the captured view's leaderboard ivar.
+___35-[dot_EAGLView adViewDidReceiveAd:]_block_invoke	thumb	0xa8f0	0xaa6c	First view block that centers the captured view's banner at the top. Its adjacent copy/dispose helpers are referenced by the descriptor at 0xe07d0.
+_viewGameSetup	thumb	0xd268	0xd408	The renderer initialization routine logs Engine :: OpenGL Config., allocates two render targets, and sets the blend function. See src/renderer.c.
+_engine_set_touches	thumb	0xe8e4	0xe994	Both bodies independently match engine_set_touches in src/native.c. Each copies the touch coordinate arrays into engine storage.
+_viewGameFrame	thumb	0xdba0	0xdd40	The per-frame driver in src/engine_frame.c advances timers and objects, calls the game's update and draw methods, and submits the frame.
+___25-[dot_EAGLView drawView:]_block_invoke	thumb	0xbd70	0xbefc	The ConfigureTitle animation captures the view and centers the banner at y = 0. Its verified copy and dispose helpers immediately follow the callback.
+___25-[dot_EAGLView drawView:]_block_invoke194	thumb	0xbe98	0xc024	The Game Center callback presents its supplied controller or sends checkLocalPlayer to the captured view. Its two verified helpers are named by the block descriptor at 0xe0830.
+___25-[dot_EAGLView drawView:]_block_invoke205	thumb	0xbf1c	0xc0a8	The RoundEnded animation captures the view and centers the banner at y = 0. Its separate copy and dispose helpers are named by the descriptor at 0xe0850.
+_viewGameConstruct	thumb	0x10574	0x105f8	The native game constructor independently matches src/gameplay_init.c on both slices. It initializes the base engine, installs the game method table and assigns the saved score and play count.
+___25-[dot_EAGLView drawView:]_block_invoke216	thumb	0xc044	0xc1d0	The score submission callback is independently identified by the global block literal at 0xe0878. It logs success when Game Center passes a nil error.
+dot_EAGLView::___copy_helper_block_	thumb	0xaa04	0xab80	The captured-block descriptor at 0xe07d0 independently references this verified copy helper at offset 8.
+dot_EAGLView::___destroy_helper_block_	thumb	0xaa10	0xab8c	The captured-block descriptor at 0xe07d0 independently references this verified dispose helper at offset 12.
+dot_EAGLView::___copy_helper_block_104	thumb	0xabc8	0xad48	The captured-block descriptor at 0xe07f0 independently references this verified copy helper at offset 8.
+dot_EAGLView::___destroy_helper_block_105	thumb	0xabd4	0xad54	The captured-block descriptor at 0xe07f0 independently references this verified dispose helper at offset 12.
+dot_EAGLView::___copy_helper_block_191	thumb	0xbe84	0xc010	The captured-block descriptor at 0xe0810 independently references this verified copy helper at offset 8.
+dot_EAGLView::___destroy_helper_block_192	thumb	0xbe90	0xc01c	The captured-block descriptor at 0xe0810 independently references this verified dispose helper at offset 12.
+dot_EAGLView::___copy_helper_block_199	thumb	0xbf08	0xc094	The captured-block descriptor at 0xe0830 independently references this verified copy helper at offset 8.
+dot_EAGLView::___destroy_helper_block_200	thumb	0xbf14	0xc0a0	The captured-block descriptor at 0xe0830 independently references this verified dispose helper at offset 12.
+dot_EAGLView::___copy_helper_block_206	thumb	0xc030	0xc1bc	The captured-block descriptor at 0xe0850 independently references this verified copy helper at offset 8.
+dot_EAGLView::___destroy_helper_block_207	thumb	0xc03c	0xc1c8	The captured-block descriptor at 0xe0850 independently references this verified dispose helper at offset 12.

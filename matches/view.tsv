@@ -1,0 +1,82 @@
+armv7	0xa240	28	src/view.m	+[dot_EAGLView layerClass]		llvm33
+armv7	0xa25c	1408	src/view.m	-[dot_EAGLView initWithFrame:]	-fhosted	apple502
+armv7	0xa7dc	274	src/view.m	-[dot_EAGLView adViewDidReceiveAd:]		llvm33
+armv7	0xa8f0	274	src/view.m	___35-[dot_EAGLView adViewDidReceiveAd:]_block_invoke		apple500
+armv7	0xaa04	10	src/view.m	___copy_helper_block_		llvm33
+armv7	0xaa10	8	src/view.m	___destroy_helper_block_		llvm33
+armv7	0xaa18	80	src/view.m	-[dot_EAGLView adView:didFailToReceiveAdWithError:]		llvm33
+armv7	0xaa68	104	src/view.m	+[dot_EAGLView GetTime]		apple500
+armv7	0xaad0	202	src/view.m	-[dot_EAGLView checkLocalPlayer]		llvm33
+armv7	0xab9c	44	src/view.m	___32-[dot_EAGLView checkLocalPlayer]_block_invoke		llvm33
+armv7	0xabc8	10	src/view.m	___copy_helper_block_104		llvm33
+armv7	0xabd4	8	src/view.m	___destroy_helper_block_105		llvm33
+armv7	0xabdc	950	src/view.m	-[dot_EAGLView setup]		apple502
+armv7	0xaf94	14	src/view.m	+[dot_EAGLView instance]		llvm33
+armv7	0xafa4	340	src/view.m	-[dot_EAGLView dealloc]		llvm33
+armv7	0xb0f8	208	src/view.m	-[dot_EAGLView start]		llvm33
+armv7	0xb1c8	86	src/view.m	-[dot_EAGLView stop]		llvm33
+armv7	0xb220	2896	src/view.m	-[dot_EAGLView drawView:]		apple500
+armv7	0xbd70	274	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke		apple500
+armv7	0xbe84	10	src/view.m	___copy_helper_block_191		llvm33
+armv7	0xbe90	8	src/view.m	___destroy_helper_block_192		llvm33
+armv7	0xbe98	110	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke194		llvm33
+armv7	0xbf08	10	src/view.m	___copy_helper_block_199		llvm33
+armv7	0xbf14	8	src/view.m	___destroy_helper_block_200		llvm33
+armv7	0xbf1c	274	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke205		apple500
+armv7	0xc030	10	src/view.m	___copy_helper_block_206		llvm33
+armv7	0xc03c	8	src/view.m	___destroy_helper_block_207		llvm33
+armv7	0xc044	26	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke216		llvm33
+armv7	0xc060	46	src/view.m	-[dot_EAGLView leaderboardViewControllerDidFinish:]		llvm33
+armv7	0xc090	302	src/view.m	-[dot_EAGLView layoutSubviews]		llvm33
+armv7	0xc1c0	548	src/view.m	-[dot_EAGLView touchesBegan:withEvent:]		llvm33
+armv7	0xc3e4	720	src/view.m	-[dot_EAGLView touchesMoved:withEvent:]		llvm33
+armv7	0xc6b4	732	src/view.m	-[dot_EAGLView touchesEnded:withEvent:]		llvm33
+armv7	0xc990	536	src/view.m	-[dot_EAGLView touchesCancelled:withEvent:]		apple500
+armv7	0xcba8	16	src/view.m	-[dot_EAGLView animating]		llvm33
+armv7	0xcbb8	16	src/view.m	-[dot_EAGLView frameInterval]		llvm33
+armv7	0xcbc8	16	src/view.m	-[dot_EAGLView setFrameInterval:]		llvm33
+armv7	0xcbd8	16	src/view.m	-[dot_EAGLView admobBannerView]		llvm33
+armv7	0xcbe8	16	src/view.m	-[dot_EAGLView setAdmobBannerView:]		llvm33
+armv7	0xcbf8	16	src/view.m	-[dot_EAGLView storedScores]		llvm33
+armv7	0xcc08	16	src/view.m	-[dot_EAGLView storedScoresFilename]		llvm33
+armv7s	0xa3d0	28	src/view.m	+[dot_EAGLView layerClass]		llvm33
+armv7s	0xa3ec	1408	src/view.m	-[dot_EAGLView initWithFrame:]	-fhosted	apple502
+armv7s	0xa96c	256	src/view.m	-[dot_EAGLView adViewDidReceiveAd:]		llvm33
+armv7s	0xaa6c	274	src/view.m	___35-[dot_EAGLView adViewDidReceiveAd:]_block_invoke		apple500
+armv7s	0xab80	10	src/view.m	___copy_helper_block_		llvm33
+armv7s	0xab8c	8	src/view.m	___destroy_helper_block_		llvm33
+armv7s	0xab94	80	src/view.m	-[dot_EAGLView adView:didFailToReceiveAdWithError:]		llvm33
+armv7s	0xabe8	104	src/view.m	+[dot_EAGLView GetTime]		apple500
+armv7s	0xac50	202	src/view.m	-[dot_EAGLView checkLocalPlayer]		llvm33
+armv7s	0xad1c	44	src/view.m	___32-[dot_EAGLView checkLocalPlayer]_block_invoke		llvm33
+armv7s	0xad48	10	src/view.m	___copy_helper_block_104		llvm33
+armv7s	0xad54	8	src/view.m	___destroy_helper_block_105		llvm33
+armv7s	0xad5c	944	src/view.m	-[dot_EAGLView setup]		apple500
+armv7s	0xb10c	14	src/view.m	+[dot_EAGLView instance]		llvm33
+armv7s	0xb11c	340	src/view.m	-[dot_EAGLView dealloc]		llvm33
+armv7s	0xb270	206	src/view.m	-[dot_EAGLView start]		llvm33
+armv7s	0xb340	86	src/view.m	-[dot_EAGLView stop]		llvm33
+armv7s	0xb398	2916	src/view.m	-[dot_EAGLView drawView:]		apple500
+armv7s	0xbefc	274	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke		apple500
+armv7s	0xc010	10	src/view.m	___copy_helper_block_191		llvm33
+armv7s	0xc01c	8	src/view.m	___destroy_helper_block_192		llvm33
+armv7s	0xc024	110	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke194		llvm33
+armv7s	0xc094	10	src/view.m	___copy_helper_block_199		llvm33
+armv7s	0xc0a0	8	src/view.m	___destroy_helper_block_200		llvm33
+armv7s	0xc0a8	274	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke205		apple500
+armv7s	0xc1bc	10	src/view.m	___copy_helper_block_206		llvm33
+armv7s	0xc1c8	8	src/view.m	___destroy_helper_block_207		llvm33
+armv7s	0xc1d0	26	src/view.m	___25-[dot_EAGLView drawView:]_block_invoke216		llvm33
+armv7s	0xc1ec	46	src/view.m	-[dot_EAGLView leaderboardViewControllerDidFinish:]		llvm33
+armv7s	0xc21c	302	src/view.m	-[dot_EAGLView layoutSubviews]		llvm33
+armv7s	0xc34c	556	src/view.m	-[dot_EAGLView touchesBegan:withEvent:]		llvm33
+armv7s	0xc578	728	src/view.m	-[dot_EAGLView touchesMoved:withEvent:]		llvm33
+armv7s	0xc850	740	src/view.m	-[dot_EAGLView touchesEnded:withEvent:]		llvm33
+armv7s	0xcb34	540	src/view.m	-[dot_EAGLView touchesCancelled:withEvent:]		apple500
+armv7s	0xcd50	16	src/view.m	-[dot_EAGLView animating]		llvm33
+armv7s	0xcd60	16	src/view.m	-[dot_EAGLView frameInterval]		llvm33
+armv7s	0xcd70	16	src/view.m	-[dot_EAGLView setFrameInterval:]		llvm33
+armv7s	0xcd80	16	src/view.m	-[dot_EAGLView admobBannerView]		llvm33
+armv7s	0xcd90	16	src/view.m	-[dot_EAGLView setAdmobBannerView:]		llvm33
+armv7s	0xcda0	16	src/view.m	-[dot_EAGLView storedScores]		llvm33
+armv7s	0xcdb0	16	src/view.m	-[dot_EAGLView storedScoresFilename]		llvm33

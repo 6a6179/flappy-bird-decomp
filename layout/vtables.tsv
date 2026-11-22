@@ -1,0 +1,2 @@
+# symbol	kind	armv7	armv7s	evidence
+_game_frame	thumb	0x10b18	0x10ba0	Per-frame game controller override. The engine calls its third virtual slot with the elapsed time. The target advances the game's state and draws the background, pipes, bird and score, as recovered in src/gameplay.c.

@@ -1,0 +1,20 @@
+_draw_number	thumb	0xf930	0xf9cc	Divides the displayed integer by ten, selects the remainder from the digit atlas and walks the cursor left by the glyph width. This identifies the target independently of either panel draw call.
+_draw_region	thumb	0xceec	0xd094	Reads width, height and UV corners from the atlas record and passes its four bounds to the batch writer. Recovered in src/native.c.
+_engine_output	thumb	0xe874	0xe924	Writes event and value into the output arrays and advances their count. The same entry point is reconstructed and checked in src/native.c.
+_tween_start	thumb	0xe790	0xe840	Stores both endpoints, duration, curve type, initial value and completion flag. The same routine starts the ready overlay fade from the touch handler.
+_destroy_animated_sprite	thumb	0xf568	0xf608	Frees each frame sequence and deletes the ten animation slot objects when present. The base sprite vtable's non-deleting destructor branches here.
+_show_score_panel	thumb	0xfcc0	0xfd68	Initializes the four score thresholds, count, label visibility and tween. Its compiled armv7s function independently matches before relocation.
+_draw_context_number	thumb	0xf81c	0xf8b8	Draws decimal digits right to left, gives 1 a four-pixel advance and uses width minus two for all other digits. The floating number's vtable draw method calls it.
+_ready_vtable	pointer	0xe0a20	0xe0a20	The four pointers after the zero offset and RTTI fields target the ready update, draw and destructor pair. Draw uses text_ready and tutorial.
+_game_over_vtable	pointer	0xe0a40	0xe0a40	The four methods after the two-word ABI header target game-over update, draw and the two destructors. Its update starts the score panel with thresholds 10, 20, 30 and 40.
+_tween_init	thumb	0xd8ac	0xda50	Sets the finished flag and initial value at offsets 0x24 and 0xc. This function is independently verified in src/native.c.
+_sparkle_pool_vtable	pointer	0xf9e50	0xf9e50	The table after its two header words references sparkle pool update and draw, which gate on offsets 0x56 and 0x57, followed by both destructors.
+_number_pool_vtable	pointer	0xf9e70	0xf9e70	The adjacent table references the node pool update and draw that gate on offsets 4 and 5, followed by both destructors.
+_dispose_sparkle_pool	thumb	0x101a8	0x10244	Restores the sparkle pool vtable and disposes every object through its deleting destructor, then frees the element array.
+_dispose_number_pool	thumb	0x1026c	0x10304	Restores the floating-number pool vtable and disposes every item through its deleting destructor before freeing the array.
+_sparkle_vtable	pointer	0xe09a0	0xe09a0	Vtable entries are the sparkle update, inherited sprite renderer, destructor pair and coordinate-reset method.
+_medal_vtable	pointer	0xe09c0	0xe09c0	The vtable entries point to the random sparkle emitter, medal atlas draw routine and destructor pair.
+_panel_vtable	pointer	0xe09e0	0xe09e0	The table points to the three-phase panel update and draw routine that uses two decimal readouts.
+_init_sparkle	thumb	0xf9ac	0xfa48	Looks up the blink atlas frames and creates their five-frame animation. Its own constructor reproduces the fields and initialization sequence.
+_init_sparkle.order	pointer	0xdf760	0xdf770	The five-word 0,1,2,1,0 blink sequence is the only matching array outside the 12-integer bird flap table independently referenced by the bird constructor.
+_number_vtable	pointer	0xe0980	0xe0980	Two zero ABI header words precede the four independently matched floating-number update, draw, complete destructor and deleting destructor pointers.

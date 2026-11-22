@@ -1,0 +1,6 @@
+armv7	0xcc18	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=view_streams	apple502
+armv7	0x102b4	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=engine_streams	apple502
+armv7	0x114b4	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=game_streams	apple502
+armv7s	0xcdc0	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=view_streams	apple502
+armv7s	0x1034c	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=engine_streams	apple502
+armv7s	0x11534	54	src/stream_init.cpp	__GLOBAL__I_a	-nostdinc++ -isystem .toolchains/iphoneos7/usr/include/c++/4.2.1 -isysroot .toolchains/iphoneos7 -DFLAP_STREAM_GUARD=game_streams	apple502

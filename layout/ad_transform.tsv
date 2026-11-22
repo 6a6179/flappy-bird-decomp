@@ -1,0 +1,1 @@
+_ad_transform_stages	pointer	0xfa558	0xfa55c	The unique __DATA,__data sequence of the 12 complete ARM stage entry addresses in order followed by a null sentinel, independently recovered on each slice.
