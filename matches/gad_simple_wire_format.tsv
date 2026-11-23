@@ -1,0 +1,2 @@
+armv7	0x6f694	200	src/gad_simple_wire_format.c	_GADReserveWireBuffer	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x718c0	200	src/gad_simple_wire_format.c	_GADReserveWireBuffer	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500

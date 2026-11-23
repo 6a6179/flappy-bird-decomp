@@ -1,0 +1,8 @@
+armv7	0x2b794	80	src/gad_network_adapter.m	+[GADMAdNetworkAdapter availableAdapterNames]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x2b7e4	380	src/gad_network_adapter.m	___45+[GADMAdNetworkAdapter availableAdapterNames]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x2b960	48	src/gad_network_adapter.m	+[GADMAdNetworkAdapter classIsAdapterClass:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x2b990	48	src/gad_network_adapter.m	+[GADMAdNetworkAdapter classImplementsCurrentAdapterAPI:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x2b79c	80	src/gad_network_adapter.m	+[GADMAdNetworkAdapter availableAdapterNames]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x2b7ec	380	src/gad_network_adapter.m	___45+[GADMAdNetworkAdapter availableAdapterNames]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x2b968	48	src/gad_network_adapter.m	+[GADMAdNetworkAdapter classIsAdapterClass:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x2b998	48	src/gad_network_adapter.m	+[GADMAdNetworkAdapter classImplementsCurrentAdapterAPI:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502

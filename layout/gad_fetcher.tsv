@@ -1,0 +1,11 @@
+_GADAdSupportedOrientationsFromString	arm	0x5779c	0x577c8	The X-Afma-Orientation path calls this parser, which maps any, portrait and landscape to 1, 2 and 3. The pinned GADAdFetcher.o names its branch target.
+_GADCGSizeFromString	arm	0x5a030	0x5a054	The X-Afma-Ad-Size path passes the header string to this function before setNewAdSize:. Its SDK branch target is GADCGSizeFromString.
+___74-[GADAdFetcher fetchRemainingContentForAd:headers:delegate:request:error:]_block_invoke	arm	0x5217c	0x521a8	The dispatch_once block in the fetch entry writes YES to the forwarded byref flag. The pinned SDK object names its invoke function.
+GADAdFetcher::___copy_helper_block_	arm	0x52190	0x521bc	The fetch-entry block descriptor at 0xe11b0 points to this copy helper, which assigns the captured byref object.
+GADAdFetcher::___destroy_helper_block_	arm	0x521ac	0x521d8	The fetch-entry block descriptor at 0xe11b0 points to this dispose helper for the captured byref object.
+___71-[GADAdFetcher startFetchWithAdURL:activationOverlayURL:headers:error:]_block_invoke	arm	0x52434	0x52460	The main-queue block in the fetch starter calls didCompleteURLConnection on its captured fetcher. The SDK object names this block's invoke function.
+GADAdFetcher::___copy_helper_block_94	arm	0x52454	0x52480	The start-fetch block descriptor at 0xe11d0 points to this copy helper for its captured fetcher.
+GADAdFetcher::___destroy_helper_block_95	arm	0x52470	0x5249c	The start-fetch block descriptor at 0xe11d0 points to this dispose helper for its captured fetcher.
+___40-[GADAdFetcher didCompleteURLConnection]_block_invoke	arm	0x525b0	0x525e0	The completion dispatch_once block locks the fetcher, snapshots the responses and calls the delegate. The SDK object names its invoke function.
+GADAdFetcher::___copy_helper_block_111	arm	0x52808	0x52838	The completion block descriptor at 0xe11f0 points to this copy helper for its captured fetcher.
+GADAdFetcher::___destroy_helper_block_112	arm	0x52824	0x52854	The completion block descriptor at 0xe11f0 points to this dispose helper for its captured fetcher.

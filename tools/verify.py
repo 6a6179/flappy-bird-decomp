@@ -3,7 +3,7 @@
 
 Rows in matches/*.tsv contain architecture, original VM address, byte count,
 source file, exact Mach-O symbol name, optional additional compiler flags,
-and an optional historical compiler name (llvm33, apple500, apple502 or apple600).
+and an optional historical compiler name (llvm33, apple421, apple500, apple502 or apple600).
 A count may describe the compiler body or the original function slot including
 alignment. Coverage credits compiler-emitted body bytes only. Darwin's nlist
 has no symbol size, so use Clang's DWARF subprogram extent for the rebuilt
@@ -32,6 +32,7 @@ ARCHES = {9: "armv7", 11: "armv7s"}
 # Name, setup script and version string of the compiler used by a manifest.
 HISTORICAL = {
     "llvm33": ("get_llvm33.py", "clang version 3.3 "),
+    "apple421": ("get_apple_clang.py --release 421", "clang-421.11.65"),
     "apple500": ("get_apple_clang.py", "LLVM version 3.3"),
     "apple502": ("get_apple502.py", "clang-500.2.79"),
     "apple600": ("get_apple600.py", "clang-600.0.57"),
@@ -77,6 +78,7 @@ class Image:
         self.symbols = {}
         self.starts = {}
         self.literal_ends = set()
+        self.literal_ranges = []
         start_table = None
         data_in_code = None
         entry_offset = None
@@ -120,8 +122,13 @@ class Image:
             offset, size = data_in_code
             for entry in range(offset, offset + size, 8):
                 file_offset, length, kind = struct.unpack_from("<IHH", data, entry)
-                if kind == 1:  # DICE_KIND_DATA
-                    self.literal_ends.add(self.text.addr + file_offset - self.text.offset + length)
+                # MH_OBJECT offsets are in the object layout. In the linked
+                # executable they are file offsets relative to the Mach header.
+                address = file_offset if self.filetype == 1 else self.text.addr + file_offset - self.text.offset
+                if self.text.addr <= address and address + length <= self.text.addr + self.text.size:
+                    self.literal_ranges.append((address, address + length))
+                    if kind == 1:  # DICE_KIND_DATA
+                        self.literal_ends.add(address + length)
         self.entry = None if entry_offset is None else text_base + entry_offset
         if table:
             symoff, count, stroff, strsize = table
@@ -362,18 +369,20 @@ def main():
         parser.add_argument("--" + key, type=Path, metavar="CLANG",
                             help=f"{key} compiler executable (also {key.upper()}_CLANG)")
     parser.add_argument("--rebuild", type=Path, metavar="OUTPUT",
-                        help="write the mixed-source universal executable or a byte-identical .ipa")
+                        help="write the reconstructed universal executable or a byte-identical .ipa")
     args = parser.parse_args()
     if args.rebuild and args.arch:
         parser.error("--rebuild requires both architectures")
     originals = original_images(args.ipa)
     arches = [args.arch] if args.arch else sorted(originals)
     rows = [row for row in read_manifests() if row.arch in arches]
+    from admob_fragments import declared_fragments, verify_fragments
+    fragment_rows = [(row, moves) for row, moves in declared_fragments(ROOT) if row.arch in arches]
     if not rows:
         raise ValueError("no function matches declared")
     dwarfdump = find_tool("llvm-dwarfdump")
     clangs = {}
-    for toolchain in sorted({row.toolchain for row in rows}):
+    for toolchain in sorted({row.toolchain for row in rows} | {row.toolchain for row, _ in fragment_rows}):
         if toolchain in HISTORICAL:
             setup, expected = HISTORICAL[toolchain]
             clang = getattr(args, toolchain) or os.environ.get(toolchain.upper() + "_CLANG")
@@ -387,9 +396,16 @@ def main():
             raise ValueError(f"expected {toolchain} ({expected.strip()}), found {version}")
         clangs[toolchain] = clang
         print(version, flush=True)
+    from arm_padding import CodePadding
+    from assembly import complete_text
+    from linker_islands import LinkerIslands
+    islands = {arch: LinkerIslands(originals[arch]) for arch in arches}
+    padding = {arch: CodePadding(originals[arch], clangs) for arch in arches}
     failures = 0
     seen = set()
     compiled = {arch: {} for arch in arches}
+    fragments = {arch: {} for arch in arches}
+    logical_lengths = {arch: [] for arch in arches}
     with TemporaryDirectory(prefix="flap-verify-") as work:
         # Independently validate method identities, including same-byte methods
         # such as retain/release stubs that would also match at other addresses.
@@ -400,8 +416,15 @@ def main():
             thin.write_bytes(originals[arch].data)
             methods[arch] = method_names(thin)
         cache = {}
-        for row in rows:
+
+        def compiled_object(row):
             key = (row.arch, row.source, row.flags, row.toolchain)
+            if key not in cache:
+                objpath = Path(work) / f"{len(cache)}.o"
+                cache[key] = compile_source(row, objpath, clangs[row.toolchain], dwarfdump)
+            return cache[key]
+
+        for row in rows:
             label = f"{row.arch} {row.address:#010x} {row.symbol}"
             try:
                 if (row.arch, row.address) in seen:
@@ -416,10 +439,10 @@ def main():
                     base = re.sub(r"^(\+|-)(\[[^ (]+)\([^() ]+\) ", r"\1\2 ", row.symbol)
                     if owner not in (row.symbol, base):
                         raise ValueError("class/selector does not map to this address in original Objective-C metadata")
-                if key not in cache:
-                    objpath = Path(work) / f"{len(cache)}.o"
-                    cache[key] = compile_source(row, objpath, clangs[row.toolchain], dwarfdump)
-                body = verify_function(row, original, *cache[key], return_body=True)
+                rebuilt, extents = compiled_object(row)
+                body = verify_function(row, original, rebuilt, extents, return_body=True)
+                islands[row.arch].observe(row, rebuilt, len(body))
+                padding[row.arch].observe(row, rebuilt, extents)
             except (ValueError, ImportError, subprocess.CalledProcessError) as exc:
                 failures += 1
                 print(f"FAIL {label}: {exc}", file=sys.stderr)
@@ -427,6 +450,16 @@ def main():
             compiled[row.arch][row.address] = body
             if args.verbose:
                 print(f"MATCH {label} ({len(body)} bytes)")
+        for row, moves in fragment_rows:
+            try:
+                parts, length = verify_fragments(row, moves, originals[row.arch], *compiled_object(row))
+                if parts.keys() & (compiled[row.arch].keys() | fragments[row.arch].keys()):
+                    raise ValueError("outlined function overlaps another claimed entry")
+                fragments[row.arch].update(parts)
+                logical_lengths[row.arch].append(length)
+            except (ValueError, ImportError, subprocess.CalledProcessError) as exc:
+                failures += 1
+                print(f"FAIL {row.arch} {row.symbol}: {exc}", file=sys.stderr)
     for arch in arches:
         image = originals[arch]
         # ObjectAL immediately follows the app in both pinned executables.
@@ -443,8 +476,29 @@ def main():
             print(f"FAIL {arch} game functions missing from compiled source: "
                   + ", ".join(hex(address) for address in missing), file=sys.stderr)
         sizes = [len(body) for body in compiled[arch].values()]
-        print(f"{arch}: {len(sizes)}/{len(image.starts)} functions, "
+        print(f"{arch}: {len(sizes)}/{len(image.starts)} contiguous source matches, "
               f"{sum(sizes)}/{image.text.size} __text bytes ({sum(sizes)/image.text.size:.3%})")
+        if fragments[arch]:
+            print(f"{arch}: {len(logical_lengths[arch])} C functions with vendor layout changes "
+                  f"({sum(logical_lengths[arch])} compiler bytes), "
+                  f"{len(fragments[arch])} original entries after vendor layout")
+            compiled[arch].update(fragments[arch])
+        try:
+            island_bodies = islands[arch].verify()
+            if compiled[arch].keys() & island_bodies.keys():
+                raise ValueError("linker islands overlap compiled source")
+            print(f"{arch}: {len(island_bodies)} linker-generated Thumb-to-ARM islands "
+                  f"({sum(map(len, island_bodies.values()))} __text bytes)")
+            compiled[arch].update(island_bodies)
+            compiled[arch], fill_bytes = padding[arch].complete(compiled[arch], game_entries)
+            print(f"{arch}: {fill_bytes} assembler and linker alignment bytes")
+            generated_bytes = len(complete_text(image, compiled[arch]))
+            print(f"{arch}: {len(compiled[arch])}/{len(image.starts)} entries reproduced from source "
+                  f"and generated layout, {generated_bytes}/{image.text.size} __text bytes "
+                  f"({generated_bytes / image.text.size:.3%})")
+        except ValueError as error:
+            failures += 1
+            print(f"FAIL {arch} generated layout: {error}", file=sys.stderr)
     if args.rebuild and not failures:
         from rebuild import write_output
         write_output(args.ipa, args.rebuild, originals, compiled)

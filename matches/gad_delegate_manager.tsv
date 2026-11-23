@@ -1,0 +1,76 @@
+armv7	0x43e10	168	src/gad_delegate_manager.m	_GADDelegateManagerDispatchSynchronouslyOnMainThreadWithBlock	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x43eb8	20	src/gad_delegate_manager.m	___GADDelegateManagerDispatchSynchronouslyOnMainThreadWithBlock_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x43ecc	28	src/gad_delegate_manager.m	___copy_helper_block_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x43ee8	24	src/gad_delegate_manager.m	___destroy_helper_block_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x43f00	692	src/gad_delegate_manager.m	-[GADDelegateManager didReceiveAd]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x441b4	28	src/gad_delegate_manager.m	___Block_byref_object_copy_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x441d0	24	src/gad_delegate_manager.m	___Block_byref_object_dispose_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x441e8	232	src/gad_delegate_manager.m	___34-[GADDelegateManager didReceiveAd]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x442d0	100	src/gad_delegate_manager.m	___copy_helper_block_21	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44334	76	src/gad_delegate_manager.m	___destroy_helper_block_22	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44380	704	src/gad_delegate_manager.m	-[GADDelegateManager didFailToReceiveAdWithError:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44640	256	src/gad_delegate_manager.m	___50-[GADDelegateManager didFailToReceiveAdWithError:]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44740	116	src/gad_delegate_manager.m	___copy_helper_block_28	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x447b4	88	src/gad_delegate_manager.m	___destroy_helper_block_29	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x4480c	152	src/gad_delegate_manager.m	-[GADDelegateManager adView:didReceiveAppEvent:withInfo:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x448a4	152	src/gad_delegate_manager.m	-[GADDelegateManager interstitial:didReceiveAppEvent:withInfo:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x4493c	148	src/gad_delegate_manager.m	-[GADDelegateManager didActivateAd]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x449d0	148	src/gad_delegate_manager.m	-[GADDelegateManager didDeactivatedAd]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44a64	692	src/gad_delegate_manager.m	-[GADDelegateManager willPresentScreen]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44d18	232	src/gad_delegate_manager.m	___39-[GADDelegateManager willPresentScreen]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44e00	100	src/gad_delegate_manager.m	___copy_helper_block_47	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44e64	76	src/gad_delegate_manager.m	___destroy_helper_block_48	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x44eb0	692	src/gad_delegate_manager.m	-[GADDelegateManager willDismissScreen]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45164	232	src/gad_delegate_manager.m	___39-[GADDelegateManager willDismissScreen]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x4524c	100	src/gad_delegate_manager.m	___copy_helper_block_54	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x452b0	76	src/gad_delegate_manager.m	___destroy_helper_block_55	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x452fc	692	src/gad_delegate_manager.m	-[GADDelegateManager didDismissScreen]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x455b0	232	src/gad_delegate_manager.m	___38-[GADDelegateManager didDismissScreen]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45698	100	src/gad_delegate_manager.m	___copy_helper_block_61	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x456fc	76	src/gad_delegate_manager.m	___destroy_helper_block_62	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45748	692	src/gad_delegate_manager.m	-[GADDelegateManager willLeaveApplication]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x459fc	232	src/gad_delegate_manager.m	___42-[GADDelegateManager willLeaveApplication]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45ae4	100	src/gad_delegate_manager.m	___copy_helper_block_68	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45b48	76	src/gad_delegate_manager.m	___destroy_helper_block_69	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45b94	156	src/gad_delegate_manager.m	-[GADDelegateManager didReceiveInAppPurchase:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45c30	84	src/gad_delegate_manager.m	___46-[GADDelegateManager didReceiveInAppPurchase:]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45c84	52	src/gad_delegate_manager.m	___copy_helper_block_75	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x45cb8	40	src/gad_delegate_manager.m	___destroy_helper_block_76	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x43e10	168	src/gad_delegate_manager.m	_GADDelegateManagerDispatchSynchronouslyOnMainThreadWithBlock	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x43eb8	20	src/gad_delegate_manager.m	___GADDelegateManagerDispatchSynchronouslyOnMainThreadWithBlock_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x43ecc	28	src/gad_delegate_manager.m	___copy_helper_block_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x43ee8	24	src/gad_delegate_manager.m	___destroy_helper_block_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x43f00	696	src/gad_delegate_manager.m	-[GADDelegateManager didReceiveAd]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x441b8	28	src/gad_delegate_manager.m	___Block_byref_object_copy_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x441d4	24	src/gad_delegate_manager.m	___Block_byref_object_dispose_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x441ec	232	src/gad_delegate_manager.m	___34-[GADDelegateManager didReceiveAd]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x442d4	100	src/gad_delegate_manager.m	___copy_helper_block_21	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44338	76	src/gad_delegate_manager.m	___destroy_helper_block_22	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44384	708	src/gad_delegate_manager.m	-[GADDelegateManager didFailToReceiveAdWithError:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44648	256	src/gad_delegate_manager.m	___50-[GADDelegateManager didFailToReceiveAdWithError:]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44748	116	src/gad_delegate_manager.m	___copy_helper_block_28	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x447bc	88	src/gad_delegate_manager.m	___destroy_helper_block_29	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44814	152	src/gad_delegate_manager.m	-[GADDelegateManager adView:didReceiveAppEvent:withInfo:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x448ac	152	src/gad_delegate_manager.m	-[GADDelegateManager interstitial:didReceiveAppEvent:withInfo:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44944	148	src/gad_delegate_manager.m	-[GADDelegateManager didActivateAd]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x449d8	148	src/gad_delegate_manager.m	-[GADDelegateManager didDeactivatedAd]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44a6c	696	src/gad_delegate_manager.m	-[GADDelegateManager willPresentScreen]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44d24	232	src/gad_delegate_manager.m	___39-[GADDelegateManager willPresentScreen]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44e0c	100	src/gad_delegate_manager.m	___copy_helper_block_47	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44e70	76	src/gad_delegate_manager.m	___destroy_helper_block_48	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x44ebc	696	src/gad_delegate_manager.m	-[GADDelegateManager willDismissScreen]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45174	232	src/gad_delegate_manager.m	___39-[GADDelegateManager willDismissScreen]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x4525c	100	src/gad_delegate_manager.m	___copy_helper_block_54	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x452c0	76	src/gad_delegate_manager.m	___destroy_helper_block_55	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x4530c	696	src/gad_delegate_manager.m	-[GADDelegateManager didDismissScreen]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x455c4	232	src/gad_delegate_manager.m	___38-[GADDelegateManager didDismissScreen]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x456ac	100	src/gad_delegate_manager.m	___copy_helper_block_61	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45710	76	src/gad_delegate_manager.m	___destroy_helper_block_62	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x4575c	696	src/gad_delegate_manager.m	-[GADDelegateManager willLeaveApplication]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45a14	232	src/gad_delegate_manager.m	___42-[GADDelegateManager willLeaveApplication]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45afc	100	src/gad_delegate_manager.m	___copy_helper_block_68	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45b60	76	src/gad_delegate_manager.m	___destroy_helper_block_69	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45bac	156	src/gad_delegate_manager.m	-[GADDelegateManager didReceiveInAppPurchase:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45c48	84	src/gad_delegate_manager.m	___46-[GADDelegateManager didReceiveInAppPurchase:]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45c9c	52	src/gad_delegate_manager.m	___copy_helper_block_75	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x45cd0	40	src/gad_delegate_manager.m	___destroy_helper_block_76	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

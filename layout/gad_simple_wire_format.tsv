@@ -1,0 +1,1 @@
+_GADReserveWireBuffer	arm	0x6f694	0x718c0	SimpleWireFormatWriteRaw and both varint writers call this shared buffer-growth helper. Its slot and its call to GADMaxWireBufferSize agree in both SDK archives and the executable.

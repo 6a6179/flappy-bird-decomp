@@ -2,6 +2,8 @@
 // Interfaces declare only the fields and methods used in this reconstruction.
 // The match verifier resolves field offsets against the corresponding original class.
 
+typedef signed char BOOL;
+
 typedef struct CGPoint { float x, y; } CGPoint;
 typedef struct CGSize { float width, height; } CGSize;
 typedef struct CGRect { CGPoint origin; CGSize size; } CGRect;
@@ -181,6 +183,10 @@ __attribute__((objc_root_class))
 - (void)removeObjectForKey:(id)key;
 - (void)removeSelfAsDelegate;
 - (void)removeTimingForCategory:(id)category;
+- (id)addTimingWithCategory:(id)category;
+- (id)numberForKey:(id)key;
+- (void)setExplicitEnd:(signed char)explicitEnd;
+- (unsigned int)unsignedIntegerValue;
 - (void)reportBadAd:(id)reportBadAd;
 - (void)reportClickFromConnector:(id)connector isRefresh:(signed char)isRefresh;
 - (void)reportImpressionFromConnector:(id)connector isRefresh:(signed char)isRefresh;
@@ -290,7 +296,6 @@ __attribute__((objc_root_class))
 @class GADGMSGHandler;
 @class GADInterstitial;
 @class GADLocation;
-@class GADMNSURLConnectionFactory;
 @class GADMRAIDInterceptor;
 @class GADNotification;
 @class GADNotificationCenter;
@@ -374,6 +379,10 @@ __attribute__((objc_root_class))
     id fontFamily_;
     id channels_;
 }
+@property (nonatomic, retain) id headerColor;
+@property (nonatomic, retain) id descriptionTextColor;
+@property (nonatomic, retain) id anchorTextColor;
+@property (nonatomic, retain) id borderColor;
 @property (nonatomic, copy) id query;
 @property (nonatomic, copy) id fontFamily;
 @property (nonatomic, copy) id customChannels;
@@ -393,16 +402,8 @@ __attribute__((objc_root_class))
 @property (nonatomic, retain) id keywords;
 @end
 
-@interface GADDevice : NSObject {
-    id _userDefaults;
-    id _telephonyNetworkInfo;
-    id _cachedAdvertisingID;
-    id _cachedMD5AdvertisingID;
-}
-@property (nonatomic, retain) id userDefaults;
-@property (nonatomic, retain) id telephonyNetworkInfo;
-@property (nonatomic, copy) id cachedAdvertisingID;
-@property (nonatomic, copy) id cachedMD5AdvertisingID;
+@interface GADDevice : NSObject
++ (id)currentDevice;
 @end
 
 @interface GADRequestPrivate : GADRequest {
@@ -714,7 +715,7 @@ __attribute__((objc_root_class))
 
 @interface GADStatisticDictionary : NSObject {
     id _delegate;
-    signed char * _wasDeallocated;
+    BOOL *_wasDeallocated;
     signed char _allowDictionaryModification;
     signed char _hasEnqueuedNotificationBlock;
 }
@@ -774,7 +775,7 @@ __attribute__((objc_root_class))
     signed char _shouldLoadActivationOverlay;
     signed char _adConnectionHasCompleted;
     signed char _activationOverlayConnectionHasCompleted;
-    signed char * _wasDeallocated;
+    BOOL *_wasDeallocated;
     id _activationOverlayHTML;
     id _activationOverlayBaseURL;
     id _adResponse;
@@ -789,17 +790,6 @@ __attribute__((objc_root_class))
 @property (nonatomic, copy) id activationOverlayBaseURL;
 @property (nonatomic, copy) id adResponse;
 @property (nonatomic, copy) id adBaseURL;
-@end
-
-@interface NSCachedURLResponse : NSObject
-@end
-
-@interface GADCachedURLResponse : NSCachedURLResponse {
-    id expireDate_;
-    id destinationURL_;
-}
-@property (nonatomic, retain) id expireDate;
-@property (nonatomic, retain) id destinationURL;
 @end
 
 @interface GADURLConnection : NSObject
@@ -1072,9 +1062,6 @@ __attribute__((objc_root_class))
 @interface GADNotificationCenter : NSNotificationCenter
 @end
 
-@interface GADMNSURLConnectionFactory : NSObject
-@end
-
 @interface GADSearchBannerView : GADBannerView
 @end
 
@@ -1130,6 +1117,8 @@ __attribute__((objc_root_class))
 }
 
 @end
+
+extern id NSAllocateObject(Class cls, unsigned int extraBytes, struct _NSZone *zone);
 
 @implementation GADSearchRequest
 
@@ -1209,13 +1198,38 @@ __attribute__((objc_root_class))
     return [GADSearchRequestPrivate allocWithZone:0];
 }
 
++ (id)allocWithZone:(struct _NSZone *)zone
+{
+    return NSAllocateObject([GADSearchRequestPrivate class], 0, zone);
+}
+
 @end
 
 @implementation GADSearchRequestPrivate
 
+@synthesize headerColor = headerColor_;
+@synthesize descriptionTextColor = descriptionTextColor_;
+@synthesize anchorTextColor = anchorTextColor_;
+@synthesize borderColor = borderColor_;
 @synthesize query = query_;
 @synthesize fontFamily = fontFamily_;
 @synthesize customChannels = channels_;
+
+- (void)setBackgroundSolid:(id)color
+{
+    backgroundColor_ = [color retain];
+    gradientFrom_ = nil;
+    gradientTo_ = nil;
+}
+
+- (void)setBackgroundGradientFrom:(id)from toColor:(id)to
+{
+    if (from && to) {
+        backgroundColor_ = nil;
+        gradientFrom_ = [from retain];
+        gradientTo_ = [to retain];
+    }
+}
 
 - (id)backgroundColor
 {
@@ -1232,21 +1246,6 @@ __attribute__((objc_root_class))
     return gradientTo_;
 }
 
-- (id)headerColor
-{
-    return headerColor_;
-}
-
-- (id)descriptionTextColor
-{
-    return descriptionTextColor_;
-}
-
-- (id)anchorTextColor
-{
-    return anchorTextColor_;
-}
-
 - (int)headerTextSize
 {
     return headerTextSize_;
@@ -1255,11 +1254,6 @@ __attribute__((objc_root_class))
 - (void)setHeaderTextSize:(int)value
 {
     headerTextSize_ = value;
-}
-
-- (id)borderColor
-{
-    return borderColor_;
 }
 
 - (int)borderType
@@ -1309,33 +1303,6 @@ __attribute__((objc_root_class))
 
 @end
 
-@implementation GADDevice
-
-@synthesize userDefaults = _userDefaults;
-@synthesize telephonyNetworkInfo = _telephonyNetworkInfo;
-@synthesize cachedAdvertisingID = _cachedAdvertisingID;
-@synthesize cachedMD5AdvertisingID = _cachedMD5AdvertisingID;
-
-- (void)dealloc
-{
-    [_telephonyNetworkInfo release];
-    [_cachedAdvertisingID release];
-    [_cachedMD5AdvertisingID release];
-    [super dealloc];
-}
-
-- (id)osVersion
-{
-    return [[UIDevice currentDevice] systemVersion];
-}
-
-- (id)deviceModel
-{
-    return [[UIDevice currentDevice] model];
-}
-
-@end
-
 @implementation GADClickTracker
 
 - (id)delegate
@@ -1362,330 +1329,6 @@ __attribute__((objc_root_class))
 {
     [self reset];
     [super dealloc];
-}
-
-@end
-
-@implementation GADViewController
-
-@synthesize slot = _slot;
-
-- (signed char)shouldDismissOnAppClose
-{
-    return 1;
-}
-
-- (signed char)prefersStatusBarHidden
-{
-    return 1;
-}
-
-- (signed char)shouldAutorotate
-{
-    return 1;
-}
-
-- (int)supportedOrientations
-{
-    return _supportedOrientations;
-}
-
-- (signed char)viewDidAppear
-{
-    return _viewDidAppear;
-}
-
-- (void)setViewDidAppear:(signed char)setView
-{
-    _viewDidAppear = setView;
-}
-
-- (signed char)statusBarWasHidden
-{
-    return _statusBarWasHidden;
-}
-
-- (void)setStatusBarWasHidden:(signed char)value
-{
-    _statusBarWasHidden = value;
-}
-
-- (signed char)publisherIdleTimerDisabled
-{
-    return _publisherIdleTimerDisabled;
-}
-
-- (void)setPublisherIdleTimerDisabled:(signed char)value
-{
-    _publisherIdleTimerDisabled = value;
-}
-
-- (signed char)appClosing
-{
-    return _appClosing;
-}
-
-- (void)setAppClosing:(signed char)value
-{
-    _appClosing = value;
-}
-
-- (signed char)interactingWithParent
-{
-    return _interactingWithParent;
-}
-
-- (void)setInteractingWithParent:(signed char)value
-{
-    _interactingWithParent = value;
-}
-
-- (signed char)wasPresentedFromViewController
-{
-    return _wasPresentedFromViewController;
-}
-
-- (void)setWasPresentedFromViewController:(signed char)value
-{
-    _wasPresentedFromViewController = value;
-}
-
-- (void)ensureStatusBarHidden
-{
-    signed char statusBarWasHidden = [self statusBarWasHidden];
-    [self hideStatusBar];
-    [self setStatusBarWasHidden:statusBarWasHidden];
-}
-
-@end
-
-@implementation GADBrowserController
-
-@synthesize URLToLoad = _URLToLoad;
-@synthesize referringURLToLoad = _referringURLToLoad;
-@synthesize webViewDelegate = _webViewDelegate;
-@synthesize webView = _webView;
-@synthesize toolbar = _toolbar;
-@synthesize flexibleSpaceButton = _flexibleSpaceButton;
-@synthesize backButton = _backButton;
-@synthesize backButtonDisabled = _backButtonDisabled;
-@synthesize forwardButton = _forwardButton;
-@synthesize forwardButtonDisabled = _forwardButtonDisabled;
-@synthesize reloadButton = _reloadButton;
-@synthesize safariButton = _safariButton;
-@synthesize doneButton = _doneButton;
-@synthesize spinnerContainingButton = _spinnerContainingButton;
-@synthesize spinner = _spinner;
-
-- (void)dealloc
-{
-    [_webView setDelegate:nil];
-    [_webViewDelegate release];
-    [_webView release];
-    [_URLToLoad release];
-    [_referringURLToLoad release];
-    [_toolbar release];
-    [_flexibleSpaceButton release];
-    [_backButton release];
-    [_backButtonDisabled release];
-    [_forwardButton release];
-    [_forwardButtonDisabled release];
-    [_reloadButton release];
-    [_safariButton release];
-    [_doneButton release];
-    [_spinnerContainingButton release];
-    [_spinner release];
-    [super dealloc];
-}
-
-- (void)didRotateFromInterfaceOrientation:(int)interfaceOrientation
-{
-    [super didRotateFromInterfaceOrientation:interfaceOrientation];
-    [[self webView] didRotateToOrientation:[self interfaceOrientation]];
-}
-
-- (void)load:(id)url
-{
-    [self load:url referringURL:nil];
-}
-
-- (void)stop
-{
-    [[self webView] stopLoading];
-}
-
-- (void)reload
-{
-    [[self webView] reload];
-}
-
-- (void)openInSafari
-{
-    id uRL = [[[self webView] request] URL];
-    id result = [[[GADOpener alloc] init] autorelease];
-    [result setDelegateManager:[self delegateManager]];
-    [result openApp:uRL];
-    [[[self slot] slotStats] setBreakOutToSafari];
-}
-
-@end
-
-@implementation GADWebAppViewController
-
-@synthesize webView = _webView;
-@synthesize bannerScreenshot = _bannerScreenshot;
-@synthesize URLToLoad = _URLToLoad;
-@synthesize HTMLToLoad = _HTMLToLoad;
-@synthesize HTMLBaseURLToLoad = _HTMLBaseURLToLoad;
-@synthesize webViewDelegate = _webViewDelegate;
-@synthesize closeButton = _closeButton;
-
-- (signed char)useCustomClose
-{
-    return _useCustomClose;
-}
-
-- (signed char)viewHasAppeared
-{
-    return _viewHasAppeared;
-}
-
-- (void)setViewHasAppeared:(signed char)value
-{
-    _viewHasAppeared = value;
-}
-
-- (signed char)isExpandable
-{
-    return _isExpandable;
-}
-
-- (void)setIsExpandable:(signed char)value
-{
-    _isExpandable = value;
-}
-
-- (signed char)isCollapsing
-{
-    return _isCollapsing;
-}
-
-- (void)setIsCollapsing:(signed char)value
-{
-    _isCollapsing = value;
-}
-
-- (id)interstitial
-{
-    return _interstitial;
-}
-
-- (void)setInterstitial:(id)value
-{
-    _interstitial = value;
-}
-
-- (signed char)allowFileAccess
-{
-    return [[[self webView] delegate] allowFileAccess];
-}
-
-- (void)setAllowFileAccess:(signed char)value
-{
-    [[[self webView] delegate] setAllowFileAccess:value];
-}
-
-- (id)init
-{
-    return [self initWithWebView:nil forInterstitial:nil];
-}
-
-- (id)initWithWebView:(id)webView
-{
-    return [self initWithWebView:webView forInterstitial:nil];
-}
-
-- (void)viewDidAppear:(signed char)view
-{
-    [super viewDidAppear:view];
-    [[self webView] forceRotateToOrientation:[self interfaceOrientation]];
-    [[self webViewDelegate] setPendingOnShow:1];
-}
-
-@end
-
-@implementation GADOpener
-
-@synthesize delegateManager = delegateManager_;
-@synthesize referringURL = referringURL_;
-
-- (id)viewController
-{
-    return viewController_;
-}
-
-- (void)setViewController:(id)value
-{
-    viewController_ = value;
-}
-
-- (id)webView
-{
-    return webView_;
-}
-
-- (void)setWebView:(id)value
-{
-    webView_ = value;
-}
-
-- (id)slot
-{
-    return slot_;
-}
-
-- (void)setSlot:(id)value
-{
-    slot_ = value;
-}
-
-- (signed char)didOpenAnotherApplication
-{
-    return didOpenAnotherApplication_;
-}
-
-- (void)setDidOpenAnotherApplication:(signed char)set
-{
-    didOpenAnotherApplication_ = set;
-}
-
-- (id)delegate
-{
-    return delegate_;
-}
-
-- (void)setDelegate:(id)value
-{
-    delegate_ = value;
-}
-
-- (void)dealloc
-{
-    [delegateManager_ release];
-    [referringURL_ release];
-    [super dealloc];
-}
-
-- (void)didOpenExternalApp
-{
-    [self didOpen];
-    [[self delegate] didLeaveApplication];
-}
-
-- (void)didOpenInApp
-{
-    [self didOpen];
-    [[self delegate] didOpenInApplication];
 }
 
 @end
@@ -1774,31 +1417,20 @@ __attribute__((objc_root_class))
 
 @end
 
-@implementation GADNotification
-
-@synthesize name = name_;
-@synthesize parameters = parameters_;
-
-+ (signed char)isNotificationURL:(id)isNotificationURL
-{
-    return [GADGMSGHandler isGMSG:isNotificationURL];
-}
-
-+ (id)notificationFromURL:(id)url
-{
-    return [[[GADNotification alloc] initWithNotificationURL:url] autorelease];
-}
-
-- (void)dealloc
-{
-    [name_ release];
-    [parameters_ release];
-    [super dealloc];
-}
-
-@end
-
 @implementation GADStatistics
+
+- (void)startTimingNamed:(id)name withExplicitEnd:(signed char)explicitEnd
+{
+    [_timingMgr removeTimingForCategory:name];
+    id timing = [_timingMgr addTimingWithCategory:name];
+    [timing setExplicitEnd:explicitEnd];
+    [timing start];
+}
+
+- (unsigned int)valueForParameter:(id)name
+{
+    return [[_statistics numberForKey:name] unsignedIntegerValue];
+}
 
 + (id)allTimingNames
 {
@@ -2305,23 +1937,6 @@ __attribute__((objc_root_class))
 
 @end
 
-@implementation GADApplication
-
-@synthesize currentSession = _currentSession;
-
-- (signed char)appFinishedLaunching
-{
-    return _appFinishedLaunching;
-}
-
-- (void)dealloc
-{
-    [_currentSession release];
-    [super dealloc];
-}
-
-@end
-
 @implementation GADDelegateManager
 
 - (id)bannerDelegate
@@ -2717,12 +2332,12 @@ __attribute__((objc_root_class))
     _delegate = value;
 }
 
-- (signed char *)wasDeallocated
+- (BOOL *)wasDeallocated
 {
     return _wasDeallocated;
 }
 
-- (void)setWasDeallocated:(signed char *)value
+- (void)setWasDeallocated:(BOOL *)value
 {
     _wasDeallocated = value;
 }
@@ -3118,12 +2733,12 @@ __attribute__((objc_root_class))
     _activationOverlayConnectionHasCompleted = value;
 }
 
-- (signed char *)wasDeallocated
+- (BOOL *)wasDeallocated
 {
     return _wasDeallocated;
 }
 
-- (void)setWasDeallocated:(signed char *)value
+- (void)setWasDeallocated:(BOOL *)value
 {
     _wasDeallocated = value;
 }
@@ -3137,13 +2752,6 @@ __attribute__((objc_root_class))
 {
     [[self timer] end];
 }
-
-@end
-
-@implementation GADCachedURLResponse
-
-@synthesize expireDate = expireDate_;
-@synthesize destinationURL = destinationURL_;
 
 @end
 
@@ -4038,20 +3646,6 @@ __attribute__((objc_root_class))
 
 @end
 
-@implementation GADOpenerGMSGHandler
-
-@synthesize gadOpener = _gadOpener;
-@synthesize subParamActionRouter = _subParamActionRouter;
-
-- (void)dealloc
-{
-    [_gadOpener release];
-    [_subParamActionRouter release];
-    [super dealloc];
-}
-
-@end
-
 @implementation GADActionRouter
 
 - (id)receiver
@@ -4068,25 +3662,6 @@ __attribute__((objc_root_class))
 {
     [self release];
     return nil;
-}
-
-@end
-
-@implementation GADMWebViewRenderedChecker
-
-- (id)webView
-{
-    return webView_;
-}
-
-- (void)setWebView:(id)value
-{
-    webView_ = value;
-}
-
-- (id)delegate
-{
-    return delegate_;
 }
 
 @end
@@ -4148,25 +3723,6 @@ __attribute__((objc_root_class))
 
 @end
 
-@implementation GADRequestError
-
-+ (id)errorWithCode:(int)code request:(id)request
-{
-    return [self errorWithCode:code request:request HTTPStatusCode:0];
-}
-
-+ (id)errorWithCode:(int)code
-{
-    return [self errorWithCode:code customMessage:nil];
-}
-
-+ (id)errorWithCode:(int)code customMessage:(id)customMessage
-{
-    return [self errorWithCode:code request:nil HTTPStatusCode:0 customMessage:customMessage];
-}
-
-@end
-
 @implementation GADIntrinsicImages
 
 - (void)dealloc
@@ -4177,24 +3733,6 @@ __attribute__((objc_root_class))
 - (id)currentDevice
 {
     return [GADDevice currentDevice];
-}
-
-@end
-
-@implementation GADNotificationCenter
-
-- (void)delayedPosting:(id)delayedPosting
-{
-    [self postNotificationFromURL:[delayedPosting objectForKey:@"url"] object:[delayedPosting objectForKey:@"object"]];
-}
-
-@end
-
-@implementation GADMNSURLConnectionFactory
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

@@ -1,0 +1,16 @@
+armv7	0x2e0e4	376	src/gad_request_error.m	+[GADRequestError localizedStringForErrorCode:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e25c	168	src/gad_request_error.m	___47+[GADRequestError localizedStringForErrorCode:]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e304	484	src/gad_request_error.m	-[GADRequestError initWithCode:request:HTTPStatusCode:customMessage:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e4e8	96	src/gad_request_error.m	+[GADRequestError errorWithCode:request:HTTPStatusCode:customMessage:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e548	48	src/gad_request_error.m	+[GADRequestError errorWithCode:request:HTTPStatusCode:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e578	44	src/gad_request_error.m	+[GADRequestError errorWithCode:request:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e5a4	32	src/gad_request_error.m	+[GADRequestError errorWithCode:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x2e5c4	52	src/gad_request_error.m	+[GADRequestError errorWithCode:customMessage:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e0e4	376	src/gad_request_error.m	+[GADRequestError localizedStringForErrorCode:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e25c	168	src/gad_request_error.m	___47+[GADRequestError localizedStringForErrorCode:]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e304	484	src/gad_request_error.m	-[GADRequestError initWithCode:request:HTTPStatusCode:customMessage:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e4e8	96	src/gad_request_error.m	+[GADRequestError errorWithCode:request:HTTPStatusCode:customMessage:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e548	48	src/gad_request_error.m	+[GADRequestError errorWithCode:request:HTTPStatusCode:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e578	44	src/gad_request_error.m	+[GADRequestError errorWithCode:request:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e5a4	32	src/gad_request_error.m	+[GADRequestError errorWithCode:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x2e5c4	52	src/gad_request_error.m	+[GADRequestError errorWithCode:customMessage:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500

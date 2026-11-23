@@ -1,0 +1,2 @@
+armv7	0x6db04	176	src/gad_gesture_cfiles.c	_CheckJailBreakStatus	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502
+armv7s	0x6cd48	176	src/gad_gesture_cfiles.c	_CheckJailBreakStatus	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502

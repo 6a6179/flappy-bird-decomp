@@ -36,7 +36,7 @@
 - (NSString *)gad_MD5String;
 @end
 
-extern NSString *const GADParamUnitID;
+extern NSString *const kGADParameterAdSlotID;
 
 @interface GADURLConnection : NSObject {
     BOOL _isInProgress, _allowCache;
@@ -206,7 +206,7 @@ static struct {
 + (NSString *)cacheKeyForURL:(NSURL *)url
 {
     NSString *text = [url absoluteString];
-    NSString *unit = [GADNetworkUtilities parameterValueForKey:GADParamUnitID fromURL:url];
+    NSString *unit = [GADNetworkUtilities parameterValueForKey:kGADParameterAdSlotID fromURL:url];
     if (unit) {
         text = [NSString stringWithFormat:@"%@%@%@", [url host], [url path], unit];
     }

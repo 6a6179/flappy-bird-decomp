@@ -1,0 +1,17 @@
+# Placements of the displaced compiler instructions in the original SDK objects.
+armv7	0x6acc0	src/gad_gesture_cfiles.c	_IsInstanceMethodAvailable	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f2c4:12:0x6f2c4
+armv7	0x6b090	src/gad_gesture_cfiles.c	_GADGestureDidBecomeActive	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f260
+armv7	0x6ca94	src/gad_gesture_cfiles.c	_GetDeviceOrientation	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f268
+armv7	0x6e2bc	src/gad_gesture_cfiles.c	_GADTransformSignalBlock	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f344:12:0x6bfdc
+armv7	0x6edfc	src/gad_gesture_cfiles.c	_GADCopyParentMethod	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f2f8:0:0x6f370
+armv7	0x6ef68	src/gad_gesture_cfiles.c	_gad_gmcs	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0xe4:0x6f32c
+armv7s	0x69f04	src/gad_gesture_cfiles.c	_IsInstanceMethodAvailable	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e508:12:0x6e508
+armv7s	0x6a2d4	src/gad_gesture_cfiles.c	_GADGestureDidBecomeActive	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e4a4
+armv7s	0x6bcd8	src/gad_gesture_cfiles.c	_GetDeviceOrientation	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e4ac
+armv7s	0x6d500	src/gad_gesture_cfiles.c	_GADTransformSignalBlock	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e588:12:0x6b220
+armv7s	0x6e040	src/gad_gesture_cfiles.c	_GADCopyParentMethod	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e53c:0:0x6e5b4
+armv7s	0x6e1ac	src/gad_gesture_cfiles.c	_gad_gmcs	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0xe4:0x6e570
+armv7	0x6e328	src/gad_gesture_cfiles.c	_GatherSignals	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x170:0x6f370,0x194:0x6f378,dispatch:0x1dc:0x6f3fc:12:0x6f378:0:0x6f2c4,0x398:0x6f2b4,0x5a4:0x6f2f0,dispatch:0x8d4:0x6f278:0:0x6f388:12:0x6df68
+armv7	0x6ee20	src/gad_gesture_cfiles.c	_gad_gmrs	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f2bc,dispatch:0x64:0x6f3a0:12:0x6c3e0:12:0x6d7ec,dispatch:0xe8:0x6f33c:12:0x6ded8
+armv7s	0x6d56c	src/gad_gesture_cfiles.c	_GatherSignals	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x170:0x6e5b4,0x194:0x6e5bc,dispatch:0x1dc:0x6e640:12:0x6e5bc:0:0x6e508,0x398:0x6e4f8,0x5a4:0x6e534,dispatch:0x8d4:0x6e4bc:0:0x6e5cc:12:0x6d1ac
+armv7s	0x6e064	src/gad_gesture_cfiles.c	_gad_gmrs	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e500,dispatch:0x64:0x6e5e4:12:0x6b624:12:0x6ca30,dispatch:0xe8:0x6e580:12:0x6d11c

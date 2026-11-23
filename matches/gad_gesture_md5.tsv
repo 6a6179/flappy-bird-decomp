@@ -1,0 +1,4 @@
+armv7	0xbe76c	112	src/gad_gesture_md5.c	_GADMD5Init	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xbe7dc	188	src/gad_gesture_md5.c	_GADMD5Update	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0xc0998	112	src/gad_gesture_md5.c	_GADMD5Init	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0xc0a08	188	src/gad_gesture_md5.c	_GADMD5Update	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500

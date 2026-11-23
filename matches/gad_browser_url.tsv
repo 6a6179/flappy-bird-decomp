@@ -1,0 +1,8 @@
+armv7	0x4e608	16	src/gad_browser_url.m	-[GADSearchSlot jsBuildAdURL]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x57768	52	src/gad_browser_url.m	+[GADURL URLWithString:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x66064	136	src/gad_browser_url.m	-[GADBrowserWebView setViewController:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x660ec	124	src/gad_browser_url.m	-[GADBrowserWebView gadBrowserController]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x4e638	16	src/gad_browser_url.m	-[GADSearchSlot jsBuildAdURL]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x57794	52	src/gad_browser_url.m	+[GADURL URLWithString:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66090	136	src/gad_browser_url.m	-[GADBrowserWebView setViewController:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66118	124	src/gad_browser_url.m	-[GADBrowserWebView gadBrowserController]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

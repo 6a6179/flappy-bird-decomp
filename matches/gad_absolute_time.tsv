@@ -1,0 +1,4 @@
+armv7	0x5b290	176	src/gad_absolute_time.m	+[GADAbsoluteTime absoluteTimeInMilliseconds]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x5b340	120	src/gad_absolute_time.m	___45+[GADAbsoluteTime absoluteTimeInMilliseconds]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x5b2b0	176	src/gad_absolute_time.m	+[GADAbsoluteTime absoluteTimeInMilliseconds]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x5b360	120	src/gad_absolute_time.m	___45+[GADAbsoluteTime absoluteTimeInMilliseconds]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500

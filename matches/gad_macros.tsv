@@ -1,0 +1,14 @@
+armv7	0x33668	400	src/gad_macros.m	_GADStringArrayToURLArray	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x337f8	112	src/gad_macros.m	+[GADMacros dictionaryToJSONString:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x33868	164	src/gad_macros.m	+[GADMacros jsonifyArray:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x3390c	216	src/gad_macros.m	+[GADMacros readJsonIntoDictionary:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x339e4	216	src/gad_macros.m	+[GADMacros readJsonIntoArray:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x33abc	76	src/gad_macros.m	+[GADMacros pubLog:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7	0x33b08	20	src/gad_macros.m	+[GADMacros setLogChecker:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x33664	400	src/gad_macros.m	_GADStringArrayToURLArray	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x337f4	112	src/gad_macros.m	+[GADMacros dictionaryToJSONString:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x33864	164	src/gad_macros.m	+[GADMacros jsonifyArray:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x33908	216	src/gad_macros.m	+[GADMacros readJsonIntoDictionary:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x339e0	216	src/gad_macros.m	+[GADMacros readJsonIntoArray:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x33ab8	76	src/gad_macros.m	+[GADMacros pubLog:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500
+armv7s	0x33b04	20	src/gad_macros.m	+[GADMacros setLogChecker:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple500

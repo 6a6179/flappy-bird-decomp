@@ -1,0 +1,1 @@
+_minutesPerDay	pointer	0xfa58c	0xfa558	GADGestureLegacy.o has one four-byte initialized data field containing 1440. Each executable has one word equal to 1440 in __DATA,__data.

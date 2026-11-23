@@ -1,0 +1,1 @@
+_kGADAdMobExtrasKeyAd	pointer	0xe12a8	0xe12a8	The pinned SDK's named string pointer is initialized with @"_ad" between the activation-overlay and request URL keys. Both executables have that four-key initializer sequence in __DATA,__const.

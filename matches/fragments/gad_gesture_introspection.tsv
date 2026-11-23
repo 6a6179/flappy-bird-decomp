@@ -1,0 +1,5 @@
+# GADGesture.o identifies both outlined stack adjustments and their continuation labels.
+armv7	0x6bfd8	src/gad_gesture_cfiles.c	_GADCompareImageRanges	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x0:0x6f270
+armv7	0x6bcd8	src/gad_gesture_cfiles.c	_FindSwizzling	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6f388
+armv7s	0x6b21c	src/gad_gesture_cfiles.c	_GADCompareImageRanges	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x0:0x6e4b4
+armv7s	0x6af1c	src/gad_gesture_cfiles.c	_FindSwizzling	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	0x8:0x6e5cc

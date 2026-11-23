@@ -1,0 +1,1 @@
+_logChecker_	pointer	0xfd458	0xfd458	The log checker setter stores its argument in this slot. The logging method sends message: to the stored observer.

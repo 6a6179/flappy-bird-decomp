@@ -1,0 +1,12 @@
+armv7	0x665d8	92	src/gad_ad.m	-[GADAd init]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x66634	1260	src/gad_ad.m	-[GADAd initWithDictionary:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x66ca4	60	src/gad_ad.m	-[GADAd shouldLoadAdHTML]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x66ce0	100	src/gad_ad.m	-[GADAd shouldLoadActivationOverlayHTML]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x670a4	40	src/gad_ad.m	-[GADAd setSize:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x58c88	224	src/gad_ad.m	-[GADAdInterstitial initWithDictionary:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66604	92	src/gad_ad.m	-[GADAd init]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66660	1260	src/gad_ad.m	-[GADAd initWithDictionary:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66cd0	60	src/gad_ad.m	-[GADAd shouldLoadAdHTML]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66d0c	100	src/gad_ad.m	-[GADAd shouldLoadActivationOverlayHTML]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x670d0	40	src/gad_ad.m	-[GADAd setSize:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x58cb4	224	src/gad_ad.m	-[GADAdInterstitial initWithDictionary:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

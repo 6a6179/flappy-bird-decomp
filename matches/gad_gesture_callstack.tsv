@@ -1,0 +1,2 @@
+armv7	0x6d01c	1164	src/gad_gesture_callstack.c	_CopyParentMethodFromCallStack	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502
+armv7s	0x6c260	1164	src/gad_gesture_callstack.c	_CopyParentMethodFromCallStack	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502

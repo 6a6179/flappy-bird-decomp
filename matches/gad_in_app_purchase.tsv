@@ -1,0 +1,8 @@
+armv7	0x66168	28	src/gad_in_app_purchase.m	+[GADInAppPurchase quantityIsValid:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x66184	88	src/gad_in_app_purchase.m	+[GADInAppPurchase stringForStatus:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x661dc	92	src/gad_in_app_purchase.m	-[GADInAppPurchase init]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x6629c	84	src/gad_in_app_purchase.m	-[GADInAppPurchase setQuantity:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66194	28	src/gad_in_app_purchase.m	+[GADInAppPurchase quantityIsValid:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x661b0	88	src/gad_in_app_purchase.m	+[GADInAppPurchase stringForStatus:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x66208	92	src/gad_in_app_purchase.m	-[GADInAppPurchase init]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x662c8	84	src/gad_in_app_purchase.m	-[GADInAppPurchase setQuantity:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

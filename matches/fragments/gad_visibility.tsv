@@ -1,0 +1,5 @@
+# GetAdVisibility uses three indirect pool loads. GADGesture.o labels l020, l071 and l079 identify the geometry decoder and both outlined instructions.
+armv7	0x6d524	src/gad_visibility.c	_GetAdVisibility	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x28,literal:0x154,literal:0x1a0
+armv7	0x6d7bc	src/gad_visibility.c	_GADReadViewGeometry	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0x8:0x6f324:0:0x6f324,0x124:0x6f380
+armv7s	0x6c768	src/gad_visibility.c	_GetAdVisibility	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x28,literal:0x154,literal:0x1a0
+armv7s	0x6ca00	src/gad_visibility.c	_GADReadViewGeometry	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0x8:0x6e568:0:0x6e568,0x124:0x6e5c4

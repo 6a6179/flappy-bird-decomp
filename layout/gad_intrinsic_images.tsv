@@ -1,0 +1,2 @@
+_GADIntrinsicImageCache	pointer	0xfd460	0xfd460	The singleton getter uses the first word as a dispatch_once predicate and the second for the singleton. The back, forward and close button getters memoize decoded images in the next three consecutive words.
+___36+[GADIntrinsicImages sharedInstance]_block_invoke	arm	0x36c60	0x36c5c	The dyld-bound global block at 0xe0e08 points to this function, which allocates and initializes GADIntrinsicImages.

@@ -1,0 +1,12 @@
+_kGADGMSGHandlerParamNotification	pointer	0xe13c4	0xe13c4	The named archive import in didReceiveOpenNotification: is the dictionary key whose value supplies parameters. The linked nonlazy slot points to the NSString pointer initialized to "note".
+_kGADGMSGURLActionClick	pointer	0xe13d0	0xe13d0	initWithOpener: registers didReceiveClickNotification: under this external string. The pointer is initialized to "click".
+_kGADGMSGURLActionOpen	pointer	0xe13e4	0xe13e4	initWithOpener: registers didReceiveOpenNotification: under this external string. The pointer is initialized to "open".
+_kGADGMSGURLParamCustomClose	pointer	0xe140c	0xe140c	shouldUseCustomClose: uses this dictionary key, a pointer to the constant NSString "custom_close".
+_kGADGMSGURLParamCustomCloseValueTrue	pointer	0xe1410	0xe1410	shouldUseCustomClose: compares the value against the imported NSString pointer whose initializer is "1".
+_kGADGMSGURLParamURL	pointer	0xe13f0	0xe13f0	didReceiveClickNotification: passes the parameter for this key to +[NSURL URLWithString:]. The pointer is initialized to "u".
+___46-[GADOpener openInAppStore:fallbackURLString:]_block_invoke	arm	0x38cf8	0x38cfc	The completion block passed to loadProductWithParameters:completionBlock: stores this invoke address in its fourth word.
+GADOpener::___copy_helper_block_	arm	0x38dc0	0x38dc4	The SKStore product completion block's descriptor names this copy helper. It retains the three object captures.
+GADOpener::___destroy_helper_block_	arm	0x38e04	0x38e08	The SKStore product completion block's descriptor names this dispose helper. It releases the three object captures.
+___48-[GADOpener openPublisherToolbar:withAdContent:]_block_invoke	arm	0x39ed0	0x39ed8	The completion block passed to dismissViewControllerAnimated:completion: stores this invoke address. It presents the captured toolbar from the opener's view controller.
+GADOpener::___copy_helper_block_192	arm	0x39f0c	0x39f14	The publisher toolbar completion block's descriptor names this copy helper with two object captures.
+GADOpener::___destroy_helper_block_193	arm	0x39f40	0x39f48	The publisher toolbar completion block's descriptor names this dispose helper with two object captures.

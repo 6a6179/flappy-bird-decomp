@@ -1,0 +1,14 @@
+armv7	0x68924	160	src/gad_action_router.m	-[GADActionRouter initWithReceiver:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x689e4	120	src/gad_action_router.m	-[GADActionRouter dealloc]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x68a5c	556	src/gad_action_router.m	-[GADActionRouter addSelector:name:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x68c88	776	src/gad_action_router.m	-[GADActionRouter postNotificationName:arguments:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x68f90	20	src/gad_action_router.m	+[GADActionRouter encodeSelector:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x68fa4	20	src/gad_action_router.m	+[GADActionRouter decodeSelector:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x68fe0	24	src/gad_action_router.m	-[GADActionRouter cachedActions]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68954	160	src/gad_action_router.m	-[GADActionRouter initWithReceiver:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68a14	120	src/gad_action_router.m	-[GADActionRouter dealloc]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68a8c	556	src/gad_action_router.m	-[GADActionRouter addSelector:name:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68cb8	776	src/gad_action_router.m	-[GADActionRouter postNotificationName:arguments:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68fc0	20	src/gad_action_router.m	+[GADActionRouter encodeSelector:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x68fd4	20	src/gad_action_router.m	+[GADActionRouter decodeSelector:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x69010	24	src/gad_action_router.m	-[GADActionRouter cachedActions]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

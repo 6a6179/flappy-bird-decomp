@@ -1,0 +1,106 @@
+_GADMaxWireBufferSize	arm	0x6fae8	0x71d14	SimpleWireFormat.o preserves its complete unique sequence of function extents on ARMv7s. The same routine occupies the corresponding slot in the surviving contiguous part of GADGestureCFiles.o on ARMv7.
+_SimpleWireFormatWriteTag	arm	0x6f4b8	0x716e4	SimpleWireFormat.o preserves its complete unique sequence of function extents on ARMv7s. The same routine occupies the corresponding slot in the surviving contiguous part of GADGestureCFiles.o on ARMv7.
+_SimpleWireFormatWriteVarint32	arm	0x6f4f8	0x71724	SimpleWireFormat.o preserves its complete unique sequence of function extents on ARMv7s. The same routine occupies the corresponding slot in the surviving contiguous part of GADGestureCFiles.o on ARMv7.
+_SimpleWireFormatWriteVarint64	arm	0x6f75c	0x71988	SimpleWireFormat.o preserves its complete unique sequence of function extents on ARMv7s. The same routine occupies the corresponding slot in the surviving contiguous part of GADGestureCFiles.o on ARMv7.
+_SimpleWireFormatWriteRaw	arm	0x6f9e0	0x71c0c	SimpleWireFormat.o preserves its complete unique sequence of function extents on ARMv7s. The same routine occupies the corresponding slot in the surviving contiguous part of GADGestureCFiles.o on ARMv7.
+_appActive	pointer	0xfd5fc	0xfd5fc	The SDK's activation and deactivation callbacks set and clear this byte. IsAppActive returns its low bit.
+_firstActivation	pointer	0xfa4d0	0xfa4d0	The active-notification callback initializes this timestamp on its first call. GetAppUsageTime returns the same value and computes elapsed time from it.
+_latestActivation	pointer	0xfa4d4	0xfa4d4	The active-notification callbacks replace this timestamp and the inactive callback clears it to -1. GetAppUsageTime measures the current active period from this word.
+_touchX	pointer	0xfd600	0xfd600	The signal collector serializes this word as the touch X coordinate. gad_htg writes the first of its three arguments here.
+_touchY	pointer	0xfd604	0xfd604	The signal collector serializes this word as the touch Y coordinate. gad_htg writes the second argument here.
+_touchDuration	pointer	0xfd608	0xfd608	The signal collector serializes this word as the touch duration. gad_htg writes the third argument here.
+_IsReachable	arm	0x6a008	0x6fa70	GADGestureUtil.o places IsReachable at offset 0x118 from CFStringToCString. It calls the runtime-identified reachability: method and writes the connection flags to its output argument.
+_SimpleWireFormatWriteInt64	arm	0x6fa3c	0x71c68	SimpleWireFormat.o defines this symbol at offset 0x614. It writes a tag with wire type 0 followed by a 64-bit varint in both images.
+_SimpleWireFormatWriteString	arm	0x6fa84	0x71cb0	SimpleWireFormat.o defines this symbol at offset 0x65c. It writes a length-delimited tag, the UTF-8 byte count and the raw string.
+_GADLookupInstanceMethod	arm	0x6ad08	0x69f4c	The method lookup helper calls sel_registerName, objc_lookUpClass and class_getInstanceMethod. Its result is passed to method_getImplementation by a different SDK routine.
+_GADLookupClassMethod	arm	0x6f1e0	0x6e424	This selector lookup returns the result of class_getClassMethod; the paired helper returns class_getInstanceMethod.
+_GADInitializeGestureMethods	arm	0x6b24c	0x6a490	The first call to gad_gig populates the method table using successive calls to GADSetGestureMethod. The archive positions this routine immediately after gad_gig.
+_InitNotifications	arm	0x6ad48	0x69f8c	GADGesture.o defines this routine between the instance-method lookup and the three Core Foundation notification callbacks.
+_GADGestureDidLaunch	arm	0x6b004	0x6a248	InitNotifications registers this routine for the first notification. It records the activation time and sets the active flag.
+_GADMakeSignalRect	arm	0x6f058	0x6e29c	Both rectangles used by the intersection area calculation call this four-float initializer. Its instructions store the arguments directly into the returned CGRect.
+_IsInstanceMethodAvailable	arm	0x6acc0	0x69f04	The first function in the SDK archive member is a named check for an Objective-C instance method.
+_SetBatteryMonitoringStatus	arm	0x6c0b8	0x6b2fc	GADGesture.o defines this named method between the swizzling checker and the property lookup. Both battery queries save and restore its returned value.
+_GADClearGestureString	arm	0x6b140	0x6a384	The SDK places this helper immediately after the deactivation callback. It clears a string with memset before calling free.
+_GADGestureHasClassMethod	arm	0x6ca58	0x6bc9c	This helper returns whether GADLookupClassMethod found a method. The orientation-enabled collector calls it before fetching the current device.
+_GADWriteIntegerSignal	arm	0x6edb0	0x6dff4	The signal collector repeatedly calls this wrapper. It writes its signed integer with SimpleWireFormatWriteInt64.
+_GetEncryptedData	arm	0x6ddb8	0x6cffc	The SDK identifies this entry by name; its oversized input path calls the fallback which serializes field 20.
+_SimpleWireFormatMakeBuffer	arm	0x6f428	0x71654	The v7s SimpleWireFormat archive member identifies its first symbol. Its body allocates the wire buffer and initializes its cursor.
+_SimpleWireFormatFreeBuffer	arm	0x6f48c	0x716b8	The SDK marks this named entry immediately after the wire-buffer allocator. It frees the bytes before freeing the structure.
+_do_rc4	arm	0xbf178	0xc13a4	The rc4.o symbol is called by the device property selectors with the same key and their original encoded names.
+_deviceClass	pointer	0xfa49c	0xfa49c	This writable data word points to the unique encoded runtime name in __cstring. Its contents decode to the Objective-C name used by the corresponding SDK query.
+_currentDeviceSelector	pointer	0xfa4a4	0xfa4a4	This writable data word points to the unique encoded runtime name in __cstring. Its contents decode to the Objective-C name used by the corresponding SDK query.
+_batteryLevelSelector	pointer	0xfa4b0	0xfa4b0	This writable data word points to the unique encoded runtime name in __cstring. Its contents decode to the Objective-C name used by the corresponding SDK query.
+_batteryStateSelector	pointer	0xfa4b4	0xfa4b4	This writable data word points to the unique encoded runtime name in __cstring. Its contents decode to the Objective-C name used by the corresponding SDK query.
+_orientationEnabledSelector	pointer	0xfa4b8	0xfa4b8	This writable data word points to the unique encoded runtime name in __cstring. Its contents decode to the Objective-C name used by the corresponding SDK query.
+_oversizeSignalName	pointer	0xfa540	0xfa540	This data word points to the unique SDK signal name Poison in each image.
+_gestureInitialized	pointer	0xfd558	0xfd558	The gesture entry point checks this byte before initializing its method table and observers, then sets it.
+_gestureIdentifier	pointer	0xfd55c	0xfd55c	The gesture entry point stores the retained identifier here; the signal collector subsequently loads the same word.
+_modelSelector	pointer	0xfa4c0	0xfa4c0	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_idiomSelector	pointer	0xfa4c4	0xfa4c4	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_versionSelector	pointer	0xfa4c8	0xfa4c8	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_isMonitoringSelector	pointer	0xfa4a8	0xfa4a8	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_setMonitoringSelector	pointer	0xfa4ac	0xfa4ac	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_orientationSelector	pointer	0xfa4bc	0xfa4bc	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_responderClass	pointer	0xfa544	0xfa544	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_touchBeganSelector	pointer	0xfa548	0xfa548	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_touchEndedSelector	pointer	0xfa54c	0xfa54c	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_viewClass	pointer	0xfa550	0xfa550	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_hiddenSelector	pointer	0xfa554	0xfa554	This writable data word holds the unique encoded runtime name in each image. The method table initializer decodes the name for its corresponding flag.
+_gestureMethods	pointer	0xfd560	0xfd560	The SDK initializes twelve consecutive (class, selector, flag) records starting here. Flags run from 1 to 2048 in both images.
+_GADSetGestureMethod	arm	0x6f220	0x6e464	The initializer of all twelve method records invokes this helper; its body stores two pointers followed by the mask.
+_didLaunchName	pointer	0xfa490	0xfa490	This data word holds the unique encoded UIApplication notification name. The decoded name selects the matching Core Foundation notification callback.
+_didBecomeActiveName	pointer	0xfa494	0xfa494	This data word holds the unique encoded UIApplication notification name. The decoded name selects the matching Core Foundation notification callback.
+_willResignActiveName	pointer	0xfa498	0xfa498	This data word holds the unique encoded UIApplication notification name. The decoded name selects the matching Core Foundation notification callback.
+_GADGestureDidBecomeActive	arm	0x6b090	0x6a2d4	InitNotifications registers this callback with UIApplicationDidBecomeActiveNotification. It records the latest activation and sets the active flag.
+_GADGestureDidDeactivate	arm	0x6b0ec	0x6a330	InitNotifications registers this callback with UIApplicationWillResignActiveNotification; it clears both activation state fields.
+_IsDeviceOrientationEnabled	arm	0x6c860	0x6baa4	The SDK places this named query before the helper for class method availability. It dispatches isGeneratingDeviceOrientationNotifications on the current UIDevice.
+_CopyParentMethodFromCallStack	arm	0x6d01c	0x6c260	The SDK labels the call stack parser in GADGesture.o. The collector wrapper calls it with the result of GetHintTrace.
+_GatherSignals	arm	0x6e328	0x6d56c	The SDK names the signal collector. Its wrappers request disjoint sets of signals via bit masks.
+_GetHintTrace	arm	0x69ff8	0x6fa60	GADGestureUtil.o identifies this entry by name, with a single call to GAD_GTMStackTrace.
+_ad_transform_block	arm	0x6fb68	0x71d94	The start of the thirteen-function transform range allocates state, applies its stage table and frees the allocation.
+_GADReadSignalInteger	arm	0x6f0e0	0x6e324	The geometry decoder calls this function for x, y, w and h. It retrieves a CFNumber from the view dictionary and extracts a signed 32-bit value.
+_GADReadSignalString	arm	0x6f154	0x6e398	The geometry decoder calls this function for ViewName, after validating the four coordinates. It reads a dictionary string into a UTF-8 buffer.
+_GADViewIntersectionArea	arm	0x6d910	0x6cb54	The visibility calculation compares two view geometry records by invoking this function; the routine constructs two rectangles and returns their intersection area.
+_signalSystemInfo	pointer	0xfa4d8	0xfa4d8	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalVersionNumber	pointer	0xfa4dc	0xfa4dc	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalEventTime	pointer	0xfa4e0	0xfa4e0	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalIsAppActive	pointer	0xfa4e4	0xfa4e4	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalBatteryState	pointer	0xfa4e8	0xfa4e8	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalBatteryLevel	pointer	0xfa4ec	0xfa4ec	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalAppActiveTime	pointer	0xfa4f0	0xfa4f0	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalAppUpTime	pointer	0xfa4f4	0xfa4f4	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalAppUsage	pointer	0xfa4f8	0xfa4f8	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalNetworkType	pointer	0xfa4fc	0xfa4fc	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalOrientation	pointer	0xfa500	0xfa500	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalStacktrace	pointer	0xfa504	0xfa504	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalTouchX	pointer	0xfa508	0xfa508	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalTouchY	pointer	0xfa50c	0xfa50c	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalTouchD	pointer	0xfa510	0xfa510	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalBannerViewName	pointer	0xfa514	0xfa514	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalAdVisibility	pointer	0xfa518	0xfa518	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalJailBreak	pointer	0xfa51c	0xfa51c	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalApplicationsPath	pointer	0xfa520	0xfa520	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalSwizzle	pointer	0xfa524	0xfa524	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalDeviceID	pointer	0xfa528	0xfa528	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalDeviceIDType	pointer	0xfa52c	0xfa52c	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalDeviceIDOptOut	pointer	0xfa530	0xfa530	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalScreenWidth	pointer	0xfa534	0xfa534	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalScreenHeight	pointer	0xfa538	0xfa538	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_signalTimeZoneOffset	pointer	0xfa53c	0xfa53c	Both images contain a writable pointer to this unique signal label or encoded parameter. GatherSignals loads this pointer for the corresponding field.
+_gad_gig	arm	0x6b1a8	0x6a3ec	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_CopySystemInformation	arm	0x6cc68	0x6beac	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_IsAppActive	arm	0x6daec	0x6cd30	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_ObfuscateBinaryValue	arm	0x6dd3c	0x6cf80	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetDeviceBatteryState	arm	0x6c660	0x6b8a4	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetDeviceBatteryLevel	arm	0x6c430	0x6b674	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetAppUsageTime	arm	0x6dbb4	0x6cdf8	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetNetworkType	arm	0x6d4a8	0x6c6ec	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetDeviceOrientation	arm	0x6ca94	0x6bcd8	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GADCopyParentMethod	arm	0x6edfc	0x6e040	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetAdVisibility	arm	0x6d524	0x6c768	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_CheckJailBreakStatus	arm	0x6db04	0x6cd48	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_FindSwizzling	arm	0x6bcd8	0x6af1c	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetDeviceID	arm	0xc058c	0x6e738	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetScreenDimensions	arm	0xc1550	0x6f6fc	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GetTimeZoneUTCOffsetMinutesPlusOneDay	arm	0xc1674	0x6f820	The SDK archive symbol order and the separate calls in the signal collector identify this entry.
+_GADWriteStringSignal	arm	0x6ed30	0x6df74	The SDK archive symbol order and the separate calls in the signal collector identify this entry.

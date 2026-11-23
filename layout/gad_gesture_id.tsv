@@ -1,0 +1,6 @@
++[GADGestureIdUtil sharedInstance].instance	pointer	0xfd60c	0xfd60c	GADGestureIdUtil.o has a single four-byte BSS slot. The sharedInstance method stores the initialized GADGestureIdUtil and returns that slot, the last word in __DATA,__bss in both slices.
+_kAppSpecificDeviceIdKey	pointer	0xe1428	0xe1414	GADGestureIdUtil.o initializes the named constant to @"madAppId". Each slice has one __DATA,__const pointer to that NSString.
+_CFStringToCString	arm	0x69ef0	0x6f958	GADGestureUtil.o defines this function at the beginning of its code. It calls CFStringGetCStringPtr and falls back to allocating a buffer and copying UTF-8 with CFStringGetCString.
+_GAD_MD5	arm	0xbe6b4	0xc08e0	GADGestureCFiles.o places GAD_MD5 0x4f74c bytes after gad_gmcs on ARMv7. On ARMv7s it starts gad_md5.o, whose complete sequence of function boundaries uniquely matches this address.
+_GetWebSafeEncode	arm	0x6ab98	0x70600	GADGestureUtil.o defines this routine 0xca8 bytes after CFStringToCString. It selects rfc4648Base64WebsafeStringEncoding, disables padding, and sends encode: on both CPUs.
+_ComputeDigest	arm	0xc04c0	0x6e66c	GADGestureIdUtil.o places ComputeDigest 0x3f0 bytes before the runtime-identified sharedInstance method. All three function boundaries in that range line up in each executable.

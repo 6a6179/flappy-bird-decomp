@@ -1,0 +1,4 @@
+armv7	0xc1550	292	src/gad_gesture_legacy.m	_GetScreenDimensions	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500
+armv7	0xc1674	312	src/gad_gesture_legacy.m	_GetTimeZoneUTCOffsetMinutesPlusOneDay	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500
+armv7s	0x6f6fc	292	src/gad_gesture_legacy.m	_GetScreenDimensions	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500
+armv7s	0x6f820	312	src/gad_gesture_legacy.m	_GetTimeZoneUTCOffsetMinutesPlusOneDay	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500

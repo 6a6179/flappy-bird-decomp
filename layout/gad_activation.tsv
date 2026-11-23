@@ -1,0 +1,3 @@
+___68-[GADActivationViewDelegate setActivationOverlayFrameOnNextRunLoop:]_block_invoke	arm	0x5d7b4	0x5d7dc	The block passed to dispatch_after sets the slot's activation view frame to its captured CGRect. Its offset from the named method agrees with GADActivationViewDelegate.o.
+GADActivationViewDelegate::___copy_helper_block_	arm	0x5d814	0x5d83c	The 40-byte activation block's descriptor stores this helper, which copies the object capture at offset 20.
+GADActivationViewDelegate::___destroy_helper_block_	arm	0x5d830	0x5d858	The same activation block descriptor names this destroy helper, which releases the object capture at offset 20.

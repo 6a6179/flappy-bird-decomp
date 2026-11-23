@@ -1,0 +1,1 @@
+_kGADPublisherToolbarCustomURL	pointer	0xe13ac	0xe13ac	The named SDK constant points to the NSString "publisherToolbar://junk.com". The original banner debug dialog creates a URL from that string and the web delegate checks the same constant before opening the toolbar.

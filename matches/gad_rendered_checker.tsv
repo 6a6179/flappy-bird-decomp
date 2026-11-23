@@ -1,0 +1,14 @@
+armv7	0x68ff8	78	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker initWithWebView:delegate:]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x69048	312	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker checkIsContentRenderedInWebView]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x69180	444	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker percentOfImage:ofColor:]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x6933c	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker webView]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x6934c	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker setWebView:]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x6935c	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker delegate]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7	0x6936c	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker setDelegate:]	-target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69028	78	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker initWithWebView:delegate:]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69078	312	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker checkIsContentRenderedInWebView]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x691b0	436	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker percentOfImage:ofColor:]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69364	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker webView]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69374	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker setWebView:]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69384	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker delegate]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502
+armv7s	0x69394	16	src/gad_rendered_checker.m	-[GADMWebViewRenderedChecker setDelegate:]	-target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-deprecated-declarations	apple502

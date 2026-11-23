@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "gad_gesture_signals.h"
 #import <float.h>
 #import <math.h>
 
@@ -194,22 +195,20 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 
 @end
 
-extern NSString *const GADRequestPublisherIDKey;
-extern NSString *const GADRequestAnalyticsIDKey;
-extern NSString *const GADRequestBirthdayKey;
-extern NSString *const GADRequestExtrasKey;
-extern NSString *const GADRequestGenderKey;
-extern NSString *const GADRequestKeywordsKey;
-extern NSString *const GADRequestLocationKey;
-extern NSString *const GADRequestAdaptersKey;
-extern NSString *const GADRequestMediationExtrasKey;
-extern NSString *const GADRequestNetworkKey;
-extern NSString *const GADRequestSDKVersionKey;
-extern NSString *const GADRequestChildDirectedKey;
-extern NSString *const GADRequestTestDeviceKey;
-extern NSString *const GADRequestTestingKey;
-extern void GADConfigureSignalsForSDKVersion(NSString *version);
-extern int GADCopyRequestSignalFields(NSMutableString *encoded);
+extern NSString *const kGADDFPParameterPublisherProvidedID;
+extern NSString *const kGADParameterAnalyticsJoinId;
+extern NSString *const kGADParameterBirthday;
+extern NSString *const kGADParameterExtraParams;
+extern NSString *const kGADParameterGender;
+extern NSString *const kGADParameterKeywords;
+extern NSString *const kGADParameterLocation;
+extern NSString *const kGADParameterMediationAdapters;
+extern NSString *const kGADParameterMediationExtrasParams;
+extern NSString *const kGADParameterNetworkType;
+extern NSString *const kGADParameterSDKVersion;
+extern NSString *const kGADParameterTagForChildDirectedTreatment;
+extern NSString *const kGADParameterTestMode;
+extern NSString *const kGADParameterTesting;
 
 @interface GADApplication : NSObject
 + (id)sharedApplication;
@@ -452,11 +451,15 @@ struct {
 
 + (id)requestPrivateWithRequest:(GADRequest *)request
 {
-    if (request && [request isKindOfClass:[GADRequestPrivate class]])
+    id result = nil;
+    if (!request) {
+        result = [[[GADRequest alloc] init] autorelease];
+    } else if ([request isKindOfClass:[GADRequestPrivate class]]) {
         return request;
-    if (!request)
-        return [[[GADRequest alloc] init] autorelease];
-    return nil;
+    }
+    // Keep the common return separate from the successful class check.
+    __asm__("" : "+r"(result));
+    return result;
 }
 
 - (void)registerAdNetworkExtras:(id)extras
@@ -623,8 +626,8 @@ struct {
 {
     NSMutableDictionary *signals = [NSMutableDictionary dictionary];
     NSMutableString *encoded = [NSMutableString string];
-    GADConfigureSignalsForSDKVersion([GADRequest sdkVersion]);
-    if (GADCopyRequestSignalFields(encoded) == 1) {
+    gad_gig((CFStringRef)[GADRequest sdkVersion]);
+    if (gad_gmrs((CFMutableStringRef)encoded) == 1) {
         NSArray *fields = [encoded componentsSeparatedByString:@"="];
         if ([fields count] > 1) {
             NSString *key = [fields objectAtIndex:0];
@@ -643,7 +646,7 @@ struct {
         NSString *publisherID = [[extras publisherProvidedID]
             stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if ([publisherID length] && publisherID)
-            [parameters setObject:publisherID forKey:GADRequestPublisherIDKey];
+            [parameters setObject:publisherID forKey:kGADDFPParameterPublisherProvidedID];
     }
 }
 
@@ -657,22 +660,22 @@ static inline void AddRequestParameter(NSMutableDictionary *parameters, id value
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params addEntriesFromDictionary:[[GADDevice currentDevice] parameters]];
-    AddRequestParameter(params, [[GADMAdNetworkAdapter availableAdapterNames] allObjects], &GADRequestAdaptersKey);
-    AddRequestParameter(params, [GADRequest sdkVersion], &GADRequestSDKVersionKey);
-    AddRequestParameter(params, [[GADNetworkChecker sharedChecker] networkTypeString], &GADRequestNetworkKey);
+    AddRequestParameter(params, [[GADMAdNetworkAdapter availableAdapterNames] allObjects], &kGADParameterMediationAdapters);
+    AddRequestParameter(params, [GADRequest sdkVersion], &kGADParameterSDKVersion);
+    AddRequestParameter(params, [[GADNetworkChecker sharedChecker] networkTypeString], &kGADParameterNetworkType);
     if ([self isTesting])
-        [params setObject:@"1" forKey:GADRequestTestingKey];
+        [params setObject:@"1" forKey:kGADParameterTesting];
     if ([self isATestDevice])
-        [params setObject:@"on" forKey:GADRequestTestDeviceKey];
-    AddRequestParameter(params, [self additionalParameters], &GADRequestExtrasKey);
-    AddRequestParameter(params, [self mediationExtras], &GADRequestMediationExtrasKey);
-    AddRequestParameter(params, [self genderString], &GADRequestGenderKey);
-    AddRequestParameter(params, [self birthdayString], &GADRequestBirthdayKey);
-    AddRequestParameter(params, [self keywords], &GADRequestKeywordsKey);
-    AddRequestParameter(params, [[self childDirectedTreatment] stringValue], &GADRequestChildDirectedKey);
-    AddRequestParameter(params, [[self location] dictionaryRepresentation], &GADRequestLocationKey);
+        [params setObject:@"on" forKey:kGADParameterTestMode];
+    AddRequestParameter(params, [self additionalParameters], &kGADParameterExtraParams);
+    AddRequestParameter(params, [self mediationExtras], &kGADParameterMediationExtrasParams);
+    AddRequestParameter(params, [self genderString], &kGADParameterGender);
+    AddRequestParameter(params, [self birthdayString], &kGADParameterBirthday);
+    AddRequestParameter(params, [self keywords], &kGADParameterKeywords);
+    AddRequestParameter(params, [[self childDirectedTreatment] stringValue], &kGADParameterTagForChildDirectedTreatment);
+    AddRequestParameter(params, [[self location] dictionaryRepresentation], &kGADParameterLocation);
     [params addEntriesFromDictionary:[[GADSharedStatistics sharedInstance] parameters]];
-    AddRequestParameter(params, [self analyticsIds], &GADRequestAnalyticsIDKey);
+    AddRequestParameter(params, [self analyticsIds], &kGADParameterAnalyticsJoinId);
     NSDictionary *signals = [self spamSignals];
     for (id key in signals) {
         id value = [signals objectForKey:key];
@@ -681,6 +684,107 @@ static inline void AddRequestParameter(NSMutableDictionary *parameters, id value
     }
     [self addDFPParameters:params];
     return params;
+}
+
+@end
+
+@interface GADSearchRequest : NSObject
+@property (nonatomic, readonly) NSString *query, *fontFamily, *customChannels;
+@property (nonatomic, readonly) UIColor *backgroundColor, *gradientFrom, *gradientTo;
+@property (nonatomic, readonly) UIColor *headerColor, *descriptionTextColor, *anchorTextColor, *borderColor;
+@property (nonatomic, readonly) int headerTextSize, borderType, borderThickness, callButtonColor;
+@end
+
+extern NSString *const kGADSearchParameterQuery;
+extern NSString *const kGADSearchParameterBackgroundColor;
+extern NSString *const kGADSearchParameterBackgroundGradientFrom;
+extern NSString *const kGADSearchParameterBackgroundGradientTo;
+extern NSString *const kGADSearchParameterHeaderColor;
+extern NSString *const kGADSearchParameterDescriptionTextColor;
+extern NSString *const kGADSearchParameterAnchorTextColor;
+extern NSString *const kGADSearchParameterFontFamily;
+extern NSString *const kGADSearchParameterFontSize;
+extern NSString *const kGADSearchParameterBorderColor;
+extern NSString *const kGADSearchParameterBorderType;
+extern NSString *const kGADSearchParameterBorderThickness;
+extern NSString *const kGADSearchParameterChannel;
+extern NSString *const kGADSearchParameterCallButtonColor;
+
+@implementation GADSearchRequest (RequestParameters)
+
+- (NSString *)hexStringFromColor:(UIColor *)color
+{
+    const CGFloat *components = CGColorGetComponents([color CGColor]);
+    CGFloat red, green, blue;
+    switch (CGColorSpaceGetModel(CGColorGetColorSpace([color CGColor]))) {
+        case kCGColorSpaceModelRGB:
+            red = components[0];
+            green = components[1];
+            blue = components[2];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            red = green = blue = components[0];
+            break;
+        default:
+            return nil;
+    }
+    return [[[NSString alloc] initWithFormat:@"#%02x%02x%02x",
+             (int)(red * 255.0), (int)(green * 255.0), (int)(blue * 255.0)] autorelease];
+}
+
+- (NSString *)getBorderTypeString:(int)border
+{
+    switch (border) {
+        case 0: return @"none";
+        case 1: return @"dashed";
+        case 2: return @"dotted";
+        case 3: return @"solid";
+        default: return @"";
+    }
+}
+
+- (NSString *)getCallButtonTypeString:(int)color
+{
+    switch (color) {
+        case 0: return @"light";
+        case 1: return @"medium";
+        case 2: return @"dark";
+        default: return @"";
+    }
+}
+
+- (GADRequest *)request
+{
+    GADRequest *request = [GADRequest request];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if ([self query])
+        [parameters setObject:[self query] forKey:kGADSearchParameterQuery];
+    if ([self backgroundColor])
+        [parameters setObject:[self hexStringFromColor:[self backgroundColor]] forKey:kGADSearchParameterBackgroundColor];
+    if ([self gradientFrom])
+        [parameters setObject:[self hexStringFromColor:[self gradientFrom]] forKey:kGADSearchParameterBackgroundGradientFrom];
+    if ([self gradientTo])
+        [parameters setObject:[self hexStringFromColor:[self gradientTo]] forKey:kGADSearchParameterBackgroundGradientTo];
+    if ([self headerColor])
+        [parameters setObject:[self hexStringFromColor:[self headerColor]] forKey:kGADSearchParameterHeaderColor];
+    if ([self descriptionTextColor])
+        [parameters setObject:[self hexStringFromColor:[self descriptionTextColor]] forKey:kGADSearchParameterDescriptionTextColor];
+    if ([self anchorTextColor])
+        [parameters setObject:[self hexStringFromColor:[self anchorTextColor]] forKey:kGADSearchParameterAnchorTextColor];
+    if ([self fontFamily])
+        [parameters setObject:[self fontFamily] forKey:kGADSearchParameterFontFamily];
+    [parameters setObject:[NSString stringWithFormat:@"%d", [self headerTextSize]] forKey:kGADSearchParameterFontSize];
+    if ([self borderColor])
+        [parameters setObject:[self hexStringFromColor:[self borderColor]] forKey:kGADSearchParameterBorderColor];
+    if ([[self getBorderTypeString:[self borderType]] length])
+        [parameters setObject:[self getBorderTypeString:[self borderType]] forKey:kGADSearchParameterBorderType];
+    [parameters setObject:[NSString stringWithFormat:@"%d", [self borderThickness]] forKey:kGADSearchParameterBorderThickness];
+    if ([self customChannels])
+        [parameters setObject:[self customChannels] forKey:kGADSearchParameterChannel];
+    if ([[self getCallButtonTypeString:[self callButtonColor]] length])
+        [parameters setObject:[self getCallButtonTypeString:[self callButtonColor]] forKey:kGADSearchParameterCallButtonColor];
+    [request setAdditionalParameters:parameters];
+    return request;
 }
 
 @end

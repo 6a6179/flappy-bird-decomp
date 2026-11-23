@@ -26,6 +26,7 @@ def name_at(data, offset):
 @dataclass(frozen=True)
 class Section:
     name: str
+    segment: str
     addr: int
     size: int
     offset: int
@@ -48,9 +49,10 @@ class Layout:
                 for j in range(word(data, pos + 48)):
                     loc = pos + 56 + 68 * j
                     addr, size, off, _, rel, nrel, _, ind, stride = struct.unpack_from("<9I", data, loc + 32)
-                    self.sections.append(Section(name_at(data, loc) if b"\0" in data[loc:loc+16]
-                                                 else data[loc:loc+16].decode(),
-                                                 addr, size, off, rel, nrel, ind, stride))
+                    section = data[loc:loc+16].rstrip(b"\0").decode()
+                    segment = data[loc+16:loc+32].rstrip(b"\0").decode()
+                    self.sections.append(Section(section, segment, addr, size, off, rel,
+                                                 nrel, ind, stride))
             pos += length
         self.by_name = {s.name: s for s in self.sections}
         self.commands = commands
@@ -110,7 +112,8 @@ def object_layout(data):
     # Copy and dispose helpers have translation-unit-local compiler names.
     # A class defined in the same object can scope their independent anchors.
     for names in layout.defined.values():
-        helpers = [n for n in names if n.startswith(("___copy_helper_block_", "___destroy_helper_block_"))]
+        helpers = [n for n in names if n.startswith(("___copy_helper_block_", "___destroy_helper_block_",
+                                                     "___Block_byref_object_copy_", "___Block_byref_object_dispose_"))]
         names.extend(f"{owner}::{helper}" for owner in classes for helper in helpers)
     layout.relocations = {}
     layout.external = {}
@@ -161,6 +164,7 @@ class Reference(Layout):
     def __init__(self, data):
         super().__init__(data)
         self.targets = defaultdict(set)
+        self.exception_records = {}
         cls_names = {}
         ivar_names = {}
         for entry in self.pointers("__objc_classlist"):
@@ -184,6 +188,11 @@ class Reference(Layout):
             self.targets[name].add(addr)
         for addr in self.pointers("__objc_selrefs"):
             self.targets[("__objc_selrefs", self.string(self.read(addr)))].add(addr)
+        protocols = {self.read(p) for p in self.pointers("__objc_protolist")}
+        for addr in self.pointers("__objc_protorefs"):
+            protocol = self.read(addr)
+            if protocol in protocols:
+                self.targets[("__objc_protorefs", self.string(self.read(protocol + 4)))].add(addr)
         for section in ("__objc_classrefs", "__objc_superrefs"):
             for addr in self.pointers(section):
                 if self.read(addr) in cls_names:
@@ -195,12 +204,7 @@ class Reference(Layout):
             f.flush()
             result = subprocess.run(["xcrun", "llvm-objdump", "--macho", "--bind", f.name],
                                     check=True, capture_output=True, text=True)
-        for row in result.stdout.splitlines():
-            fields = row.split()
-            if len(fields) >= 7 and fields[1] in ("__objc_classrefs", "__objc_superrefs", "__nl_symbol_ptr"):
-                self.targets[(fields[1], fields[-1])].add(int(fields[2], 16))
-            elif len(fields) >= 7 and fields[1] == "__const" and fields[-1] == "__NSConcreteGlobalBlock":
-                self.targets[("global_block",)].add(int(fields[2], 16))
+        self.add_bound_symbols(result.stdout)
 
         # An ARM stub can be called with BLX from Thumb. Tail calls require
         # the linker's Thumb->ARM interworking island for that same stub.
@@ -255,6 +259,13 @@ class Reference(Layout):
                     if image.starts.get(addr) != (kind == "thumb"):
                         raise ValueError(f"{path.name}: {symbol} is not a {kind} entry at {addr:#x}")
                     self.targets[(kind, symbol)].add(addr)
+                elif kind.startswith("lsda") and kind[4:].isdigit() and symbol.endswith("::LSDA"):
+                    length = int(kind[4:])
+                    section = self.section_at(addr)
+                    if (length <= 0 or section.name != "__gcc_except_tab" or
+                            addr + length > section.addr + section.size or symbol in self.exception_records):
+                        raise ValueError(f"invalid or duplicate exception record for {symbol}")
+                    self.exception_records[symbol] = (addr, length)
                 else:
                     raise ValueError(f"unknown anchor kind {kind!r}")
         # Content-based coalescing is unambiguous only if the string has one
@@ -263,6 +274,15 @@ class Reference(Layout):
         cf = self.by_name["__cfstring"]
         for addr in range(cf.addr, cf.addr + cf.size, 16):
             self.targets[("__cfstring", self.cfstring(addr))].add(addr)
+
+    def add_bound_symbols(self, output):
+        for row in output.splitlines():
+            fields = row.split()
+            # The seventh column names the symbol; weak imports have a trailing annotation.
+            if len(fields) >= 7 and fields[1] in ("__objc_classrefs", "__objc_superrefs", "__nl_symbol_ptr"):
+                self.targets[(fields[1], fields[6])].add(int(fields[2], 16))
+            elif len(fields) >= 7 and fields[1] == "__const" and fields[6] == "__NSConcreteGlobalBlock":
+                self.targets[("global_block",)].add(int(fields[2], 16))
 
     def string_literal(self, literal):
         sec = self.cstrings
@@ -290,8 +310,73 @@ class Reference(Layout):
             raise ValueError(f"expected one original link target for {key!r}, found {len(vals)}")
         return next(iter(vals))
 
-    def target(self, obj, addr):
+    def exception_target(self, obj, addr, function_start):
+        section = obj.by_name["__gcc_except_tab"]
+        linked = self.by_name[section.name]
+        start, end = section.addr, section.addr + section.size
+        anchors = {self.exception_records[n + "::LSDA"] for n in obj.defined.get(function_start, ())
+                   if n + "::LSDA" in self.exception_records}
+        if anchors:
+            if len(anchors) != 1 or not any(n.startswith("GCC_except_table") for n in obj.defined[addr]):
+                raise ValueError("unmapped or ambiguous exception record")
+            target, length = anchors.pop()
+            start = addr
+            end = min((p for p, names in obj.defined.items() if addr < p < end and
+                       any(n.startswith("GCC_except_table") for n in names)), default=end)
+            if end - start != length:
+                raise ValueError("unmapped exception record length")
+            candidates = [target]
+        else:
+            candidates = range(linked.addr, linked.addr + linked.size - (end - start) + 1)
+
+        raw = obj.data[obj.file_offset(start):obj.file_offset(start) + end - start]
+        fixups = []
+        for pos, flags, dest, pair in obj.relocations[section.name]:
+            if not start <= pos < end:
+                continue
+            if (flags >> 24 not in (0xa2, 0xa3) or not pair or pair[0] != 0xa1000000 or
+                    pair[1] != pos or pos + 4 > end or obj.read(pos) != (dest - pos) & 0xffffffff or
+                    obj.section_at(dest).name != "__nl_symbol_ptr"):
+                raise ValueError("unsupported exception-table relocation")
+            fixups.append((pos - start, self.target(obj, dest)))
+
+        original = self.data[linked.offset:linked.offset + linked.size]
+        prefix = raw[:fixups[0][0]] if fixups else raw
+        matches = []
+        for where in candidates:
+            offset = where - linked.addr
+            if not original.startswith(prefix, offset):
+                continue
+            relocated = bytearray(raw)
+            for field, pointer in fixups:
+                struct.pack_into("<I", relocated, field, (pointer - (where + field)) & 0xffffffff)
+            if original.startswith(relocated, offset):
+                matches.append(where)
+        if len(matches) != 1:
+            raise ValueError("unmapped or ambiguous exception tables")
+        return matches[0] + addr - start
+
+    def target(self, obj, addr, function_start=None):
         sec = obj.section_at(addr).name
+        if sec == "__literal16":
+            literal = obj.by_name[sec]
+            if literal.nreloc or (addr - literal.addr) % 16 or addr + 16 > literal.addr + literal.size:
+                raise ValueError("unsupported partial or relocated 16-byte literal")
+            offset = obj.file_offset(addr)
+            value = obj.data[offset:offset + 16]
+            locations = []
+            for section in self.sections:
+                if section.segment != "__TEXT" or section.name not in ("__const", "__literal16"):
+                    continue
+                data = self.data[section.offset:section.offset + section.size]
+                pos = data.find(value)
+                while pos >= 0:
+                    if (section.addr + pos) % 4 == 0:
+                        locations.append(section.addr + pos)
+                    pos = data.find(value, pos + 1)
+            if len(locations) != 1:
+                raise ValueError("unmapped or ambiguous 16-byte literal")
+            return locations[0]
         if sec == "__const" and obj.external.get(addr) == "__NSConcreteGlobalBlock":
             # Captureless global blocks have a 20-byte header on 32-bit iOS.
             # Match the independently placed invoke function and descriptor
@@ -316,9 +401,13 @@ class Reference(Layout):
                 raise ValueError("missing or ambiguous linked global block")
             return found[0]
         if sec == "__const" and any(n.startswith("___block_descriptor_") for n in obj.defined[addr]):
-            # Clang's extended descriptor for a block capturing one object.
-            # The parent's full-body comparison also checks the block flags.
-            if obj.read(addr) != 0 or obj.read(addr + 4) != 24 or obj.read(addr + 20) != 0x100:
+            # Clang encodes up to 15 strong, byref and weak captures apiece
+            # in three nibbles. Larger layouts use a separate layout string.
+            size = obj.read(addr + 4)
+            layout = obj.read(addr + 20)
+            captures = (layout >> 8) + ((layout >> 4) & 15) + (layout & 15)
+            if (obj.read(addr) != 0 or not 0 < layout < 0x1000 or
+                    size < 20 + 4 * captures):
                 raise ValueError("unsupported captured block descriptor")
             helpers = []
             for offset in (8, 12):
@@ -328,24 +417,15 @@ class Reference(Layout):
             section = self.by_name["__const"]
             found = []
             for p in range(section.addr, section.addr + section.size - 23, 4):
-                if (self.read(p) == 0 and self.read(p + 4) == 24 and
+                if (self.read(p) == 0 and self.read(p + 4) == size and
                         self.read(p + 8) == helpers[0] and self.read(p + 12) == helpers[1] and
-                        self.read(p + 20) == 0x100 and self.string(self.read(p + 16)) == signature):
+                        self.read(p + 20) == layout and self.string(self.read(p + 16)) == signature):
                     found.append(p)
             if len(found) != 1:
                 raise ValueError("missing or ambiguous captured block descriptor")
             return found[0]
         if sec == "__gcc_except_tab":
-            # SJLJ records can be identical for different methods. Place the
-            # entire object's exception table together and require uniqueness.
-            section = obj.by_name[sec]
-            linked = self.by_name[sec]
-            records = obj.data[section.offset:section.offset + section.size]
-            original = self.data[linked.offset:linked.offset + linked.size]
-            start = original.find(records)
-            if section.nreloc or start < 0 or original.find(records, start + 1) >= 0:
-                raise ValueError("unmapped or ambiguous exception tables")
-            return linked.addr + start + addr - section.addr
+            return self.exception_target(obj, addr, function_start)
         if sec == "__text":
             candidates = [(kind, symbol) for symbol in obj.defined[addr]
                           for kind in ("arm", "thumb") if (kind, symbol) in self.targets]
@@ -358,6 +438,17 @@ class Reference(Layout):
             return self.string_literal(obj.data[pos:obj.data.index(b"\0", pos)])
         if sec == "__objc_selrefs":
             return self.unique((sec, obj.string(obj.read(addr))))
+        if sec == "__objc_protorefs":
+            protocol = obj.read(addr)
+            if "__objc_protolist" in obj.by_name:
+                entries = obj.pointers("__objc_protolist")
+                symbol = obj.external.get(addr)
+                if symbol and not protocol and symbol.startswith("l_OBJC_PROTOCOL_$_"):
+                    if any(obj.external.get(p) == symbol and not obj.read(p) for p in entries):
+                        return self.unique((sec, symbol.split("$_", 1)[1]))
+                elif not symbol and protocol and any(obj.read(p) == protocol for p in entries):
+                    return self.unique((sec, obj.string(obj.read(protocol + 4))))
+            raise ValueError("unmapped Objective-C protocol reference")
         if sec in ("__objc_classrefs", "__objc_superrefs"):
             name = obj.external.get(addr)
             if not name:
@@ -378,7 +469,7 @@ class Reference(Layout):
 reference_layout = functools.lru_cache(maxsize=2)(Reference)
 
 
-def apply_difference(buf, offset, flags, desc, pair, slide, start, end, obj, ref):
+def apply_difference(buf, offset, flags, desc, pair, placed_address, start, end, obj, ref):
     if pair is None or not pair[0] >> 31:
         raise ValueError("missing scattered difference anchor")
     anchor = pair[1]
@@ -398,7 +489,8 @@ def apply_difference(buf, offset, flags, desc, pair, slide, start, end, obj, ref
         imm = (insn >> 4 & 0xf000) | (insn & 0xfff)
     other = pair[0] & 0xffff
     before = (imm << 16 | other) if high else (other << 16 | imm)
-    after = before + (ref.target(obj, desc) - desc) - slide
+    anchor_slide = placed_address(anchor) - anchor
+    after = before + (ref.target(obj, desc, start) - desc) - anchor_slide
     half = (after >> 16 if high else after) & 0xffff
     if thumb:
         patched = (insn & ~0x70ff040f) | (half >> 12) | (half & 0x800) >> 1
@@ -455,12 +547,23 @@ def apply_branch(buf, offset, obj_pc, dest_pc, desc, obj, ref):
     struct.pack_into("<HH", buf, offset, a, b)
 
 
-def link_function(obj_data, original_slice, object_start_vm, original_start_vm, length):
-    obj = object_layout(obj_data)
-    ref = reference_layout(original_slice)
+def link_function(obj_data, original_slice, object_start_vm, original_start_vm, length, *, placed_address=None):
+    return relocate_function(object_layout(obj_data), reference_layout(original_slice),
+                             object_start_vm, original_start_vm, length, placed_address=placed_address)
+
+
+def relocate_function(obj, ref, object_start_vm, original_start_vm, length, *, placed_address=None):
+    """Resolve relocations using the final address of each compiler instruction.
+
+    Return the bytes in input order. A vendor layout pass may expand the input
+    after relocation. A HALF_SECTDIFF is relative to its paired PC anchor,
+    which can move independently of the MOVW or MOVT carrying the difference.
+    """
     pos = obj.file_offset(object_start_vm)
-    buf = bytearray(obj_data[pos:pos+length])
-    slide = original_start_vm - object_start_vm
+    buf = bytearray(obj.data[pos:pos+length])
+    if placed_address is None:
+        def placed_address(pc):
+            return original_start_vm + (pc - object_start_vm)
     end = object_start_vm + length
     relocs = obj.relocations[obj.section_at(object_start_vm).name]
     i = bisect.bisect_left(relocs, (object_start_vm,))
@@ -470,15 +573,16 @@ def link_function(obj_data, original_slice, object_start_vm, original_start_vm, 
         if offset + 4 > length:
             raise ValueError("relocation extends beyond function")
         if flags >> 31 and (flags >> 24 & 15) == 9:
-            apply_difference(buf, offset, flags, desc, pair, slide, object_start_vm, end, obj, ref)
-        elif flags >> 24 == 0xa2:  # ARM_RELOC_SECTDIFF, 32-bit difference
+            apply_difference(buf, offset, flags, desc, pair, placed_address, object_start_vm, end, obj, ref)
+        elif flags >> 24 in (0xa2, 0xa3):  # 32-bit SECTDIFF or LOCAL_SECTDIFF
             if (not pair or not pair[0] >> 31 or not object_start_vm <= pair[1] < end
                     or obj.section_at(desc).name != "__gcc_except_tab"):
                 raise ValueError("unsupported ARM exception-table difference")
-            value = word(buf, offset) + ref.target(obj, desc) - desc - slide
+            anchor_slide = placed_address(pair[1]) - pair[1]
+            value = word(buf, offset) + ref.target(obj, desc, object_start_vm) - desc - anchor_slide
             struct.pack_into("<I", buf, offset, value & 0xffffffff)
         elif not flags >> 31 and (desc >> 24) in (0x6d, 0x65):
-            apply_branch(buf, offset, addr, addr+slide, desc, obj, ref)
+            apply_branch(buf, offset, addr, placed_address(addr), desc, obj, ref)
         elif not flags >> 31 and (desc >> 24) in (0x5d, 0x55):  # ARM BR24
             insn = word(buf, offset)
             if (insn & 0x0e000000) != 0x0a000000 or (insn >> 28) == 15:
@@ -495,7 +599,7 @@ def link_function(obj_data, original_slice, object_start_vm, original_start_vm, 
                     raise ValueError(f"unmapped local ARM branch at {destination:#x}")
                 symbol = names[0]
             target, thumb = branch_target(ref, symbol)
-            delta = target - (addr+slide+8)
+            delta = target - (placed_address(addr) + 8)
             if thumb or delta % 4 or not -(1 << 25) <= delta < (1 << 25):
                 raise ValueError("unsupported ARM branch destination")
             struct.pack_into("<I", buf, offset, (insn & 0xff000000) | ((delta >> 2) & 0xffffff))

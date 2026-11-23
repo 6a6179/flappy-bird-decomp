@@ -1,0 +1,2 @@
+_GetWalkViews	arm	0x6a15c	0x6fbc4	The verified Objective-C bridge walks the key window and stops descending at the supplied view class. The named GetAdVisibility object import passes the CFString created from its class-name parameter.
+_GADReadViewGeometry	arm	0x6d7bc	0x6ca00	GetAdVisibility calls the dictionary decoder before comparing the view's class name. The decoder reads x, y, w, h and ViewName into the 144-byte record.

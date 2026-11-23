@@ -1,0 +1,2 @@
+_gadAvailableAdapters	pointer	0xfd3e8	0xfd3e8	+[GADMAdNetworkAdapter availableAdapterNames] passes this once predicate to dispatch_once and returns the adjacent cached set.
+___45+[GADMAdNetworkAdapter availableAdapterNames]_block_invoke	arm	0x2b7e4	0x2b7ec	The dyld-bound global block passed by +[GADMAdNetworkAdapter availableAdapterNames] has this invoke address. It walks the runtime class list and stores a copy of the matching adapter names.

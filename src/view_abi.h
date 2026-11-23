@@ -3,10 +3,15 @@
 #pragma once
 
 #include "renderer.h"
+#ifdef FLAP_EDITABLE_VIEW
+#import <objc/NSObject.h>
+#else
 typedef signed char BOOL;
+#endif
 typedef struct CGPoint { float x, y; } CGPoint;
 typedef struct CGSize { float width, height; } CGSize;
 typedef struct CGRect { CGPoint origin; CGSize size; } CGRect;
+#ifndef FLAP_EDITABLE_VIEW
 #define nil ((id)0)
 
 __attribute__((objc_root_class))
@@ -19,6 +24,7 @@ __attribute__((objc_root_class))
 - (void)dealloc;
 - (id)copy;
 @end
+#endif
 @class UIViewController, UIWindow, CALayer, NSString, NSRunLoop;
 @class NSError, NSArray, NSDictionary, UIImage, EAGLContext, NSData, NSLock;
 @class NSMutableArray, GADBannerView, ALDevice, ALContext, ALChannelSource, ALBuffer;
@@ -143,8 +149,16 @@ __attribute__((objc_root_class))
 - (void)setUseHardwareIfAvailable:(BOOL)value;
 - (void)setHonorSilentSwitch:(BOOL)value;
 @end
+#ifdef FLAP_EDITABLE_VIEW
+#import "gad_banner_delegate.h"
+@class GKLeaderboardViewController;
+@protocol GKLeaderboardViewControllerDelegate <NSObject>
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController;
+@end
+#else
 @protocol GADBannerViewDelegate @end
 @protocol GKLeaderboardViewControllerDelegate @end
+#endif
 @interface GADRequest : NSObject
 + (id)request;
 - (void)setTestDevices:(NSArray *)devices;

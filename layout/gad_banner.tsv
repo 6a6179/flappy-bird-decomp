@@ -3,28 +3,26 @@ _GADAdSizeEqualToSize	arm	0x59290	0x592bc	Called by setAdSize:andReload: with th
 _CGSizeFromGADAdSize	arm	0x592d4	0x59300	Called by intrinsicContentSize and setFrame: to convert a tagged ad size to CGSize.
 _IsGADAdSizeValid	arm	0x5960c	0x59630	Called by initWithAdSize: before the invalid-size diagnostic. The callee checks the size flags and returns a Boolean.
 _NSStringFromGADAdSize	arm	0x59798	0x597bc	Called in the invalid-size diagnostic in initWithAdSize: and setAdSize:andReload: to format a tagged size.
-_GADTimingPRL	pointer	0xe0d48	0xe0d48	The local nonlazy pointer refers to the NSConstantString pointer for the timing key "prl" used by GADSlot loadAd:headers:.
-_GADTimingPRNL	pointer	0xe0d90	0xe0d90	The local nonlazy pointer refers to the NSConstantString pointer for the timing key "prnl" used by GADSlot loadAd:headers:.
-_GADTimingPTime	pointer	0xe0d64	0xe0d64	The nonlazy entry at 0xe063c points to the NSString pointer initialized with "ptime" for the shared request timer.
-_GADOrientationKey	pointer	0xe12b0	0xe12b0	The NSString pointer initialized with "_orientation" is used as the key that accepts "p" and "l" in loadPrivateRequest:autoRefresh:.
-_GADRequestURLKey	pointer	0xe12ac	0xe12ac	The NSString pointer initialized with "_requestUrl" is read before the NSURL class check in loadPrivateRequest:autoRefresh:.
-_GADActivationOverlayURLKey	pointer	0xe12a4	0xe12a4	The NSString pointer initialized with "_activationOverlayUrl" supplies the optional overlay URL in loadPrivateRequest:autoRefresh:.
-_GADOfflineAdRequestCount	pointer	0xe0d84	0xe0d84	The global NSString pointer initialized with "oar" is incremented for both offline ad request scenarios in loadAdURL:.
-_GADOnlineBufferCount	pointer	0xe0d88	0xe0d88	The global NSString pointer initialized with "bas_on" is incremented for the online buffer scenario in loadAdURL:.
-_GADOfflineBufferCount	pointer	0xe0d8c	0xe0d8c	The global NSString pointer initialized with "bas_off" is incremented for the offline buffer scenario in loadAdURL:.
-_GADParamUnitID	pointer	0xe0cfc	0xe0cfc	The nonlazy slot points to the NSString pointer initialized with "slotname", used as a dictionary key in GADSlot requestParameters.
-_GADParamFormat	pointer	0xe0d00	0xe0d00	The nonlazy slot points to the NSString pointer initialized with "format", used as a dictionary key in GADSlot requestParameters.
-_GADParamSizes	pointer	0xe0d04	0xe0d04	The nonlazy slot points to the NSString pointer initialized with "sz", used as a dictionary key in GADSlot requestParameters.
-_GADParamFrame	pointer	0xe0d08	0xe0d08	The nonlazy slot points to the NSString pointer initialized with "ad_frame", used as a dictionary key in GADSlot requestParameters.
-_GADParamBounds	pointer	0xe0d0c	0xe0d0c	The nonlazy slot points to the NSString pointer initialized with "ad_bounds", used as a dictionary key in GADSlot requestParameters.
-_GADParamSmartWidth	pointer	0xe0ce4	0xe0ce4	The nonlazy slot points to the NSString pointer initialized with "smart_w", used as a dictionary key in GADSlot requestParameters.
-_GADParamSmartHeight	pointer	0xe0ce8	0xe0ce8	The nonlazy slot points to the NSString pointer initialized with "smart_h", used as a dictionary key in GADSlot requestParameters.
-_GADParamRequestID	pointer	0xe0d18	0xe0d18	The nonlazy slot points to the NSString pointer initialized with "request_id", used as a dictionary key in GADSlot requestParameters.
-_GADParamPosition	pointer	0xe0d10	0xe0d10	The nonlazy slot points to the NSString pointer initialized with "ad_pos", used as a dictionary key in GADSlot requestParameters.
-_GADParamSwipeable	pointer	0xe0d1c	0xe0d1c	The nonlazy slot points to the NSString pointer initialized with "swipeable", used as a dictionary key in GADSlot requestParameters.
-_GADParamToolbar	pointer	0xe0cbc	0xe0cbc	The nonlazy slot points to the NSString pointer initialized with "dpt", used as a dictionary key in GADSlot requestParameters.
-_GADParamLoadAndDisplay	pointer	0xe0cb8	0xe0cb8	The nonlazy slot points to the NSString pointer initialized with "cladr", used as a dictionary key in GADSlot requestParameters.
-_GADParamManualImpression	pointer	0xe0d40	0xe0d40	The nonlazy slot points to the NSString pointer initialized with "d_imp_hdr", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterTimeSinceFirstRequest	pointer	0xe0d64	0xe0d64	The nonlazy entry at 0xe063c points to the NSString pointer initialized with "ptime" for the shared request timer.
+_kGADAdMobExtrasKeyOrientation	pointer	0xe12b0	0xe12b0	The NSString pointer initialized with "_orientation" is used as the key that accepts "p" and "l" in loadPrivateRequest:autoRefresh:.
+_kGADAdMobExtrasKeyRequestURL	pointer	0xe12ac	0xe12ac	The NSString pointer initialized with "_requestUrl" is read before the NSURL class check in loadPrivateRequest:autoRefresh:.
+_kGADAdMobExtrasKeyActivationOverlayURL	pointer	0xe12a4	0xe12a4	The NSString pointer initialized with "_activationOverlayUrl" supplies the optional overlay URL in loadPrivateRequest:autoRefresh:.
+_kGADParameterOfflineAdRequestsCount	pointer	0xe0d84	0xe0d84	The global NSString pointer initialized with "oar" is incremented for both offline ad request scenarios in loadAdURL:.
+_kGADParameterBufferedAdsShownOnlineCount	pointer	0xe0d88	0xe0d88	The global NSString pointer initialized with "bas_on" is incremented for the online buffer scenario in loadAdURL:.
+_kGADParameterBufferedAdsShownOfflineCount	pointer	0xe0d8c	0xe0d8c	The global NSString pointer initialized with "bas_off" is incremented for the offline buffer scenario in loadAdURL:.
+_kGADParameterAdSlotID	pointer	0xe0cfc	0xe0cfc	The nonlazy slot points to the NSString pointer initialized with "slotname", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterAdFormat	pointer	0xe0d00	0xe0d00	The nonlazy slot points to the NSString pointer initialized with "format", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterXFPValidAdSizes	pointer	0xe0d04	0xe0d04	The nonlazy slot points to the NSString pointer initialized with "sz", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterAdFrame	pointer	0xe0d08	0xe0d08	The nonlazy slot points to the NSString pointer initialized with "ad_frame", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterAdBounds	pointer	0xe0d0c	0xe0d0c	The nonlazy slot points to the NSString pointer initialized with "ad_bounds", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterSmartWidth	pointer	0xe0ce4	0xe0ce4	The nonlazy slot points to the NSString pointer initialized with "smart_w", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterSmartHeight	pointer	0xe0ce8	0xe0ce8	The nonlazy slot points to the NSString pointer initialized with "smart_h", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterRequestId	pointer	0xe0d18	0xe0d18	The nonlazy slot points to the NSString pointer initialized with "request_id", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterAdPositionData	pointer	0xe0d10	0xe0d10	The nonlazy slot points to the NSString pointer initialized with "ad_pos", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterSwipeable	pointer	0xe0d1c	0xe0d1c	The nonlazy slot points to the NSString pointer initialized with "swipeable", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterDebugPublisherToolbar	pointer	0xe0cbc	0xe0cbc	The nonlazy slot points to the NSString pointer initialized with "dpt", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterCalledLoadAndDisplayRequest	pointer	0xe0cb8	0xe0cb8	The nonlazy slot points to the NSString pointer initialized with "cladr", used as a dictionary key in GADSlot requestParameters.
+_kGADParameterEnableManualImpressions	pointer	0xe0d40	0xe0d40	The nonlazy slot points to the NSString pointer initialized with "d_imp_hdr", used as a dictionary key in GADSlot requestParameters.
 _kGADAdSizeInvalid	pointer	0xdf7a4	0xdf7b4	The first constant in the known size table is (-1, -1, 0), used to initialize the NSValue output in multipleAdSizeParameterFromSizes:.
 _GADAdSizeIsFullWidth	arm	0x59570	0x5959c	Returns flags & 2. requestParameters sets smart_w to "full" on this branch.
 _GADAdSizeIsAutoHeight	arm	0x59604	0x59628	Returns flags & 16. requestParameters sets smart_h to "auto" on this branch.

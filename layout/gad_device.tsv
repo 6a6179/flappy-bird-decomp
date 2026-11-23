@@ -1,0 +1,23 @@
+_kGADParameterApplicationName	pointer	0xe0cb4	0xe0cb4	The named SDK constant points to the NSString "app_name".
+_kGADParameterAudioOutput	pointer	0xe0cd8	0xe0cd8	The named SDK constant points to the NSString "u_audio".
+_kGADParameterBaseSdkVersion	pointer	0xe0cb0	0xe0cb0	The named SDK constant points to the NSString "ios_base_sdk".
+_kGADParameterCapabilitiesBookstore	pointer	0xe0cf4	0xe0cf4	The named SDK constant points to the NSString "cap_bs".
+_kGADParameterDeviceModel	pointer	0xe0ccc	0xe0ccc	The named SDK constant points to the NSString "platform".
+_kGADParameterDeviceSubmodel	pointer	0xe0cd0	0xe0cd0	The named SDK constant points to the NSString "submodel".
+_kGADParameterJailbroken	pointer	0xe0cc4	0xe0cc4	The named SDK constant points to the NSString "ios_jb".
+_kGADParameterLocale	pointer	0xe0cd4	0xe0cd4	The named SDK constant points to the NSString "hl".
+_kGADParameterScreenDensity	pointer	0xe0ce0	0xe0ce0	The named SDK constant points to the NSString "u_sd".
+_kGADParameterScreenHeight	pointer	0xe0cf0	0xe0cf0	The named SDK constant points to the NSString "u_h".
+_kGADParameterScreenOrientation	pointer	0xe0cdc	0xe0cdc	The named SDK constant points to the NSString "u_so".
+_kGADParameterScreenWidth	pointer	0xe0cec	0xe0cec	The named SDK constant points to the NSString "u_w".
+_kGADParameteriOSRadio	pointer	0xe0cf8	0xe0cf8	The named SDK constant points to the NSString "ios_radio".
+_kGADParameteriPadCompatibilityMode	pointer	0xe0ca8	0xe0ca8	The named SDK constant points to the NSString "ios_ipadc".
+_kGADParameteriTunesMetadata	pointer	0xe0cac	0xe0cac	The named SDK constant points to the NSString "ios_metadata".
+GADDevice::__MergedGlobals	pointer	0xfd430	0xfd430	Shared cache used by five dispatch_once accessors. The jailbreak block stores its Boolean at the base. The other four blocks write the adjacent singleton or retained string slots.
+___26+[GADDevice currentDevice]_block_invoke	arm	0x2feb0	0x2feb0	The currentDevice stack block points to this function.
+GADDevice::___copy_helper_block_	arm	0x2fef0	0x2fef0	The currentDevice block descriptor copy helper points to this function.
+GADDevice::___destroy_helper_block_	arm	0x2ff0c	0x2ff0c	The currentDevice block descriptor dispose helper points to this function.
+___27-[GADDevice baseSdkVersion]_block_invoke	arm	0x30808	0x30808	The baseSdkVersion global block points to this function.
+___25-[GADDevice isJailbroken]_block_invoke	arm	0x30ea0	0x30ea0	The isJailbroken global block points to this function.
+___27-[GADDevice deviceSubmodel]_block_invoke	arm	0x31388	0x31388	The deviceSubmodel global block points to this function.
+___19-[GADDevice locale]_block_invoke	arm	0x31458	0x31458	The locale global block points to this function.

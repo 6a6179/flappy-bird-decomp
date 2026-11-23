@@ -1,0 +1,7 @@
+# ARM outline placements from the local branches and symbols in the SDK rc4.o.
+armv7	0xbee04	src/gad_gesture_rc4.c	_set_crypt_key	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x8:0xbf560:12:0xbf560
+armv7	0xbefd0	src/gad_gesture_rc4.c	_gethex	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x8:0xbf58c
+armv7	0xbf178	src/gad_gesture_rc4.c	_do_rc4	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x280:0xbf558,0x3cc:0xbf550
+armv7s	0xc1030	src/gad_gesture_rc4.c	_set_crypt_key	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x8:0xc178c:12:0xc178c
+armv7s	0xc11fc	src/gad_gesture_rc4.c	_gethex	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x8:0xc17b8
+armv7s	0xc13a4	src/gad_gesture_rc4.c	_do_rc4	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a9	apple500	0x280:0xc1784,0x3cc:0xc177c

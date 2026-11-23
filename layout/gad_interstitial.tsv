@@ -1,0 +1,2 @@
+_kGADWebViewDelegateDidReceiveWebAction	pointer	0xe13b4	0xe13b4	GADWebViewDelegate.o initializes this named notification string pointer with @"didReceiveWebAction". Each executable has one __DATA,__const pointer to that NSString.
+_GADStringArrayToURLArray	arm	0x33668	0x33664	GADMacros.o defines this helper, which iterates the array and builds URLs from its string entries. It matches the standalone GADStringArrayToURLArray implementation at these addresses on both slices.

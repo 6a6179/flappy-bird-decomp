@@ -1,0 +1,12 @@
+armv7	0x5d068	360	src/gad_activation.m	-[GADActivationView initWithFrame:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x5d280	1168	src/gad_activation.m	-[GADActivationViewDelegate webView:shouldStartLoadWithRequest:navigationType:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple502
+armv7	0x5d710	164	src/gad_activation.m	-[GADActivationViewDelegate setActivationOverlayFrameOnNextRunLoop:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x5d7b4	96	src/gad_activation.m	___68-[GADActivationViewDelegate setActivationOverlayFrameOnNextRunLoop:]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x5d814	28	src/gad_activation.m	___copy_helper_block_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7	0x5d830	24	src/gad_activation.m	___destroy_helper_block_	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d098	368	src/gad_activation.m	-[GADActivationView initWithFrame:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d2b8	1152	src/gad_activation.m	-[GADActivationViewDelegate webView:shouldStartLoadWithRequest:navigationType:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d738	164	src/gad_activation.m	-[GADActivationViewDelegate setActivationOverlayFrameOnNextRunLoop:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d7dc	96	src/gad_activation.m	___68-[GADActivationViewDelegate setActivationOverlayFrameOnNextRunLoop:]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d83c	28	src/gad_activation.m	___copy_helper_block_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
+armv7s	0x5d858	24	src/gad_activation.m	___destroy_helper_block_	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500

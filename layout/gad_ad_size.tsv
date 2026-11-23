@@ -1,0 +1,15 @@
+_GADAdSizeFromCGSize.nonSmartStandardSizes	pointer	0xe12b8	0xe12b8	The six consecutive pointers in __DATA,__const reference the invalid size followed by all five fixed-size records, in the same order as the SDK table.
+_GADAdSizeIsStandard	arm	0x5963c	0x59660	IsGADAdSizeValid calls this predicate when the custom-size bit is clear. The corresponding SDK relocation names GADAdSizeIsStandard.
+_GADAdSizeIsStandardFixed	arm	0x59e94	0x59eb8	GADAdSizeIsStandard calls this predicate before comparing the four smart banner records. The pinned GADAdSize.o identifies the callee.
+_CGSizeFromGADAdSizeSmartBanner	arm	0x59578	0x595a4	CGSizeFromGADAdSize passes the device idiom and screen dimensions to this helper in its full-width branch. The pinned SDK object names the same call.
+_kGADAdSizeBanner	pointer	0xdf7b0	0xdf7c0	The 320 by 50 size record with flags 0 occupies slot 1 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeMediumRectangle	pointer	0xdf7bc	0xdf7cc	The 300 by 250 size record with flags 0 occupies slot 2 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeFullBanner	pointer	0xdf7c8	0xdf7d8	The 468 by 60 size record with flags 0 occupies slot 3 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeLeaderboard	pointer	0xdf7d4	0xdf7e4	The 728 by 90 size record with flags 0 occupies slot 4 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeSkyscraper	pointer	0xdf7e0	0xdf7f0	The 120 by 600 size record with flags 0 occupies slot 5 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeSmartBannerPortrait	pointer	0xdf7ec	0xdf7fc	The 0 by 0 size record with flags 18 occupies slot 6 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeSmartBannerLandscape	pointer	0xdf7f8	0xdf808	The 0 by 0 size record with flags 26 occupies slot 7 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeSmartBannerSkinnyPortrait	pointer	0xdf804	0xdf814	The 0 by 0 size record with flags 22 occupies slot 8 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_kGADAdSizeSmartBannerSkinnyLandscape	pointer	0xdf810	0xdf820	The 0 by 0 size record with flags 30 occupies slot 9 after kGADAdSizeInvalid in the constant table, as in the pinned SDK object.
+_gadSizeNames	pointer	0xfd4f0	0xfd4f0	The NSStringFromGADAdSize initialization block stores the array of size/name pairs here. Its adjacent dispatch_once predicate occupies the next word.
+___NSStringFromGADAdSize_block_invoke	arm	0x59a34	0x59a58	The dyld-bound global block passed by NSStringFromGADAdSize has this invoke pointer. It builds an array of ten NSValue pointers paired with the size names.

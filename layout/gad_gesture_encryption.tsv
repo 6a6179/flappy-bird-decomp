@@ -1,0 +1,4 @@
+_monitoringProperty	pointer	0xfa4a0	0xfa4a0	The SDK's battery monitoring setter decodes this writable string pointer immediately after the UIDevice class and supplies the result to class_getProperty.
+_GADGestureHasProperty	arm	0x6c3e8	0x6b62c	The local function following SetBatteryMonitoringStatus uses objc_lookUpClass and class_getProperty. Both slices match its compiled C body.
+_GADEncodeOversizeSignal	arm	0x6e22c	0x6d470	Both oversize branches in GetEncryptedData call this function. The matched callee writes a one to field 20 and encrypts that short replacement message.
+_GADTransformSignalBlock	arm	0x6e2bc	0x6d500	GetEncryptedData calls this function with the complete input and output blocks. It checks both pointers and then calls the named bit-sliced transform.

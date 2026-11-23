@@ -1,0 +1,9 @@
+# Outlined instructions and continuations follow the local labels in SimpleWireFormat.o.
+armv7	0x6f428	src/gad_simple_wire_format.c	_SimpleWireFormatMakeBuffer	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0x6fb2c:12:0x6fb2c
+armv7	0x6f9e0	src/gad_simple_wire_format.c	_SimpleWireFormatWriteRaw	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0x6fb58
+armv7	0x6f4f8	src/gad_simple_wire_format.c	_SimpleWireFormatWriteVarint32	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x154:0x6fb60
+armv7	0x6f75c	src/gad_simple_wire_format.c	_SimpleWireFormatWriteVarint64	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x24c:0x6fb24
+armv7s	0x71654	src/gad_simple_wire_format.c	_SimpleWireFormatMakeBuffer	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0x71d58:12:0x71d58
+armv7s	0x71c0c	src/gad_simple_wire_format.c	_SimpleWireFormatWriteRaw	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0x71d84
+armv7s	0x71724	src/gad_simple_wire_format.c	_SimpleWireFormatWriteVarint32	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x154:0x71d8c
+armv7s	0x71988	src/gad_simple_wire_format.c	_SimpleWireFormatWriteVarint64	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x24c:0x71d50

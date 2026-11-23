@@ -24,7 +24,7 @@
         [self setTimeLastLoaded:[GADTiming counter]];
     }
     if (_state == 5)
-        [[self slotStats] endTimingNamed:GADTimingPRNL];
+        [[self slotStats] endTimingNamed:kGADParameterPriorRequestNetworkLatency];
 }
 
 @end

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the Google Mobile Ads 6.8.0 static library for the editable iOS build."""
+"""Fetch the original Google Mobile Ads 6.8.0 archive for optional historical comparisons."""
 import argparse
 from pathlib import Path
 import shutil

@@ -1,0 +1,2 @@
+_kGADErrorDomain	pointer	0xe0b98	0xe0b98	The SDK's GADRequestError object defines this constant as an NSString pointer to "com.google.ads". Each executable has exactly one __DATA,__const pointer to that constant string.
+_objectToInteger	arm	0x4bf40	0x4bf70	The SDK's GADMConfig object names the helper called for refresh, ad_network_timeout_millis and ad_transition_anim. The calls in parseSettingsConfig:error: lead to a helper that checks respondsToSelector:integerValue and writes the converted value through its second argument.

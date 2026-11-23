@@ -1,0 +1,18 @@
+armv7	0x69ef0	264	src/gad_gesture_util.m	_CFStringToCString	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x69ff8	16	src/gad_gesture_util.m	_GetHintTrace	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6a008	128	src/gad_gesture_util.m	_IsReachable	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6a088	212	src/gad_gesture_util.m	+[GADGestureUtil reachability:]	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6a15c	96	src/gad_gesture_util.m	_GetWalkViews	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6a1bc	628	src/gad_gesture_util.m	+[GADGestureUtil viewInheritenceHierarchy:maxSize:]	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6a430	1672	src/gad_gesture_util.m	_DumpViews	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6aab8	224	src/gad_gesture_util.m	+[GADGestureUtil walkViews:]	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7	0x6ab98	296	src/gad_gesture_util.m	_GetWebSafeEncode	-marm -O0 -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6f958	264	src/gad_gesture_util.m	_CFStringToCString	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6fa60	16	src/gad_gesture_util.m	_GetHintTrace	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6fa70	128	src/gad_gesture_util.m	_IsReachable	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6faf0	212	src/gad_gesture_util.m	+[GADGestureUtil reachability:]	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6fbc4	96	src/gad_gesture_util.m	_GetWalkViews	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6fc24	628	src/gad_gesture_util.m	+[GADGestureUtil viewInheritenceHierarchy:maxSize:]	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x6fe98	1672	src/gad_gesture_util.m	_DumpViews	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x70520	224	src/gad_gesture_util.m	+[GADGestureUtil walkViews:]	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500
+armv7s	0x70600	296	src/gad_gesture_util.m	_GetWebSafeEncode	-marm -O0 -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted	apple500

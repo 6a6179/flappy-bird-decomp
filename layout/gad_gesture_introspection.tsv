@@ -1,0 +1,3 @@
+_GADCompareImageRanges	arm	0x6bfd8	0x6b21c	FindSwizzling supplies this comparator to qsort, with twelve bytes per image record. Both slice entries compare the difference between the records' start addresses at offset four.
+_GADGestureInstanceImplementation	arm	0x6c08c	0x6b2d0	FindSwizzling calls this helper with the class and selector names from each monitored method. It applies method_getImplementation to the result of GADLookupInstanceMethod.
+_jailbreakPath	pointer	0xfa4cc	0xfa4cc	This writable data word points to the unique encoded path in the SDK's string table. CheckJailBreakStatus decodes it before calling stat.

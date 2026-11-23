@@ -1,0 +1,5 @@
+# The GADGesture.o branches identify each inline dispatch site, stub and alternate destination.
+armv7	0x6c0b8	src/gad_gesture_cfiles.c	_SetBatteryMonitoringStatus	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0x274:0x6f2ac:12:0x6b09c,dispatch:0x2dc:0x6f390:12:0x6f2ac
+armv7	0x6ddb8	src/gad_gesture_cfiles.c	_GetEncryptedData	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0xf8:0x6f2a4:0:0x6f268,dispatch:0x164:0x6f334:12:0x6f268
+armv7s	0x6b2fc	src/gad_gesture_cfiles.c	_SetBatteryMonitoringStatus	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0x274:0x6e4f0:12:0x6a2e0,dispatch:0x2dc:0x6e5d4:12:0x6e4f0
+armv7s	0x6cffc	src/gad_gesture_cfiles.c	_GetEncryptedData	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	dispatch:0xf8:0x6e4e8:0:0x6e4ac,dispatch:0x164:0x6e578:12:0x6e4ac

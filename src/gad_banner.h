@@ -48,10 +48,27 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 @interface GADWebView : UIWebView
 - (void)setAdDebugDialog:(NSString *)dialog;
 - (void)setTouched:(BOOL)touched;
+- (BOOL)touched;
+- (UIViewController *)viewController;
 @end
-@interface GADBannerWebViewDelegate : NSObject <UIWebViewDelegate>
-- (id)initWithSlot:(id)slot;
-- (id)opener;
+@class GADSlot;
+
+@interface GADOpener : NSObject
+- (void)setSlot:(GADSlot *)slot;
+- (void)setDelegate:(id)delegate;
+- (void)setDelegateManager:(id)manager;
+- (void)setViewController:(UIViewController *)controller;
+- (void)setReferringURL:(NSURL *)url;
+- (void)openBrowserToURL:(NSURL *)url supportedOrientations:(int)orientations;
+@end
+@interface GADWebViewDelegate : NSObject <UIWebViewDelegate>
+- (GADOpener *)opener;
+- (void)addGMSGHandler:(id)handler;
+@end
+@interface GADBannerWebViewDelegate : GADWebViewDelegate {
+    GADSlot *_slot;
+}
+- (id)initWithSlot:(GADSlot *)slot;
 @end
 @interface GADMConfig : NSObject
 - (id)initWithAppKey:(NSString *)key configDict:(NSDictionary *)config error:(NSError **)error;
@@ -63,6 +80,7 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 - (void)startTimingNamed:(NSString *)name withExplicitEnd:(BOOL)explicitEnd;
 - (void)setIdentifier:(NSString *)identifier;
 - (void)endTimingNamed:(NSString *)name;
+- (NSURL *)updateStatsAndReturnSpamClickURL:(NSURL *)url;
 @end
 @interface GADMToGADGlue : NSObject
 - (void)setSlot:(id)slot;
@@ -73,7 +91,9 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 + (double)counter;
 - (id)initWithCategory:(NSString *)category;
 @end
-@interface GADDelegateManager : NSObject @end
+@interface GADDelegateManager : NSObject
+- (void)didReceiveAd;
+@end
 @interface GADActivationView : UIWebView @end
 @interface GADActivationViewDelegate : NSObject <UIWebViewDelegate>
 - (void)setSlot:(id)slot;
@@ -97,6 +117,7 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 - (void)executeJavaScriptFileFromURL:(NSString *)url withDelegate:(id)delegate;
 @end
 @interface GADAd : NSObject
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 + (id)adWithDictionary:(NSDictionary *)data;
 - (void)setAdURL:(NSURL *)url;
 - (void)setActivationOverlayURL:(NSURL *)url;
@@ -107,7 +128,9 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 - (NSString *)debugDialog;
 @end
 @interface GADAdInterstitial : GADAd @end
-@interface GADAdBanner : GADAd
+@interface GADAdBanner : GADAd {
+    double _refreshInterval;
+}
 - (GADAdSize)size;
 - (double)refreshInterval;
 @end
@@ -116,31 +139,32 @@ extern NSString *NSStringFromGADAdSize(GADAdSize size);
 - (void)fetchRemainingContentForAd:(GADAd *)ad headers:(NSDictionary *)headers
         delegate:(id)delegate request:(id)request error:(NSError **)error;
 @end
-extern NSString *const GADOfflineBufferCount;
-extern NSString *const GADOnlineBufferCount;
-extern NSString *const GADOfflineAdRequestCount;
-extern NSString *const GADTimingPRL;
-extern NSString *const GADTimingPRNL;
-extern NSString *const GADParamUnitID;
-extern NSString *const GADParamFormat;
-extern NSString *const GADParamSizes;
-extern NSString *const GADParamFrame;
-extern NSString *const GADParamBounds;
-extern NSString *const GADParamSmartWidth;
-extern NSString *const GADParamSmartHeight;
-extern NSString *const GADParamRequestID;
-extern NSString *const GADParamPosition;
-extern NSString *const GADParamSwipeable;
-extern NSString *const GADParamToolbar;
-extern NSString *const GADParamLoadAndDisplay;
-extern NSString *const GADParamManualImpression;
+extern NSString *const kGADParameterBufferedAdsShownOfflineCount;
+extern NSString *const kGADParameterBufferedAdsShownOnlineCount;
+extern NSString *const kGADParameterOfflineAdRequestsCount;
+extern NSString *const kGADParameterPriorRequestLatency;
+extern NSString *const kGADParameterPriorPreClickLatency;
+extern NSString *const kGADParameterPriorRequestNetworkLatency;
+extern NSString *const kGADParameterAdSlotID;
+extern NSString *const kGADParameterAdFormat;
+extern NSString *const kGADParameterXFPValidAdSizes;
+extern NSString *const kGADParameterAdFrame;
+extern NSString *const kGADParameterAdBounds;
+extern NSString *const kGADParameterSmartWidth;
+extern NSString *const kGADParameterSmartHeight;
+extern NSString *const kGADParameterRequestId;
+extern NSString *const kGADParameterAdPositionData;
+extern NSString *const kGADParameterSwipeable;
+extern NSString *const kGADParameterDebugPublisherToolbar;
+extern NSString *const kGADParameterCalledLoadAndDisplayRequest;
+extern NSString *const kGADParameterEnableManualImpressions;
 extern const GADAdSize kGADAdSizeInvalid;
 extern BOOL GADAdSizeIsFullWidth(GADAdSize size);
 extern BOOL GADAdSizeIsAutoHeight(GADAdSize size);
-extern NSString *const GADTimingPTime;
-extern NSString *const GADOrientationKey;
-extern NSString *const GADRequestURLKey;
-extern NSString *const GADActivationOverlayURLKey;
+extern NSString *const kGADParameterTimeSinceFirstRequest;
+extern NSString *const kGADAdMobExtrasKeyOrientation;
+extern NSString *const kGADAdMobExtrasKeyRequestURL;
+extern NSString *const kGADAdMobExtrasKeyActivationOverlayURL;
 
 @class GADBannerView;
 @interface GADSlot : NSObject {
@@ -189,6 +213,8 @@ extern NSString *const GADActivationOverlayURLKey;
 - (void)notifyAdRequestHasStarted;
 - (void)notifyAdRequestHasCompleted;
 - (void)setTimeLastLoaded:(double)time;
+- (double)timeLastLoaded;
+- (int)supportedOrientations;
 - (void)setReloadInterval:(double)interval;
 - (double)reloadInterval;
 - (GADWebView *)webView;

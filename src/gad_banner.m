@@ -462,8 +462,8 @@ static inline void reportInvalidSize(GADAdSize size)
 - (void)loadAd:(GADAd *)ad headers:(NSDictionary *)headers
 {
     [self resetRequestState];
-    [_slotStats startTimingNamed:GADTimingPRL withExplicitEnd:YES];
-    [_slotStats startTimingNamed:GADTimingPRNL withExplicitEnd:YES];
+    [_slotStats startTimingNamed:kGADParameterPriorRequestLatency withExplicitEnd:YES];
+    [_slotStats startTimingNamed:kGADParameterPriorRequestNetworkLatency withExplicitEnd:YES];
     [self addClickTrackingURLs:[ad clickURLs]];
     [self addTrackingURLs:[ad impressionURLs]];
     [self addManualTrackingURLs:[ad manualImpressionURLs]];
@@ -547,13 +547,13 @@ static inline void reportInvalidSize(GADAdSize size)
     [self setRequestPrivate:request];
     _hasAutoRefreshed = refresh;
     GADSharedStatistics *statistics = [GADSharedStatistics sharedInstance];
-    if (![statistics timingNamed:GADTimingPTime])
-        [statistics startTimingNamed:GADTimingPTime withExplicitEnd:NO];
+    if (![statistics timingNamed:kGADParameterTimeSinceFirstRequest])
+        [statistics startTimingNamed:kGADParameterTimeSinceFirstRequest withExplicitEnd:NO];
     [statistics incrementAdRequestCount];
     [self setState:2];
 
     NSDictionary *extras = [[self requestPrivate] networkExtrasAdditionalParameters];
-    NSString *orientation = [extras objectForKey:GADOrientationKey];
+    NSString *orientation = [extras objectForKey:kGADAdMobExtrasKeyOrientation];
     if ([orientation isKindOfClass:[NSString class]]) {
         if ([orientation isEqualToString:@"p"])
             [self setSupportedOrientations:2];
@@ -573,12 +573,12 @@ static inline void reportInvalidSize(GADAdSize size)
 
     NSURL *url = nil;
     NSURL *overlay = nil;
-    id provided = [extras objectForKey:GADRequestURLKey];
+    id provided = [extras objectForKey:kGADAdMobExtrasKeyRequestURL];
     if (provided && [provided isKindOfClass:[NSURL class]]) {
         [GADMRAIDInterceptor allow];
         url = provided;
     }
-    provided = [extras objectForKey:GADActivationOverlayURLKey];
+    provided = [extras objectForKey:kGADAdMobExtrasKeyActivationOverlayURL];
     if (provided && [provided isKindOfClass:[NSURL class]])
         overlay = provided;
     if (url)
@@ -644,16 +644,16 @@ static inline void reportInvalidSize(GADAdSize size)
     GADSharedStatistics *statistics = [GADSharedStatistics sharedInstance];
     NSString *scenario = [[notification userInfo] objectForKey:@"request_scenario"];
     if ([scenario isEqualToString:@"offline_empty"]) {
-        [statistics incrementParameterCount:GADOfflineAdRequestCount];
+        [statistics incrementParameterCount:kGADParameterOfflineAdRequestsCount];
     } else if ([scenario isEqualToString:@"offline_buffer"]) {
-        [statistics incrementParameterCount:GADOfflineBufferCount];
-        [statistics incrementParameterCount:GADOfflineAdRequestCount];
+        [statistics incrementParameterCount:kGADParameterBufferedAdsShownOfflineCount];
+        [statistics incrementParameterCount:kGADParameterOfflineAdRequestsCount];
     } else if ([scenario isEqualToString:@"online_buffer"]) {
-        [statistics incrementParameterCount:GADOnlineBufferCount];
+        [statistics incrementParameterCount:kGADParameterBufferedAdsShownOnlineCount];
     } else if ([scenario isEqualToString:@"online_request"]) {
-        [statistics resetParameterCount:GADOfflineAdRequestCount];
-        [statistics resetParameterCount:GADOnlineBufferCount];
-        [statistics resetParameterCount:GADOfflineBufferCount];
+        [statistics resetParameterCount:kGADParameterOfflineAdRequestsCount];
+        [statistics resetParameterCount:kGADParameterBufferedAdsShownOnlineCount];
+        [statistics resetParameterCount:kGADParameterBufferedAdsShownOfflineCount];
     }
 
     NSString *overlayString = [[notification userInfo] objectForKey:@"activation_overlay_url"];
@@ -661,8 +661,8 @@ static inline void reportInvalidSize(GADAdSize size)
     [self setState:4];
     NSString *urlString = [[notification userInfo] objectForKey:@"url"];
     NSURL *url = [NSURL URLWithString:urlString];
-    [[self slotStats] startTimingNamed:GADTimingPRL withExplicitEnd:YES];
-    [[self slotStats] startTimingNamed:GADTimingPRNL withExplicitEnd:YES];
+    [[self slotStats] startTimingNamed:kGADParameterPriorRequestLatency withExplicitEnd:YES];
+    [[self slotStats] startTimingNamed:kGADParameterPriorRequestNetworkLatency withExplicitEnd:YES];
     [self loadAdHTMLFromURL:url usingActivationOverlayURL:overlay];
 }
 
@@ -716,50 +716,50 @@ static inline void reportInvalidSize(GADAdSize size)
     NSMutableDictionary *parameters = [self requestPrivate] ? [[self requestPrivate] parameters] :
                                                               [NSMutableDictionary dictionary];
     if ([[self adUnitID] length])
-        [parameters setObject:[self adUnitID] forKey:GADParamUnitID];
+        [parameters setObject:[self adUnitID] forKey:kGADParameterAdSlotID];
     if ([[self adType] isInterstitial]) {
-        [parameters setObject:@"interstitial_mb" forKey:GADParamFormat];
+        [parameters setObject:@"interstitial_mb" forKey:kGADParameterAdFormat];
     } else {
         if ([[self adView] respondsToSelector:@selector(validAdSizes)]) {
             NSArray *sizes = [[self adView] performSelector:@selector(validAdSizes)];
             NSString *dimensions = [self multipleAdSizeParameterFromSizes:sizes];
             if ([dimensions length])
-                [parameters setObject:dimensions forKey:GADParamSizes];
+                [parameters setObject:dimensions forKey:kGADParameterXFPValidAdSizes];
         }
         CGRect rect = [self adView] ? [[self adView] frame] : [[self webView] frame];
         NSDictionary *frame = [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithFloat:rect.origin.x], @"x", [NSNumber numberWithFloat:rect.origin.y], @"y",
             [NSNumber numberWithFloat:rect.size.width], @"w", [NSNumber numberWithFloat:rect.size.height], @"h", nil];
-        [parameters setObject:frame forKey:GADParamFrame];
+        [parameters setObject:frame forKey:kGADParameterAdFrame];
         rect = [self adView] ? [[self adView] bounds] : [[self webView] bounds];
         NSDictionary *bounds = [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithFloat:rect.origin.x], @"x", [NSNumber numberWithFloat:rect.origin.y], @"y",
             [NSNumber numberWithFloat:rect.size.width], @"w", [NSNumber numberWithFloat:rect.size.height], @"h", nil];
-        [parameters setObject:bounds forKey:GADParamBounds];
+        [parameters setObject:bounds forKey:kGADParameterAdBounds];
     }
     if (GADAdSizeIsFullWidth([[self adType] adSize])) {
-        [parameters setObject:@"full" forKey:GADParamSmartWidth];
+        [parameters setObject:@"full" forKey:kGADParameterSmartWidth];
         if (GADAdSizeIsAutoHeight([[self adType] adSize]))
-            [parameters setObject:@"auto" forKey:GADParamSmartHeight];
+            [parameters setObject:@"auto" forKey:kGADParameterSmartHeight];
     }
     if ([self requestId])
-        [parameters setObject:[self requestId] forKey:GADParamRequestID];
+        [parameters setObject:[self requestId] forKey:kGADParameterRequestId];
     if ([self adView]) {
         id position = [GADViewUtilities positionOf:[self adView] in:[UIScreen mainScreen]];
         if (position)
-            [parameters setObject:position forKey:GADParamPosition];
+            [parameters setObject:position forKey:kGADParameterAdPositionData];
     }
     if ([[self adView] isKindOfClass:[DFPSwipeableBannerView class]])
-        [parameters setObject:@"1" forKey:GADParamSwipeable];
+        [parameters setObject:@"1" forKey:kGADParameterSwipeable];
     [parameters addEntriesFromDictionary:[[self slotStats] parameters]];
     if ([GADPublisherToolbarCredentials hasToolbarCredentials])
-        [parameters setObject:@"1" forKey:GADParamToolbar];
+        [parameters setObject:@"1" forKey:kGADParameterDebugPublisherToolbar];
     if ([self calledLoadAndDisplayRequest]) {
-        [parameters setObject:@"1" forKey:GADParamLoadAndDisplay];
+        [parameters setObject:@"1" forKey:kGADParameterCalledLoadAndDisplayRequest];
         [self setCalledLoadAndDisplayRequest:NO];
     }
     if ([self manualImpressionsEnabled])
-        [parameters setObject:@"1" forKey:GADParamManualImpression];
+        [parameters setObject:@"1" forKey:kGADParameterEnableManualImpressions];
     return parameters;
 }
 
@@ -786,6 +786,156 @@ static inline void reportInvalidSize(GADAdSize size)
 {
     [self setBackgroundColor:[UIColor clearColor]];
     [self setSlot:[[[GADSlot alloc] initSwipeableWithView:self] autorelease]];
+}
+
+@end
+
+@interface GADMAdSizeUtilities : NSObject
+@end
+
+@implementation GADMAdSizeUtilities
+
++ (BOOL)decodeNSValue:(NSValue *)value toGADAdSize:(GADAdSize *)size
+{
+    if (strcmp([value objCType], @encode(GADAdSize)) != 0)
+        return NO;
+    [value getValue:size];
+    return YES;
+}
+
++ (NSValue *)GADAdSize:(NSValue *)first equalToSize:(NSValue *)second
+{
+    GADAdSize firstSize, secondSize;
+    BOOL equal = NO;
+    if ([GADMAdSizeUtilities decodeNSValue:first toGADAdSize:&firstSize] &&
+        [GADMAdSizeUtilities decodeNSValue:second toGADAdSize:&secondSize])
+        equal = GADAdSizeEqualToSize(firstSize, secondSize);
+    return [NSValue value:&equal withObjCType:@encode(BOOL)];
+}
+
++ (NSValue *)CGSizeFromGADAdSize:(NSValue *)value
+{
+    GADAdSize size = kGADAdSizeInvalid;
+    [GADMAdSizeUtilities decodeNSValue:value toGADAdSize:&size];
+    CGSize pixels = CGSizeFromGADAdSize(size);
+    return [NSValue value:&pixels withObjCType:@encode(CGSize)];
+}
+
++ (NSValue *)isGADAdSizeValid:(NSValue *)value
+{
+    GADAdSize size = kGADAdSizeInvalid;
+    [GADMAdSizeUtilities decodeNSValue:value toGADAdSize:&size];
+    BOOL valid = IsGADAdSizeValid(size);
+    return [NSValue value:&valid withObjCType:@encode(BOOL)];
+}
+
++ (NSString *)stringFromGADAdSize:(NSValue *)value
+{
+    GADAdSize size = kGADAdSizeInvalid;
+    [GADMAdSizeUtilities decodeNSValue:value toGADAdSize:&size];
+    return NSStringFromGADAdSize(size);
+}
+
+@end
+
+@implementation GADAdBanner
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super initWithDictionary:dictionary];
+    if (self) {
+        NSNumber *rate = [dictionary objectForKey:@"refresh_rate"];
+        if ([rate isKindOfClass:[NSNumber class]])
+            _refreshInterval = [rate doubleValue];
+    }
+    return self;
+}
+
+@end
+
+@interface GADAppEventGMSGHandler : NSObject
+- (id)initWithSlot:(GADSlot *)slot;
+@end
+
+@implementation GADBannerWebViewDelegate
+
+- (id)initWithSlot:(GADSlot *)slot
+{
+    self = [super init];
+    if (self) {
+        _slot = slot;
+        [[self opener] setSlot:_slot];
+        [self addGMSGHandler:[[[GADAppEventGMSGHandler alloc] initWithSlot:_slot] autorelease]];
+    }
+    return self;
+}
+
+- (BOOL)isClick:(UIWebViewNavigationType)navigationType
+{
+    if ([_slot state] == 6 || [_slot state] == 0 || [_slot state] == 2 ||
+        [_slot state] == 3 || [_slot state] == 4 || [_slot state] == 7) {
+        if ([GADTiming counter] - [_slot timeLastLoaded] >= 0.15 &&
+            navigationType != UIWebViewNavigationTypeBackForward &&
+            navigationType != UIWebViewNavigationTypeReload && [[_slot webView] touched])
+            return YES;
+    }
+    return NO;
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    if (![webView isKindOfClass:[GADWebView class]])
+        return [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    if (![[_slot adType] isInterstitial]) {
+        [[self opener] setDelegateManager:[_slot delegateManager]];
+        [[self opener] setViewController:[(GADWebView *)webView viewController]];
+    }
+    if ([self isClick:navigationType]) {
+        if (![super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType])
+            return NO;
+        [[self opener] setReferringURL:[[webView request] URL]];
+        NSURL *url = [request URL];
+        NSString *scheme = [[url scheme] lowercaseString];
+        url = [[_slot slotStats] updateStatsAndReturnSpamClickURL:url];
+        if ([scheme hasPrefix:@"http"]) {
+            int orientations = [_slot supportedOrientations];
+            [[self opener] openBrowserToURL:url supportedOrientations:orientations];
+        }
+        return NO;
+    }
+    return [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [super webView:webView didFailLoadWithError:error];
+    if ([_slot state] != 6) {
+        [_slot setState:7];
+        id failure = [GADRequestError errorWithCode:2 request:[_slot requestPrivate]];
+        [[_slot delegateManager] didFailToReceiveAdWithError:failure];
+    }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [super webViewDidFinishLoad:webView];
+    if ([_slot state] != 5)
+        return;
+    [_slot setState:6];
+    [webView setHidden:NO];
+    if ([[webView subviews] count]) {
+        UIScrollView *scrollView = [[webView subviews] objectAtIndex:0];
+        if ([scrollView respondsToSelector:@selector(setScrollsToTop:)])
+            [scrollView setScrollsToTop:NO];
+    }
+    if (![[_slot adType] isInterstitial]) {
+        NSArray *urls = [_slot pendingTrackingURLs];
+        [[GADClickTrackerCollection sharedInstance] trackURLs:urls];
+    }
+    [[_slot delegateManager] didReceiveAd];
+    [[_slot slotStats] endTimingNamed:kGADParameterPriorRequestLatency];
+    [[_slot slotStats] startTimingNamed:kGADParameterPriorPreClickLatency withExplicitEnd:YES];
 }
 
 @end

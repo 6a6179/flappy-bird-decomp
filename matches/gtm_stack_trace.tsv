@@ -1,0 +1,10 @@
+armv7	0xbf594	1096	src/library_upstream/GTMStackTrace.m	_GTMGetStackAddressDescriptorsForAddresses	-O0 -marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7	0xbf9dc	860	src/library_upstream/GTMStackTrace.m	_GAD_GTMStackTrace	-O0 -marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7	0xbfd38	1292	src/library_upstream/GTMStackTrace.m	_GTMStackTraceFromAddressDescriptors	-O0 -marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7	0xc0244	408	src/library_upstream/GTMStackTrace.m	_GTMClassDescriptions	-O0 -marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7	0xc03dc	228	src/library_upstream/GTMStackTrace.m	_GTMFreeClassDescriptions	-O0 -marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7s	0x70728	1096	src/library_upstream/GTMStackTrace.m	_GTMGetStackAddressDescriptorsForAddresses	-O0 -marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7s	0x70b70	860	src/library_upstream/GTMStackTrace.m	_GAD_GTMStackTrace	-O0 -marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7s	0x70ecc	1292	src/library_upstream/GTMStackTrace.m	_GTMStackTraceFromAddressDescriptors	-O0 -marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7s	0x713d8	408	src/library_upstream/GTMStackTrace.m	_GTMClassDescriptions	-O0 -marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500
+armv7s	0x71570	228	src/library_upstream/GTMStackTrace.m	_GTMFreeClassDescriptions	-O0 -marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -DGTMStackTrace=GAD_GTMStackTrace	apple500

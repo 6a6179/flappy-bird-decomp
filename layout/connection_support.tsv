@@ -1,0 +1,2 @@
+_gadConnectionFactory	pointer	0xfd4a0	0xfd4a0	+[GADMNSURLConnectionFactory sharedFactory] passes this dispatch_once predicate and returns the factory from the adjacent word. +setSharedFactory: replaces that factory.
+___43+[GADMNSURLConnectionFactory sharedFactory]_block_invoke	arm	0x4b680	0x4b6b0	The dyld-bound global block passed by +[GADMNSURLConnectionFactory sharedFactory] stores this invoke address. It allocates GADMNSURLConnectionFactory and initializes the shared instance.

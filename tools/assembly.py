@@ -94,8 +94,30 @@ def write_mixed_source(image, compiled, listing, source, payload):
             source.write(line)
 
 
+def complete_text(image, compiled):
+    """Join every generated slot, including its padding, and check the section digest."""
+    missing = image.starts.keys() - compiled.keys()
+    extra = compiled.keys() - image.starts.keys()
+    if missing or extra:
+        raise ValueError(f"{image.arch}: incomplete __text layout, missing {sorted(map(hex, missing))}, "
+                         f"unexpected {sorted(map(hex, extra))}")
+    starts = sorted(compiled)
+    if not starts or starts[0] != image.text.addr:
+        raise ValueError(f"{image.arch}: missing start of __text")
+    for address in starts:
+        if len(compiled[address]) != image.ends[address] - address:
+            raise ValueError(f"{image.arch}: incomplete generated slot at {address:#x}")
+    data = b"".join(compiled[address] for address in starts)
+    if len(data) != image.text.size or hashlib.sha256(data).hexdigest() != TEXT_SHA256[image.arch]:
+        raise ValueError(f"{image.arch}: source-generated __text differs from the reference")
+    return data
+
+
 def assemble_mixed(image, compiled, scratch):
-    """Build __text from compiler outputs and the unclaimed assembly statements."""
+    """Build a partial reconstruction and use archived assembly for remaining ranges."""
+    if (compiled.keys() == image.starts.keys() and
+            all(len(body) == image.ends[start] - start for start, body in compiled.items())):
+        return complete_text(image, compiled)
     source = scratch / "mixed.s"
     packed = ROOT / "assembly" / (image.arch + ".s.gz")
     with gzip.open(packed, "rt") as listing, source.open("w") as asm, (scratch / "compiled.bin").open("wb") as bodies:

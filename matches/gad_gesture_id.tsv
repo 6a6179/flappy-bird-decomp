@@ -1,0 +1,26 @@
+armv7	0xc04c0	204	src/gad_gesture_id.m	_ComputeDigest	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc058c	804	src/gad_gesture_id.m	_GetDeviceID	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc08b0	196	src/gad_gesture_id.m	+[GADGestureIdUtil sharedInstance]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc0974	268	src/gad_gesture_id.m	-[GADGestureIdUtil init]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc0a80	196	src/gad_gesture_id.m	-[GADGestureIdUtil dealloc]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc0b44	868	src/gad_gesture_id.m	+[GADGestureIdUtil getOSMajor:minor:bugFix:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc0ea8	272	src/gad_gesture_id.m	+[GADGestureIdUtil isOSAtLeastMajor:minor:bug:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc0fb8	120	src/gad_gesture_id.m	-[GADGestureIdUtil osVersion]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc1030	632	src/gad_gesture_id.m	-[GADGestureIdUtil deviceIdentifier]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc12a8	264	src/gad_gesture_id.m	-[GADGestureIdUtil deviceIdentifierType]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc13b0	272	src/gad_gesture_id.m	-[GADGestureIdUtil deviceOptedOut]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc14c0	48	src/gad_gesture_id.m	-[GADGestureIdUtil userDefaults]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7	0xc14f0	96	src/gad_gesture_id.m	-[GADGestureIdUtil setUserDefaults:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6e66c	204	src/gad_gesture_id.m	_ComputeDigest	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6e738	804	src/gad_gesture_id.m	_GetDeviceID	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6ea5c	196	src/gad_gesture_id.m	+[GADGestureIdUtil sharedInstance]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6eb20	268	src/gad_gesture_id.m	-[GADGestureIdUtil init]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6ec2c	196	src/gad_gesture_id.m	-[GADGestureIdUtil dealloc]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6ecf0	868	src/gad_gesture_id.m	+[GADGestureIdUtil getOSMajor:minor:bugFix:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f054	272	src/gad_gesture_id.m	+[GADGestureIdUtil isOSAtLeastMajor:minor:bug:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f164	120	src/gad_gesture_id.m	-[GADGestureIdUtil osVersion]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f1dc	632	src/gad_gesture_id.m	-[GADGestureIdUtil deviceIdentifier]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f454	264	src/gad_gesture_id.m	-[GADGestureIdUtil deviceIdentifierType]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f55c	272	src/gad_gesture_id.m	-[GADGestureIdUtil deviceOptedOut]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f66c	48	src/gad_gesture_id.m	-[GADGestureIdUtil userDefaults]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500
+armv7s	0x6f69c	96	src/gad_gesture_id.m	-[GADGestureIdUtil setUserDefaults:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500

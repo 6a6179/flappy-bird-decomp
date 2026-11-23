@@ -1,0 +1,18 @@
+GADMRAIDInterceptor::__MergedGlobals	pointer	0xfd4c0	0xfd4c0	The allow/disallow pair reads and sets the first byte. The once predicate, lock, request counter and implementation paths follow in the order used by classLock, the request counter methods and updateImplementationsPaths.
+___32+[GADMRAIDInterceptor classLock]_block_invoke	arm	0x55d8c	0x55db8	The captureless block literal used by classLock has this independent invoke pointer. It allocates the NSLock stored immediately after the once predicate.
+_gad_htg	arm	0x6dcc4	0x6cf08	GADGestureCFiles.o defines this routine which rejects -1 for any of the three values and stores touch X, Y and duration in adjacent globals. Both slices have that behavior at this entry.
+_kGADGMSGHandlerParamWebView	pointer	0xe13c0	0xe13c0	The named archive constant holds @"webView". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionAppEvent	pointer	0xe13c8	0xe13c8	The named archive constant holds @"appEvent". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionCanOpenURLs	pointer	0xe13cc	0xe13cc	The named archive constant holds @"canOpenURLs". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionClose	pointer	0xe13d4	0xe13d4	The named archive constant holds @"close". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionCustomClose	pointer	0xe13d8	0xe13d8	The named archive constant holds @"customClose". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionHTTPTrack	pointer	0xe13dc	0xe13dc	The named archive constant holds @"httpTrack". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionLog	pointer	0xe13e0	0xe13e0	The named archive constant holds @"log". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionTouch	pointer	0xe13e8	0xe13e8	The named archive constant holds @"touch". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLActionVibrate	pointer	0xe13ec	0xe13ec	The named archive constant holds @"vibrate". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamMessage	pointer	0xe13f4	0xe13f4	The named archive constant holds @"string". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamTouchDuration	pointer	0xe13f8	0xe13f8	The named archive constant holds @"td". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamTouchX	pointer	0xe13fc	0xe13fc	The named archive constant holds @"tx". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamTouchY	pointer	0xe1400	0xe1400	The named archive constant holds @"ty". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamURLs	pointer	0xe1404	0xe1404	The named archive constant holds @"urls". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.
+_kGADGMSGURLParamURLsSeperator	pointer	0xe1408	0xe1408	The named archive constant holds @",". Its surrounding run of constant NSString pointers occurs uniquely in __DATA,__const in both slices.

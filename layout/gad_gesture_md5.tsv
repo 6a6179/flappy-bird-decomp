@@ -1,0 +1,8 @@
+_gadMD5Methods	pointer	0xe1414	0xe1418	The MD5 initialization routine stores this table at offset zero of the context. Its five words give the init, update, final, and one-shot hash entry points followed by the 16-byte digest size.
+_GADMD5Transform	arm	0xbea50	0xc0c7c	The update routine calls this compression function when its 64-byte buffer is full. The 64 MD5 rounds and four state accumulators identify the entry in each slice.
+_GADMD5Init	arm	0xbe76c	0xc0998	First function pointer of the MD5 dispatch table. Initializes the four standard MD5 state words and zeroes the byte count.
+_GADMD5Update	arm	0xbe7dc	0xc0a08	Second function pointer of the MD5 dispatch table. Streams bytes into the 64-byte buffer and calls the compression routine on full blocks.
+_GADMD5Final	arm	0xbe898	0xc0ac4	Third function pointer of the MD5 dispatch table. Pads the input and emits the four little-endian digest words.
+_gadMD5Constants	pointer	0xdf838	0xdf844	Each executable has one copy of all 64 little-endian MD5 additive constants. The compression loop indexes this table by round number.
+_gadMD5Shifts	pointer	0xdf938	0xdf944	The complete 64-byte MD5 rotation schedule occurs once in each executable's __TEXT,__const and immediately follows the 64 additive constants.
+_GADMD5Final.zeroPadding	pointer	0xdf834	0xdf840	In gad_md5.o the finalization routine refers to two zero bytes at the beginning of __TEXT,__const. Four-byte alignment places the MD5 round constants at offset four in that same input section. Both executables preserve those adjacent input data and the two zeros.

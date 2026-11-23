@@ -1,4 +1,4 @@
-"""Build a mixed native executable and preserve the remaining reference sections."""
+"""Rebuild the full code section and preserve the remaining reference sections."""
 from hashlib import sha256
 from pathlib import Path
 import os
@@ -23,10 +23,8 @@ def splice_ranges(template, replacements):
 
 
 def rebuilt_executable(ipa, images, compiled, tmp):
-    from admob_objects import linked_sdk_objects
-    from assembly import assemble_mixed
+    from assembly import complete_text
     from game_vtables import linked_vtables
-    from get_admob680 import DEST as admob_library
     from objc_view_data import linked_objc_metadata
 
     with zipfile.ZipFile(ipa) as archive:
@@ -38,13 +36,7 @@ def rebuilt_executable(ipa, images, compiled, tmp):
             raise ValueError("unsupported CPU in universal binary")
         arch = ARCHES[subtype & 0xffffff]
         image = images[arch]
-        source = compiled[arch]
-        vendor = linked_sdk_objects(image, source) if admob_library.is_file() else {}
-        if source.keys() & vendor.keys():
-            raise ValueError("AdMob object functions overlap compiled source")
-        print(f"{arch}: linked {len(vendor)} additional functions from the AdMob library "
-              f"({sum(map(len, vendor.values()))} bytes)")
-        text = assemble_mixed(image, source | vendor, tmp)
+        text = complete_text(image, compiled[arch])
         tables = linked_vtables(image, tmp)
         metadata = linked_objc_metadata(image, tmp)
         print(f"{arch}: linked {len(tables)} game virtual tables ({sum(len(body) for _, body in tables)} bytes)")

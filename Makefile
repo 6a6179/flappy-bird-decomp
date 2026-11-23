@@ -21,6 +21,8 @@ test: .toolchains/emulator/.unicorn-2.1.4
 
 test-editable: editable .toolchains/emulator/.unicorn-2.1.4
 	$(EMULATOR) tools/check_gameplay.py --ipa "$(IPA)" --candidate-ipa "$(EDITABLE)"
+	$(PYTHON) tools/check_editable_admob.py --ipa "$(IPA)" --candidate-ipa "$(EDITABLE)"
+	$(EMULATOR) tools/check_editable_ads_behavior.py --candidate-ipa "$(EDITABLE)"
 
 .toolchains/emulator/.unicorn-2.1.4:
 	$(PYTHON) -m venv .toolchains/emulator
@@ -30,10 +32,10 @@ test-editable: editable .toolchains/emulator/.unicorn-2.1.4
 setup-editable:
 	$(PYTHON) tools/get_apple502.py
 	$(PYTHON) tools/get_ios7_headers.py --full
-	$(PYTHON) tools/get_admob680.py
 
 setup: setup-editable
 	$(PYTHON) tools/get_llvm33.py
+	$(PYTHON) tools/get_apple_clang.py --release 421
 	$(PYTHON) tools/get_apple_clang.py
 	$(PYTHON) tools/get_ios7_headers.py --sdk .toolchains/iPhoneOS7.0.sdk
 

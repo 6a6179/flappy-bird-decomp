@@ -1,0 +1,5 @@
+# Pool-load sites measured in the SDK GADGesture object, expressed in unexpanded compiler coordinates.
+armv7	0x6ad48	src/gad_gesture_cfiles.c	_InitNotifications	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x60,literal:0xe0,literal:0x160
+armv7	0x6f154	src/gad_gesture_cfiles.c	_GADReadSignalString	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x44
+armv7s	0x69f8c	src/gad_gesture_cfiles.c	_InitNotifications	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x60,literal:0xe0,literal:0x160
+armv7s	0x6e398	src/gad_gesture_cfiles.c	_GADReadSignalString	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0 -mcpu=cortex-a8	apple502	literal:0x44

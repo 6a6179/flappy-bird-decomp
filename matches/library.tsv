@@ -135,9 +135,6 @@ armv7	0x2e048	52	src/library_admob_sdk.m	-[GADTimingManager setUserDefaults:]	-m
 armv7	0x2e07c	32	src/library_admob_sdk.m	-[GADTimingManager identifier]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2e09c	20	src/library_admob_sdk.m	-[GADTimingManager transientTimings]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2e0b0	52	src/library_admob_sdk.m	-[GADTimingManager setTransientTimings:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
-armv7	0x2e578	44	src/library_admob.m	+[GADRequestError errorWithCode:request:]	-marm
-armv7	0x2e5a4	32	src/library_admob.m	+[GADRequestError errorWithCode:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x2e5c4	52	src/library_admob.m	+[GADRequestError errorWithCode:customMessage:]	-marm	llvm33
 armv7	0x2e6e0	124	src/library_admob_sdk.m	+[GADNetworkUtilities isMediationURL:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2e75c	60	src/library_admob_sdk.m	+[GADNetworkUtilities isSDKJavaScriptURL:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2e798	60	src/library_admob_sdk.m	+[GADNetworkUtilities isXFPURL:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
@@ -155,137 +152,18 @@ armv7	0x2f3c0	268	src/library_admob_sdk.m	_GADMakeHTTPFormatter	-marm -target ar
 armv7	0x2f4cc	716	src/library_admob_sdk.m	+[GADNetworkUtilities expirationDateFromHeaders:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2f798	456	src/library_admob_sdk.m	+[GADNetworkUtilities createArrayOfURLsfromHeader:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x2f960	140	src/library_admob_sdk.m	+[GADNetworkUtilities getImpressionTicketFromUrlPath:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
-armv7	0x2ffb0	164	src/library_admob.m	-[GADDevice dealloc]	-marm	llvm33
-armv7	0x30fe0	56	src/library_admob.m	-[GADDevice osVersion]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31310	56	src/library_admob.m	-[GADDevice deviceModel]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31ab0	20	src/library_admob.m	-[GADDevice userDefaults]	-marm	llvm33
-armv7	0x31ac4	52	src/library_admob.m	-[GADDevice setUserDefaults:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31af8	20	src/library_admob.m	-[GADDevice telephonyNetworkInfo]	-marm	llvm33
-armv7	0x31b0c	52	src/library_admob.m	-[GADDevice setTelephonyNetworkInfo:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31b40	32	src/library_admob.m	-[GADDevice cachedAdvertisingID]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31b60	60	src/library_admob.m	-[GADDevice setCachedAdvertisingID:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31b9c	32	src/library_admob.m	-[GADDevice cachedMD5AdvertisingID]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x31bbc	60	src/library_admob.m	-[GADDevice setCachedMD5AdvertisingID:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x33b1c	44	src/library_admob.m	-[GADClickTracker trackingURL]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x33b48	84	src/library_admob.m	-[GADClickTracker dealloc]	-marm	llvm33
 armv7	0x34000	20	src/library_admob.m	-[GADClickTracker delegate]	-marm	llvm33
 armv7	0x34014	20	src/library_admob.m	-[GADClickTracker setDelegate:]	-marm	llvm33
 armv7	0x34028	24	src/library_admob.m	-[GADClickTracker hasTracked]	-marm	llvm33
-armv7	0x34040	8	src/library_admob.m	-[GADViewController shouldDismissOnAppClose]	-marm
-armv7	0x34674	8	src/library_admob.m	-[GADViewController prefersStatusBarHidden]	-marm
-armv7	0x346dc	8	src/library_admob.m	-[GADViewController shouldAutorotate]	-marm
-armv7	0x348c8	80	src/library_admob.m	-[GADViewController ensureStatusBarHidden]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x34fdc	20	src/library_admob.m	-[GADViewController supportedOrientations]	-marm
-armv7	0x34ff0	24	src/library_admob.m	-[GADViewController viewDidAppear]	-marm
-armv7	0x35008	20	src/library_admob.m	-[GADViewController setViewDidAppear:]	-marm
-armv7	0x3501c	20	src/library_admob.m	-[GADViewController slot]	-marm
-armv7	0x35030	52	src/library_admob.m	-[GADViewController setSlot:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x35064	24	src/library_admob.m	-[GADViewController statusBarWasHidden]	-marm
-armv7	0x3507c	20	src/library_admob.m	-[GADViewController setStatusBarWasHidden:]	-marm
-armv7	0x35090	24	src/library_admob.m	-[GADViewController publisherIdleTimerDisabled]	-marm
-armv7	0x350a8	20	src/library_admob.m	-[GADViewController setPublisherIdleTimerDisabled:]	-marm
-armv7	0x350bc	24	src/library_admob.m	-[GADViewController appClosing]	-marm
-armv7	0x350d4	20	src/library_admob.m	-[GADViewController setAppClosing:]	-marm
-armv7	0x350e8	24	src/library_admob.m	-[GADViewController interactingWithParent]	-marm
-armv7	0x35100	20	src/library_admob.m	-[GADViewController setInteractingWithParent:]	-marm
-armv7	0x35114	24	src/library_admob.m	-[GADViewController wasPresentedFromViewController]	-marm
-armv7	0x3512c	20	src/library_admob.m	-[GADViewController setWasPresentedFromViewController:]	-marm
-armv7	0x35140	572	src/library_admob.m	-[GADBrowserController dealloc]	-marm	llvm33
-armv7	0x359d4	136	src/library_admob.m	-[GADBrowserController didRotateFromInterfaceOrientation:]	-marm	llvm33
-armv7	0x364b4	32	src/library_admob.m	-[GADBrowserController load:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36684	44	src/library_admob.m	-[GADBrowserController stop]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x366b0	44	src/library_admob.m	-[GADBrowserController reload]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x366dc	252	src/library_admob.m	-[GADBrowserController openInSafari]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x367d8	20	src/library_admob.m	-[GADBrowserController URLToLoad]	-marm
-armv7	0x367ec	52	src/library_admob.m	-[GADBrowserController setURLToLoad:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36820	20	src/library_admob.m	-[GADBrowserController referringURLToLoad]	-marm
-armv7	0x36834	52	src/library_admob.m	-[GADBrowserController setReferringURLToLoad:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36868	20	src/library_admob.m	-[GADBrowserController webViewDelegate]	-marm
-armv7	0x3687c	52	src/library_admob.m	-[GADBrowserController setWebViewDelegate:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x368b0	20	src/library_admob.m	-[GADBrowserController webView]	-marm
-armv7	0x368c4	52	src/library_admob.m	-[GADBrowserController setWebView:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x368f8	20	src/library_admob.m	-[GADBrowserController toolbar]	-marm
-armv7	0x3690c	52	src/library_admob.m	-[GADBrowserController setToolbar:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36940	20	src/library_admob.m	-[GADBrowserController flexibleSpaceButton]	-marm
-armv7	0x36954	52	src/library_admob.m	-[GADBrowserController setFlexibleSpaceButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36988	20	src/library_admob.m	-[GADBrowserController backButton]	-marm
-armv7	0x3699c	52	src/library_admob.m	-[GADBrowserController setBackButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x369d0	20	src/library_admob.m	-[GADBrowserController backButtonDisabled]	-marm
-armv7	0x369e4	52	src/library_admob.m	-[GADBrowserController setBackButtonDisabled:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36a18	20	src/library_admob.m	-[GADBrowserController forwardButton]	-marm
-armv7	0x36a2c	52	src/library_admob.m	-[GADBrowserController setForwardButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36a60	20	src/library_admob.m	-[GADBrowserController forwardButtonDisabled]	-marm
-armv7	0x36a74	52	src/library_admob.m	-[GADBrowserController setForwardButtonDisabled:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36aa8	20	src/library_admob.m	-[GADBrowserController reloadButton]	-marm
-armv7	0x36abc	52	src/library_admob.m	-[GADBrowserController setReloadButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36af0	20	src/library_admob.m	-[GADBrowserController safariButton]	-marm
-armv7	0x36b04	52	src/library_admob.m	-[GADBrowserController setSafariButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36b38	20	src/library_admob.m	-[GADBrowserController doneButton]	-marm
-armv7	0x36b4c	52	src/library_admob.m	-[GADBrowserController setDoneButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36b80	20	src/library_admob.m	-[GADBrowserController spinnerContainingButton]	-marm
-armv7	0x36b94	52	src/library_admob.m	-[GADBrowserController setSpinnerContainingButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x36bc8	20	src/library_admob.m	-[GADBrowserController spinner]	-marm
-armv7	0x36bdc	52	src/library_admob.m	-[GADBrowserController setSpinner:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x36ca8	64	src/library_admob.m	-[GADIntrinsicImages dealloc]	-marm	llvm33
 armv7	0x36ce8	40	src/library_admob.m	-[GADIntrinsicImages currentDevice]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x371e8	60	src/library_admob.m	-[GADWebAppViewController allowFileAccess]	-marm	llvm33
-armv7	0x37224	68	src/library_admob.m	-[GADWebAppViewController setAllowFileAccess:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x374ec	36	src/library_admob.m	-[GADWebAppViewController init]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x37510	32	src/library_admob.m	-[GADWebAppViewController initWithWebView:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x38114	176	src/library_admob.m	-[GADWebAppViewController viewDidAppear:]	-marm	llvm33
-armv7	0x38708	24	src/library_admob.m	-[GADWebAppViewController useCustomClose]	-marm
-armv7	0x38720	20	src/library_admob.m	-[GADWebAppViewController webView]	-marm
-armv7	0x38734	52	src/library_admob.m	-[GADWebAppViewController setWebView:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x38768	24	src/library_admob.m	-[GADWebAppViewController viewHasAppeared]	-marm
-armv7	0x38780	20	src/library_admob.m	-[GADWebAppViewController setViewHasAppeared:]	-marm
-armv7	0x38794	24	src/library_admob.m	-[GADWebAppViewController isExpandable]	-marm
-armv7	0x387ac	20	src/library_admob.m	-[GADWebAppViewController setIsExpandable:]	-marm
-armv7	0x387c0	24	src/library_admob.m	-[GADWebAppViewController isCollapsing]	-marm
-armv7	0x387d8	20	src/library_admob.m	-[GADWebAppViewController setIsCollapsing:]	-marm
-armv7	0x387ec	20	src/library_admob.m	-[GADWebAppViewController bannerScreenshot]	-marm
-armv7	0x38800	52	src/library_admob.m	-[GADWebAppViewController setBannerScreenshot:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x38834	20	src/library_admob.m	-[GADWebAppViewController URLToLoad]	-marm
-armv7	0x38848	52	src/library_admob.m	-[GADWebAppViewController setURLToLoad:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3887c	20	src/library_admob.m	-[GADWebAppViewController HTMLToLoad]	-marm
-armv7	0x38890	52	src/library_admob.m	-[GADWebAppViewController setHTMLToLoad:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x388c4	20	src/library_admob.m	-[GADWebAppViewController HTMLBaseURLToLoad]	-marm
-armv7	0x388d8	52	src/library_admob.m	-[GADWebAppViewController setHTMLBaseURLToLoad:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3890c	20	src/library_admob.m	-[GADWebAppViewController webViewDelegate]	-marm
-armv7	0x38920	52	src/library_admob.m	-[GADWebAppViewController setWebViewDelegate:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x38954	20	src/library_admob.m	-[GADWebAppViewController closeButton]	-marm
-armv7	0x38968	52	src/library_admob.m	-[GADWebAppViewController setCloseButton:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3899c	20	src/library_admob.m	-[GADWebAppViewController interstitial]	-marm
-armv7	0x389b0	20	src/library_admob.m	-[GADWebAppViewController setInterstitial:]	-marm
-armv7	0x389c4	132	src/library_admob.m	-[GADOpener dealloc]	-marm	llvm33
-armv7	0x38a84	68	src/library_admob.m	-[GADOpener didOpenExternalApp]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x38ac8	68	src/library_admob.m	-[GADOpener didOpenInApp]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3a104	20	src/library_admob.m	-[GADOpener delegateManager]	-marm	llvm33
-armv7	0x3a118	52	src/library_admob.m	-[GADOpener setDelegateManager:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3a14c	20	src/library_admob.m	-[GADOpener viewController]	-marm	llvm33
-armv7	0x3a160	20	src/library_admob.m	-[GADOpener setViewController:]	-marm	llvm33
-armv7	0x3a174	20	src/library_admob.m	-[GADOpener referringURL]	-marm	llvm33
-armv7	0x3a188	52	src/library_admob.m	-[GADOpener setReferringURL:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3a1bc	20	src/library_admob.m	-[GADOpener webView]	-marm	llvm33
-armv7	0x3a1d0	20	src/library_admob.m	-[GADOpener setWebView:]	-marm	llvm33
-armv7	0x3a1e4	20	src/library_admob.m	-[GADOpener slot]	-marm	llvm33
-armv7	0x3a1f8	20	src/library_admob.m	-[GADOpener setSlot:]	-marm	llvm33
-armv7	0x3a20c	24	src/library_admob.m	-[GADOpener didOpenAnotherApplication]	-marm	llvm33
-armv7	0x3a224	20	src/library_admob.m	-[GADOpener setDidOpenAnotherApplication:]	-marm	llvm33
-armv7	0x3a238	20	src/library_admob.m	-[GADOpener delegate]	-marm	llvm33
-armv7	0x3a24c	20	src/library_admob.m	-[GADOpener setDelegate:]	-marm	llvm33
 armv7	0x3ab80	24	src/library_admob.m	-[GADWebAppWebViewDelegate pendingOnShow]	-marm	llvm33
 armv7	0x3ab98	20	src/library_admob.m	-[GADWebAppWebViewDelegate webAppViewController]	-marm	llvm33
 armv7	0x3abac	20	src/library_admob.m	-[GADWebAppWebViewDelegate setWebAppViewController:]	-marm	llvm33
 armv7	0x3abc0	24	src/library_admob.m	-[GADWebAppWebViewDelegate calledOnShow]	-marm	llvm33
 armv7	0x3b494	20	src/library_admob.m	-[GADBannerWebViewDelegate slot]	-marm	llvm33
-armv7	0x3b4a8	40	src/library_admob.m	+[GADNotification isNotificationURL:]	-marm	llvm33
-armv7	0x3b76c	80	src/library_admob.m	+[GADNotification notificationFromURL:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3b7bc	132	src/library_admob.m	-[GADNotification dealloc]	-marm	llvm33
-armv7	0x3b8e0	20	src/library_admob.m	-[GADNotification name]	-marm	llvm33
-armv7	0x3b8f4	52	src/library_admob.m	-[GADNotification setName:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3b928	20	src/library_admob.m	-[GADNotification parameters]	-marm	llvm33
-armv7	0x3b93c	52	src/library_admob.m	-[GADNotification setParameters:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x3ba08	116	src/library_admob.m	-[GADNotificationCenter delayedPosting:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x3c9dc	28	src/library_admob.m	-[GADSharedStatistics sequenceNumber]	-marm	llvm33
 armv7	0x3c9f8	24	src/library_admob.m	-[GADSharedStatistics setSequenceNumber:]	-marm	llvm33
 armv7	0x3d024	28	src/library_admob.m	-[GADStatisticsCore synchronize]	-marm -target armv7-apple-ios4.0	llvm33
@@ -399,10 +277,6 @@ armv7	0x42c58	24	src/library_admob.m	-[GADSlot shouldShowActivationOverlay]	-mar
 armv7	0x42c70	20	src/library_admob.m	-[GADSlot setShouldShowActivationOverlay:]	-marm	llvm33
 armv7	0x42c84	20	src/library_admob.m	-[GADSlot adTimer]	-marm	llvm33
 armv7	0x42c98	52	src/library_admob.m	-[GADSlot setAdTimer:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x430a0	100	src/library_admob.m	-[GADApplication dealloc]	-marm	llvm33
-armv7	0x43418	20	src/library_admob.m	-[GADApplication currentSession]	-marm	llvm33
-armv7	0x4342c	52	src/library_admob.m	-[GADApplication setCurrentSession:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x43460	24	src/library_admob.m	-[GADApplication appFinishedLaunching]	-marm	llvm33
 armv7	0x45ce0	20	src/library_admob.m	-[GADDelegateManager bannerDelegate]	-marm	llvm33
 armv7	0x45cf4	20	src/library_admob.m	-[GADDelegateManager setBannerDelegate:]	-marm	llvm33
 armv7	0x45d08	20	src/library_admob.m	-[GADDelegateManager adView]	-marm	llvm33
@@ -503,7 +377,6 @@ armv7	0x4b5d8	24	src/library_admob.m	-[GADStatisticDictionary allowDictionaryMod
 armv7	0x4b5f0	20	src/library_admob.m	-[GADStatisticDictionary setAllowDictionaryModification:]	-marm	llvm33
 armv7	0x4b604	24	src/library_admob.m	-[GADStatisticDictionary hasEnqueuedNotificationBlock]	-marm	llvm33
 armv7	0x4b61c	20	src/library_admob.m	-[GADStatisticDictionary setHasEnqueuedNotificationBlock:]	-marm	llvm33
-armv7	0x4b6c8	64	src/library_admob.m	-[GADMNSURLConnectionFactory dealloc]	-marm	llvm33
 armv7	0x4ba94	292	src/library_admob.m	-[GADMConfig dealloc]	-marm	llvm33
 armv7	0x4c650	32	src/library_admob.m	-[GADMConfig adNetworkConfigs]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x4c670	60	src/library_admob.m	-[GADMConfig setAdNetworkConfigs:]	-marm -target armv7-apple-ios4.0	llvm33
@@ -663,10 +536,6 @@ armv7	0x539a0	24	src/library_admob.m	-[GADAdFetcher activationOverlayConnectionH
 armv7	0x539b8	20	src/library_admob.m	-[GADAdFetcher setActivationOverlayConnectionHasCompleted:]	-marm	llvm33
 armv7	0x539cc	20	src/library_admob.m	-[GADAdFetcher wasDeallocated]	-marm	llvm33
 armv7	0x539e0	20	src/library_admob.m	-[GADAdFetcher setWasDeallocated:]	-marm	llvm33
-armv7	0x53c50	20	src/library_admob.m	-[GADCachedURLResponse expireDate]	-marm
-armv7	0x53c64	52	src/library_admob.m	-[GADCachedURLResponse setExpireDate:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x53c98	20	src/library_admob.m	-[GADCachedURLResponse destinationURL]	-marm
-armv7	0x53cac	52	src/library_admob.m	-[GADCachedURLResponse setDestinationURL:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x53ce0	80	src/library_connection.m	+[GADURLConnection memoryCache]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x53d30	92	src/library_connection.m	___31+[GADURLConnection memoryCache]_block_invoke	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7	0x53d8c	56	src/library_connection.m	-[GADURLConnection startWithURL:forDelegate:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
@@ -833,6 +702,7 @@ armv7	0x5bd74	44	src/library_admob.m	-[GADStatistics removeTimingNamed:]	-marm -
 armv7	0x5bda0	52	src/library_admob.m	-[GADStatistics incrementParameterCount:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x5bdd4	96	src/library_admob.m	-[GADStatistics resetParameterCount:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x5be70	96	src/library_admob.m	-[GADStatistics setFlagWithParameterName:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x5bed0	44	src/library_admob.m	-[GADStatistics resetFlagWithParameterName:]	-marm -target armv7-apple-ios4.0	apple500
 armv7	0x5ce1c	44	src/library_admob.m	-[GADSlotStatistics startTimingAdapter]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x5d1d0	88	src/library_admob.m	-[GADActivationView didLeaveApplication]	-marm
 armv7	0x5d228	88	src/library_admob.m	-[GADActivationView didOpenInApplication]	-marm
@@ -986,17 +856,9 @@ armv7	0x677cc	60	src/library_admob.m	-[GADGMSGHandler addSelector:forGMSGActionN
 armv7	0x678e4	100	src/library_admob.m	-[GADGMSGHandler dealloc]	-marm	llvm33
 armv7	0x67ab8	20	src/library_admob.m	-[GADGMSGHandler actionRouter]	-marm	llvm33
 armv7	0x67acc	52	src/library_admob.m	-[GADGMSGHandler setActionRouter:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x67d78	132	src/library_admob.m	-[GADOpenerGMSGHandler dealloc]	-marm	llvm33
-armv7	0x686e8	20	src/library_admob.m	-[GADOpenerGMSGHandler gadOpener]	-marm	llvm33
-armv7	0x686fc	52	src/library_admob.m	-[GADOpenerGMSGHandler setGadOpener:]	-marm -target armv7-apple-ios4.0	llvm33
-armv7	0x68730	20	src/library_admob.m	-[GADOpenerGMSGHandler subParamActionRouter]	-marm	llvm33
-armv7	0x68744	52	src/library_admob.m	-[GADOpenerGMSGHandler setSubParamActionRouter:]	-marm -target armv7-apple-ios4.0	llvm33
 armv7	0x689c4	32	src/library_admob.m	-[GADActionRouter init]	-marm	llvm33
 armv7	0x68fb8	20	src/library_admob.m	-[GADActionRouter receiver]	-marm	llvm33
 armv7	0x68fcc	20	src/library_admob.m	-[GADActionRouter setReceiver:]	-marm	llvm33
-armv7	0x6933c	16	src/library_admob.m	-[GADMWebViewRenderedChecker webView]		llvm33
-armv7	0x6934c	16	src/library_admob.m	-[GADMWebViewRenderedChecker setWebView:]		llvm33
-armv7	0x6935c	16	src/library_admob.m	-[GADMWebViewRenderedChecker delegate]		llvm33
 armv7	0x697c0	4	src/library_admob.m	+[GADMAdapterHTML networkExtrasClass]	
 armv7	0x69bc8	4	src/library_admob.m	-[GADMAdapterHTML isBannerAnimationOK:]	
 armv7	0x69e68	16	src/library_admob.m	-[GADMAdapterHTML webView]		llvm33
@@ -1142,9 +1004,6 @@ armv7s	0x2e048	52	src/library_admob_sdk.m	-[GADTimingManager setUserDefaults:]	-
 armv7s	0x2e07c	32	src/library_admob_sdk.m	-[GADTimingManager identifier]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2e09c	20	src/library_admob_sdk.m	-[GADTimingManager transientTimings]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2e0b0	52	src/library_admob_sdk.m	-[GADTimingManager setTransientTimings:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
-armv7s	0x2e578	44	src/library_admob.m	+[GADRequestError errorWithCode:request:]	-marm	llvm33
-armv7s	0x2e5a4	32	src/library_admob.m	+[GADRequestError errorWithCode:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x2e5c4	52	src/library_admob.m	+[GADRequestError errorWithCode:customMessage:]	-marm	llvm33
 armv7s	0x2e6e0	124	src/library_admob_sdk.m	+[GADNetworkUtilities isMediationURL:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2e75c	60	src/library_admob_sdk.m	+[GADNetworkUtilities isSDKJavaScriptURL:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2e798	60	src/library_admob_sdk.m	+[GADNetworkUtilities isXFPURL:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
@@ -1162,137 +1021,18 @@ armv7s	0x2f3c0	268	src/library_admob_sdk.m	_GADMakeHTTPFormatter	-marm -target a
 armv7s	0x2f4cc	716	src/library_admob_sdk.m	+[GADNetworkUtilities expirationDateFromHeaders:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2f798	456	src/library_admob_sdk.m	+[GADNetworkUtilities createArrayOfURLsfromHeader:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x2f960	140	src/library_admob_sdk.m	+[GADNetworkUtilities getImpressionTicketFromUrlPath:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
-armv7s	0x2ffb0	164	src/library_admob.m	-[GADDevice dealloc]	-marm	llvm33
-armv7s	0x30fe0	56	src/library_admob.m	-[GADDevice osVersion]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31310	56	src/library_admob.m	-[GADDevice deviceModel]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31ab0	20	src/library_admob.m	-[GADDevice userDefaults]	-marm	llvm33
-armv7s	0x31ac4	52	src/library_admob.m	-[GADDevice setUserDefaults:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31af8	20	src/library_admob.m	-[GADDevice telephonyNetworkInfo]	-marm	llvm33
-armv7s	0x31b0c	52	src/library_admob.m	-[GADDevice setTelephonyNetworkInfo:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31b40	32	src/library_admob.m	-[GADDevice cachedAdvertisingID]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31b60	60	src/library_admob.m	-[GADDevice setCachedAdvertisingID:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31b9c	32	src/library_admob.m	-[GADDevice cachedMD5AdvertisingID]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x31bbc	60	src/library_admob.m	-[GADDevice setCachedMD5AdvertisingID:]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x33b18	44	src/library_admob.m	-[GADClickTracker trackingURL]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x33b44	84	src/library_admob.m	-[GADClickTracker dealloc]	-marm	llvm33
 armv7s	0x34000	20	src/library_admob.m	-[GADClickTracker delegate]	-marm	llvm33
 armv7s	0x34014	20	src/library_admob.m	-[GADClickTracker setDelegate:]	-marm	llvm33
 armv7s	0x34028	24	src/library_admob.m	-[GADClickTracker hasTracked]	-marm	llvm33
-armv7s	0x34040	8	src/library_admob.m	-[GADViewController shouldDismissOnAppClose]	-marm
-armv7s	0x34674	8	src/library_admob.m	-[GADViewController prefersStatusBarHidden]	-marm
-armv7s	0x346dc	8	src/library_admob.m	-[GADViewController shouldAutorotate]	-marm
-armv7s	0x348cc	80	src/library_admob.m	-[GADViewController ensureStatusBarHidden]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x34fe0	20	src/library_admob.m	-[GADViewController supportedOrientations]	-marm
-armv7s	0x34ff4	24	src/library_admob.m	-[GADViewController viewDidAppear]	-marm
-armv7s	0x3500c	20	src/library_admob.m	-[GADViewController setViewDidAppear:]	-marm
-armv7s	0x35020	20	src/library_admob.m	-[GADViewController slot]	-marm
-armv7s	0x35034	52	src/library_admob.m	-[GADViewController setSlot:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x35068	24	src/library_admob.m	-[GADViewController statusBarWasHidden]	-marm
-armv7s	0x35080	20	src/library_admob.m	-[GADViewController setStatusBarWasHidden:]	-marm
-armv7s	0x35094	24	src/library_admob.m	-[GADViewController publisherIdleTimerDisabled]	-marm
-armv7s	0x350ac	20	src/library_admob.m	-[GADViewController setPublisherIdleTimerDisabled:]	-marm
-armv7s	0x350c0	24	src/library_admob.m	-[GADViewController appClosing]	-marm
-armv7s	0x350d8	20	src/library_admob.m	-[GADViewController setAppClosing:]	-marm
-armv7s	0x350ec	24	src/library_admob.m	-[GADViewController interactingWithParent]	-marm
-armv7s	0x35104	20	src/library_admob.m	-[GADViewController setInteractingWithParent:]	-marm
-armv7s	0x35118	24	src/library_admob.m	-[GADViewController wasPresentedFromViewController]	-marm
-armv7s	0x35130	20	src/library_admob.m	-[GADViewController setWasPresentedFromViewController:]	-marm
-armv7s	0x35144	572	src/library_admob.m	-[GADBrowserController dealloc]	-marm	llvm33
-armv7s	0x359d0	136	src/library_admob.m	-[GADBrowserController didRotateFromInterfaceOrientation:]	-marm	llvm33
-armv7s	0x364b0	32	src/library_admob.m	-[GADBrowserController load:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36680	44	src/library_admob.m	-[GADBrowserController stop]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x366ac	44	src/library_admob.m	-[GADBrowserController reload]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x366d8	252	src/library_admob.m	-[GADBrowserController openInSafari]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x367d4	20	src/library_admob.m	-[GADBrowserController URLToLoad]	-marm
-armv7s	0x367e8	52	src/library_admob.m	-[GADBrowserController setURLToLoad:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3681c	20	src/library_admob.m	-[GADBrowserController referringURLToLoad]	-marm
-armv7s	0x36830	52	src/library_admob.m	-[GADBrowserController setReferringURLToLoad:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36864	20	src/library_admob.m	-[GADBrowserController webViewDelegate]	-marm
-armv7s	0x36878	52	src/library_admob.m	-[GADBrowserController setWebViewDelegate:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x368ac	20	src/library_admob.m	-[GADBrowserController webView]	-marm
-armv7s	0x368c0	52	src/library_admob.m	-[GADBrowserController setWebView:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x368f4	20	src/library_admob.m	-[GADBrowserController toolbar]	-marm
-armv7s	0x36908	52	src/library_admob.m	-[GADBrowserController setToolbar:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3693c	20	src/library_admob.m	-[GADBrowserController flexibleSpaceButton]	-marm
-armv7s	0x36950	52	src/library_admob.m	-[GADBrowserController setFlexibleSpaceButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36984	20	src/library_admob.m	-[GADBrowserController backButton]	-marm
-armv7s	0x36998	52	src/library_admob.m	-[GADBrowserController setBackButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x369cc	20	src/library_admob.m	-[GADBrowserController backButtonDisabled]	-marm
-armv7s	0x369e0	52	src/library_admob.m	-[GADBrowserController setBackButtonDisabled:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36a14	20	src/library_admob.m	-[GADBrowserController forwardButton]	-marm
-armv7s	0x36a28	52	src/library_admob.m	-[GADBrowserController setForwardButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36a5c	20	src/library_admob.m	-[GADBrowserController forwardButtonDisabled]	-marm
-armv7s	0x36a70	52	src/library_admob.m	-[GADBrowserController setForwardButtonDisabled:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36aa4	20	src/library_admob.m	-[GADBrowserController reloadButton]	-marm
-armv7s	0x36ab8	52	src/library_admob.m	-[GADBrowserController setReloadButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36aec	20	src/library_admob.m	-[GADBrowserController safariButton]	-marm
-armv7s	0x36b00	52	src/library_admob.m	-[GADBrowserController setSafariButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36b34	20	src/library_admob.m	-[GADBrowserController doneButton]	-marm
-armv7s	0x36b48	52	src/library_admob.m	-[GADBrowserController setDoneButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36b7c	20	src/library_admob.m	-[GADBrowserController spinnerContainingButton]	-marm
-armv7s	0x36b90	52	src/library_admob.m	-[GADBrowserController setSpinnerContainingButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x36bc4	20	src/library_admob.m	-[GADBrowserController spinner]	-marm
-armv7s	0x36bd8	52	src/library_admob.m	-[GADBrowserController setSpinner:]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x36ca4	64	src/library_admob.m	-[GADIntrinsicImages dealloc]	-marm	llvm33
 armv7s	0x36ce4	40	src/library_admob.m	-[GADIntrinsicImages currentDevice]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x371e8	60	src/library_admob.m	-[GADWebAppViewController allowFileAccess]	-marm	llvm33
-armv7s	0x37224	68	src/library_admob.m	-[GADWebAppViewController setAllowFileAccess:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x374ec	36	src/library_admob.m	-[GADWebAppViewController init]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x37510	32	src/library_admob.m	-[GADWebAppViewController initWithWebView:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x38114	176	src/library_admob.m	-[GADWebAppViewController viewDidAppear:]	-marm	llvm33
-armv7s	0x38708	24	src/library_admob.m	-[GADWebAppViewController useCustomClose]	-marm
-armv7s	0x38720	20	src/library_admob.m	-[GADWebAppViewController webView]	-marm
-armv7s	0x38734	52	src/library_admob.m	-[GADWebAppViewController setWebView:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x38768	24	src/library_admob.m	-[GADWebAppViewController viewHasAppeared]	-marm
-armv7s	0x38780	20	src/library_admob.m	-[GADWebAppViewController setViewHasAppeared:]	-marm
-armv7s	0x38794	24	src/library_admob.m	-[GADWebAppViewController isExpandable]	-marm
-armv7s	0x387ac	20	src/library_admob.m	-[GADWebAppViewController setIsExpandable:]	-marm
-armv7s	0x387c0	24	src/library_admob.m	-[GADWebAppViewController isCollapsing]	-marm
-armv7s	0x387d8	20	src/library_admob.m	-[GADWebAppViewController setIsCollapsing:]	-marm
-armv7s	0x387ec	20	src/library_admob.m	-[GADWebAppViewController bannerScreenshot]	-marm
-armv7s	0x38800	52	src/library_admob.m	-[GADWebAppViewController setBannerScreenshot:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x38834	20	src/library_admob.m	-[GADWebAppViewController URLToLoad]	-marm
-armv7s	0x38848	52	src/library_admob.m	-[GADWebAppViewController setURLToLoad:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3887c	20	src/library_admob.m	-[GADWebAppViewController HTMLToLoad]	-marm
-armv7s	0x38890	52	src/library_admob.m	-[GADWebAppViewController setHTMLToLoad:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x388c4	20	src/library_admob.m	-[GADWebAppViewController HTMLBaseURLToLoad]	-marm
-armv7s	0x388d8	52	src/library_admob.m	-[GADWebAppViewController setHTMLBaseURLToLoad:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3890c	20	src/library_admob.m	-[GADWebAppViewController webViewDelegate]	-marm
-armv7s	0x38920	52	src/library_admob.m	-[GADWebAppViewController setWebViewDelegate:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x38954	20	src/library_admob.m	-[GADWebAppViewController closeButton]	-marm
-armv7s	0x38968	52	src/library_admob.m	-[GADWebAppViewController setCloseButton:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3899c	20	src/library_admob.m	-[GADWebAppViewController interstitial]	-marm
-armv7s	0x389b0	20	src/library_admob.m	-[GADWebAppViewController setInterstitial:]	-marm
-armv7s	0x389c4	132	src/library_admob.m	-[GADOpener dealloc]	-marm	llvm33
-armv7s	0x38a84	68	src/library_admob.m	-[GADOpener didOpenExternalApp]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x38ac8	68	src/library_admob.m	-[GADOpener didOpenInApp]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3a10c	20	src/library_admob.m	-[GADOpener delegateManager]	-marm	llvm33
-armv7s	0x3a120	52	src/library_admob.m	-[GADOpener setDelegateManager:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3a154	20	src/library_admob.m	-[GADOpener viewController]	-marm	llvm33
-armv7s	0x3a168	20	src/library_admob.m	-[GADOpener setViewController:]	-marm	llvm33
-armv7s	0x3a17c	20	src/library_admob.m	-[GADOpener referringURL]	-marm	llvm33
-armv7s	0x3a190	52	src/library_admob.m	-[GADOpener setReferringURL:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3a1c4	20	src/library_admob.m	-[GADOpener webView]	-marm	llvm33
-armv7s	0x3a1d8	20	src/library_admob.m	-[GADOpener setWebView:]	-marm	llvm33
-armv7s	0x3a1ec	20	src/library_admob.m	-[GADOpener slot]	-marm	llvm33
-armv7s	0x3a200	20	src/library_admob.m	-[GADOpener setSlot:]	-marm	llvm33
-armv7s	0x3a214	24	src/library_admob.m	-[GADOpener didOpenAnotherApplication]	-marm	llvm33
-armv7s	0x3a22c	20	src/library_admob.m	-[GADOpener setDidOpenAnotherApplication:]	-marm	llvm33
-armv7s	0x3a240	20	src/library_admob.m	-[GADOpener delegate]	-marm	llvm33
-armv7s	0x3a254	20	src/library_admob.m	-[GADOpener setDelegate:]	-marm	llvm33
 armv7s	0x3ab88	24	src/library_admob.m	-[GADWebAppWebViewDelegate pendingOnShow]	-marm	llvm33
 armv7s	0x3aba0	20	src/library_admob.m	-[GADWebAppWebViewDelegate webAppViewController]	-marm	llvm33
 armv7s	0x3abb4	20	src/library_admob.m	-[GADWebAppWebViewDelegate setWebAppViewController:]	-marm	llvm33
 armv7s	0x3abc8	24	src/library_admob.m	-[GADWebAppWebViewDelegate calledOnShow]	-marm	llvm33
 armv7s	0x3b49c	20	src/library_admob.m	-[GADBannerWebViewDelegate slot]	-marm	llvm33
-armv7s	0x3b4b0	40	src/library_admob.m	+[GADNotification isNotificationURL:]	-marm	llvm33
-armv7s	0x3b774	80	src/library_admob.m	+[GADNotification notificationFromURL:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3b7c4	132	src/library_admob.m	-[GADNotification dealloc]	-marm	llvm33
-armv7s	0x3b8e8	20	src/library_admob.m	-[GADNotification name]	-marm	llvm33
-armv7s	0x3b8fc	52	src/library_admob.m	-[GADNotification setName:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3b930	20	src/library_admob.m	-[GADNotification parameters]	-marm	llvm33
-armv7s	0x3b944	52	src/library_admob.m	-[GADNotification setParameters:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x3ba10	116	src/library_admob.m	-[GADNotificationCenter delayedPosting:]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x3c9e4	28	src/library_admob.m	-[GADSharedStatistics sequenceNumber]	-marm	llvm33
 armv7s	0x3ca00	24	src/library_admob.m	-[GADSharedStatistics setSequenceNumber:]	-marm	llvm33
 armv7s	0x3d02c	28	src/library_admob.m	-[GADStatisticsCore synchronize]	-marm -target armv7s-apple-ios4.0	llvm33
@@ -1406,10 +1146,6 @@ armv7s	0x42c58	24	src/library_admob.m	-[GADSlot shouldShowActivationOverlay]	-ma
 armv7s	0x42c70	20	src/library_admob.m	-[GADSlot setShouldShowActivationOverlay:]	-marm	llvm33
 armv7s	0x42c84	20	src/library_admob.m	-[GADSlot adTimer]	-marm	llvm33
 armv7s	0x42c98	52	src/library_admob.m	-[GADSlot setAdTimer:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x430a0	100	src/library_admob.m	-[GADApplication dealloc]	-marm	llvm33
-armv7s	0x43418	20	src/library_admob.m	-[GADApplication currentSession]	-marm	llvm33
-armv7s	0x4342c	52	src/library_admob.m	-[GADApplication setCurrentSession:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x43460	24	src/library_admob.m	-[GADApplication appFinishedLaunching]	-marm	llvm33
 armv7s	0x45cf8	20	src/library_admob.m	-[GADDelegateManager bannerDelegate]	-marm	llvm33
 armv7s	0x45d0c	20	src/library_admob.m	-[GADDelegateManager setBannerDelegate:]	-marm	llvm33
 armv7s	0x45d20	20	src/library_admob.m	-[GADDelegateManager adView]	-marm	llvm33
@@ -1510,7 +1246,6 @@ armv7s	0x4b608	24	src/library_admob.m	-[GADStatisticDictionary allowDictionaryMo
 armv7s	0x4b620	20	src/library_admob.m	-[GADStatisticDictionary setAllowDictionaryModification:]	-marm	llvm33
 armv7s	0x4b634	24	src/library_admob.m	-[GADStatisticDictionary hasEnqueuedNotificationBlock]	-marm	llvm33
 armv7s	0x4b64c	20	src/library_admob.m	-[GADStatisticDictionary setHasEnqueuedNotificationBlock:]	-marm	llvm33
-armv7s	0x4b6f8	64	src/library_admob.m	-[GADMNSURLConnectionFactory dealloc]	-marm	llvm33
 armv7s	0x4bac4	292	src/library_admob.m	-[GADMConfig dealloc]	-marm	llvm33
 armv7s	0x4c680	32	src/library_admob.m	-[GADMConfig adNetworkConfigs]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x4c6a0	60	src/library_admob.m	-[GADMConfig setAdNetworkConfigs:]	-marm -target armv7s-apple-ios4.0	llvm33
@@ -1670,10 +1405,6 @@ armv7s	0x539d0	24	src/library_admob.m	-[GADAdFetcher activationOverlayConnection
 armv7s	0x539e8	20	src/library_admob.m	-[GADAdFetcher setActivationOverlayConnectionHasCompleted:]	-marm	llvm33
 armv7s	0x539fc	20	src/library_admob.m	-[GADAdFetcher wasDeallocated]	-marm	llvm33
 armv7s	0x53a10	20	src/library_admob.m	-[GADAdFetcher setWasDeallocated:]	-marm	llvm33
-armv7s	0x53c80	20	src/library_admob.m	-[GADCachedURLResponse expireDate]	-marm
-armv7s	0x53c94	52	src/library_admob.m	-[GADCachedURLResponse setExpireDate:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x53cc8	20	src/library_admob.m	-[GADCachedURLResponse destinationURL]	-marm
-armv7s	0x53cdc	52	src/library_admob.m	-[GADCachedURLResponse setDestinationURL:]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x53d10	80	src/library_connection.m	+[GADURLConnection memoryCache]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x53d60	92	src/library_connection.m	___31+[GADURLConnection memoryCache]_block_invoke	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
 armv7s	0x53dbc	56	src/library_connection.m	-[GADURLConnection startWithURL:forDelegate:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation	apple500
@@ -1781,6 +1512,9 @@ armv7s	0x5a14c	20	src/library_admob.m	-[GADImpressionTicketGestureRecognizerPriv
 armv7s	0x5a160	20	src/library_admob.m	-[GADImpressionTicketGestureRecognizerPrivate setGestureState:]	-marm	llvm33
 armv7s	0x5a174	20	src/library_admob.m	-[GADImpressionTicketGestureRecognizerPrivate distanceMoved]	-marm	llvm33
 armv7s	0x5a188	20	src/library_admob.m	-[GADImpressionTicketGestureRecognizerPrivate setDistanceMoved:]	-marm	llvm33
+armv7s	0x5a19c	232	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapter:didReceiveAdView:]	-marm -target armv7s-apple-ios4.0	apple500
+armv7s	0x5a284	160	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapter:didFailAd:]	-marm -target armv7s-apple-ios4.0	apple500
+armv7s	0x5a324	116	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapter:clickDidOccurInBanner:]	-marm -target armv7s-apple-ios4.0	apple500
 armv7s	0x5a5c8	4	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapter:didReceiveInterstitial:]	-marm
 armv7s	0x5a5cc	4	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapter:didFailInterstitial:]	-marm
 armv7s	0x5a5d0	4	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapterWillPresentInterstitial:]	-marm
@@ -1788,6 +1522,8 @@ armv7s	0x5a5d4	4	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapterWillD
 armv7s	0x5a5d8	4	src/library_admob.m	-[GADMAdNetworkConnectorBanner adapterDidDismissInterstitial:]	-marm
 armv7s	0x5a5dc	24	src/library_admob.m	-[GADMAdNetworkConnectorBanner didNetworkReturn]	-marm	llvm33
 armv7s	0x5a5f4	20	src/library_admob.m	-[GADMAdNetworkConnectorBanner setDidNetworkReturn:]	-marm	llvm33
+armv7s	0x5a608	92	src/library_admob.m	-[GADMAdNetworkConnectorInterstitial adapter:didReceiveInterstitial:]	-marm -target armv7s-apple-ios4.0	apple500
+armv7s	0x5a664	92	src/library_admob.m	-[GADMAdNetworkConnectorInterstitial adapter:didFailInterstitial:]	-marm -target armv7s-apple-ios4.0	apple500
 armv7s	0x5a8dc	4	src/library_admob.m	-[GADMAdNetworkConnectorInterstitial adapter:didReceiveAdView:]	-marm
 armv7s	0x5a8e0	4	src/library_admob.m	-[GADMAdNetworkConnectorInterstitial adapter:didFailAd:]	-marm
 armv7s	0x5a8e4	4	src/library_admob.m	-[GADMAdNetworkConnectorInterstitial adapter:clickDidOccurInBanner:]	-marm
@@ -1989,17 +1725,9 @@ armv7s	0x677fc	60	src/library_admob.m	-[GADGMSGHandler addSelector:forGMSGAction
 armv7s	0x67914	100	src/library_admob.m	-[GADGMSGHandler dealloc]	-marm	llvm33
 armv7s	0x67ae8	20	src/library_admob.m	-[GADGMSGHandler actionRouter]	-marm	llvm33
 armv7s	0x67afc	52	src/library_admob.m	-[GADGMSGHandler setActionRouter:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x67da8	132	src/library_admob.m	-[GADOpenerGMSGHandler dealloc]	-marm	llvm33
-armv7s	0x68718	20	src/library_admob.m	-[GADOpenerGMSGHandler gadOpener]	-marm	llvm33
-armv7s	0x6872c	52	src/library_admob.m	-[GADOpenerGMSGHandler setGadOpener:]	-marm -target armv7s-apple-ios4.0	llvm33
-armv7s	0x68760	20	src/library_admob.m	-[GADOpenerGMSGHandler subParamActionRouter]	-marm	llvm33
-armv7s	0x68774	52	src/library_admob.m	-[GADOpenerGMSGHandler setSubParamActionRouter:]	-marm -target armv7s-apple-ios4.0	llvm33
 armv7s	0x689f4	32	src/library_admob.m	-[GADActionRouter init]	-marm	llvm33
 armv7s	0x68fe8	20	src/library_admob.m	-[GADActionRouter receiver]	-marm	llvm33
 armv7s	0x68ffc	20	src/library_admob.m	-[GADActionRouter setReceiver:]	-marm	llvm33
-armv7s	0x69364	16	src/library_admob.m	-[GADMWebViewRenderedChecker webView]		llvm33
-armv7s	0x69374	16	src/library_admob.m	-[GADMWebViewRenderedChecker setWebView:]		llvm33
-armv7s	0x69384	16	src/library_admob.m	-[GADMWebViewRenderedChecker delegate]		llvm33
 armv7s	0x697dc	4	src/library_admob.m	+[GADMAdapterHTML networkExtrasClass]	
 armv7s	0x69be0	4	src/library_admob.m	-[GADMAdapterHTML isBannerAnimationOK:]	
 armv7s	0x69e7c	16	src/library_admob.m	-[GADMAdapterHTML webView]		llvm33

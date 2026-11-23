@@ -1,0 +1,10 @@
+GADApplication::__MergedGlobals	pointer	0xfd480	0xfd480	The application singleton passes this predicate to dispatch_once and the observer block fills the next word. The startup and metadata cache predicates and retained metadata follow them.
+_GADiTunesMetadataForFileAtPath	arm	0x42ccc	0x42ccc	The iTunesMetadata block calls this plist reader with its iTunesMetadataPath value and an NSError output. The pinned GADApplication object exports this function.
+___22+[GADApplication load]_block_invoke	arm	0x42ea0	0x42ea0	The launch-notification block installed by +load sets the launch flag and starts early activities.
+___35+[GADApplication sharedApplication]_block_invoke	arm	0x42fa0	0x42fa0	The singleton's dispatch_once block allocates the captured class and stores the initialized application.
+GADApplication::___copy_helper_block_	arm	0x42fe0	0x42fe0	The singleton block descriptor's copy field points to this helper.
+GADApplication::___destroy_helper_block_	arm	0x42ffc	0x42ffc	The singleton block descriptor's dispose field points to this helper.
+___36-[GADApplication runEarlyActivities]_block_invoke	arm	0x4313c	0x4313c	The early-activities block invokes the interceptor and registers network adapters.
+___32-[GADApplication iTunesMetadata]_block_invoke	arm	0x43354	0x43354	The iTunes metadata cache block calls the plist reader with the captured application's metadata path.
+GADApplication::___copy_helper_block_73	arm	0x433e4	0x433e4	The metadata block descriptor's copy field points to this helper.
+GADApplication::___destroy_helper_block_74	arm	0x43400	0x43400	The metadata block descriptor's dispose field points to this helper.

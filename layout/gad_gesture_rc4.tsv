@@ -1,0 +1,4 @@
+_set_crypt_key	arm	0xbee04	0xc1030	The named first function in rc4.o initializes the permutation table and is called directly by do_rc4 before the output allocation.
+_htoa	arm	0xbef34	0xc1160	The SDK object places htoa at offset 0x130. The gethex loop calls it once for each of two input characters.
+_gethex	arm	0xbefd0	0xc11fc	The SDK object places gethex at offset 0x1cc. The decode branch of do_rc4 calls it after allocating the input bytes.
+_tohex	arm	0xbf0a0	0xc12cc	The SDK object places tohex at offset 0x29c. The encode branch of do_rc4 calls it before freeing the intermediate buffer.

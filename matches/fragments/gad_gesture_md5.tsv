@@ -1,0 +1,7 @@
+# Local branch labels from gad_md5.o identify each outlining placement.
+armv7	0xbe6b4	src/gad_gesture_md5.c	_GAD_MD5	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0xbedc0:12:0xbedc0
+armv7	0xbe898	src/gad_gesture_md5.c	_GADMD5Final	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0xac:0xbedfc
+armv7	0xbea50	src/gad_gesture_md5.c	_GADMD5Transform	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x1c8:0xbedf4,0x1fc:0xbedec
+armv7s	0xc08e0	src/gad_gesture_md5.c	_GAD_MD5	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x8:0xc0fec:12:0xc0fec
+armv7s	0xc0ac4	src/gad_gesture_md5.c	_GADMD5Final	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0xac:0xc1028
+armv7s	0xc0c7c	src/gad_gesture_md5.c	_GADMD5Transform	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -O0	apple500	0x1c8:0xc1020,0x1fc:0xc1018

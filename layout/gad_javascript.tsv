@@ -1,0 +1,3 @@
+_gadSharedJavaScriptController	pointer	0xfd548	0xfd548	+[GADJavaScriptController sharedInstance] stores the newly allocated controller here. +clear releases and clears the same pointer on both CPUs.
+_kGADWebViewDelegateWebViewDidFailLoad	pointer	0xe13bc	0xe13bc	GADWebViewDelegate.o initializes this named constant with @"webViewDidFailLoad". Each slice has one __DATA,__const pointer to that string.
+_kGADWebViewDelegateWebViewDidFinishLoad	pointer	0xe13b8	0xe13b8	GADWebViewDelegate.o initializes this named constant with @"webViewDidFinishLoad". Each slice has one __DATA,__const pointer to that string.

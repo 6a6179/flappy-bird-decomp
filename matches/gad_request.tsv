@@ -174,3 +174,27 @@ armv7s	0x590ec	244	src/gad_request.m	-[GADAdType description]	-marm -target armv
 armv7s	0x591e0	24	src/gad_request.m	-[GADAdType isInterstitial]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
 armv7s	0x591f8	36	src/gad_request.m	-[GADAdType adSize]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
 armv7s	0x5921c	40	src/gad_request.m	-[GADAdType setAdSize:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7	0x29cd8	88	src/library_admob.m	-[GADSearchRequestPrivate setBackgroundSolid:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x29d30	124	src/library_admob.m	-[GADSearchRequestPrivate setBackgroundGradientFrom:toColor:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x29fdc	52	src/library_admob.m	-[GADSearchRequestPrivate setHeaderColor:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x2a024	52	src/library_admob.m	-[GADSearchRequestPrivate setDescriptionTextColor:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x2a06c	52	src/library_admob.m	-[GADSearchRequestPrivate setAnchorTextColor:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x2a138	52	src/library_admob.m	-[GADSearchRequestPrivate setBorderColor:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7	0x4e680	288	src/gad_request.m	-[GADSearchRequest(RequestParameters) hexStringFromColor:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7	0x4e7a0	120	src/gad_request.m	-[GADSearchRequest(RequestParameters) getBorderTypeString:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7	0x4e818	88	src/gad_request.m	-[GADSearchRequest(RequestParameters) getCallButtonTypeString:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7	0x4e870	1684	src/gad_request.m	-[GADSearchRequest(RequestParameters) request]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7	0x4ef38	56	src/library_admob.m	+[GADSearchRequest allocWithZone:]	-marm -target armv7-apple-ios4.0	llvm33
+armv7s	0x29ce4	88	src/library_admob.m	-[GADSearchRequestPrivate setBackgroundSolid:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x29d3c	124	src/library_admob.m	-[GADSearchRequestPrivate setBackgroundGradientFrom:toColor:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x29fe8	52	src/library_admob.m	-[GADSearchRequestPrivate setHeaderColor:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x2a030	52	src/library_admob.m	-[GADSearchRequestPrivate setDescriptionTextColor:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x2a078	52	src/library_admob.m	-[GADSearchRequestPrivate setAnchorTextColor:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x2a144	52	src/library_admob.m	-[GADSearchRequestPrivate setBorderColor:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7s	0x4e6b0	288	src/gad_request.m	-[GADSearchRequest(RequestParameters) hexStringFromColor:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7s	0x4e7d0	120	src/gad_request.m	-[GADSearchRequest(RequestParameters) getBorderTypeString:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7s	0x4e848	88	src/gad_request.m	-[GADSearchRequest(RequestParameters) getCallButtonTypeString:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7s	0x4e8a0	1684	src/gad_request.m	-[GADSearchRequest(RequestParameters) request]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations	apple500
+armv7s	0x4ef68	56	src/library_admob.m	+[GADSearchRequest allocWithZone:]	-marm -target armv7s-apple-ios4.0	llvm33
+armv7	0x31bf8	160	src/gad_request.m	+[GADRequestPrivate requestPrivateWithRequest:]	-marm -target armv7-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations -mllvm -simplifycfg-dup-ret	apple500
+armv7s	0x31bf8	160	src/gad_request.m	+[GADRequestPrivate requestPrivateWithRequest:]	-marm -target armv7s-apple-ios4.0 -isysroot .toolchains/iphoneos7 -fhosted -Wno-incomplete-implementation -Wno-deprecated-declarations -mllvm -simplifycfg-dup-ret	apple500
